@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 import themes from '../style/theme';
 
 class BreadcrumbCustom extends React.Component {
+
     state = {
         switcherOn: false,
         theme: null,
@@ -18,13 +19,15 @@ class BreadcrumbCustom extends React.Component {
             {type: 'white', checked: false},
         ],
     };
+
     componentDidMount() {
         this.state.themes.forEach(val => {
             val.checked && this.setState({
                 theme: themes['theme' + val.type] || null
             });
         })
-    }
+    };
+
     switcherOn = () => {
         this.setState({
             switcherOn: !this.state.switcherOn
@@ -41,30 +44,27 @@ class BreadcrumbCustom extends React.Component {
             localStorage.setItem('themes', JSON.stringify(this.state.themes));
         })
     };
+
     render() {
         const themesTag = this.state.themes.map((v, i) => (
             <div className="pull-left y-center mr-m mb-s" key={i}>
-                <i className={`w-24 mr-s b-a ${v.type}`} />
-                <Switch checked={v.checked} onChange={() => this.themeChange(v)} />
+                <i className={`w-24 mr-s b-a ${v.type}`}/>
+                <Switch checked={v.checked} onChange={() => this.themeChange(v)}/>
             </div>
         ));
         const first = <Breadcrumb.Item>{this.props.first}</Breadcrumb.Item> || '';
         const second = <Breadcrumb.Item>{this.props.second}</Breadcrumb.Item> || '';
+
+        const {indexName} = this.props || "首页";
         return (
             <span>
                 <Breadcrumb style={{ margin: '12px 0' }}>
-                    <Breadcrumb.Item><Link to={'/app/dashboard/index'}>首页</Link></Breadcrumb.Item>
-                        {first}
-                        {second}
+                    <Breadcrumb.Item><Icon type="mobile"/><span style={{ margin: '0px 12px' }}
+                                                                className="nav-text">{indexName}</span></Breadcrumb.Item>
+                    {first}
+                    {second}
                 </Breadcrumb>
-                <div className={`switcher dark-white ${this.state.switcherOn ? 'active' : ''}`}>
-                    <a className="sw-btn dark-white" onClick={this.switcherOn}>
-                        <Icon type="setting" className="text-dark" />
-                    </a>
-                    <div style={{padding: '1rem'}} className="clear">
-                        { themesTag }
-                    </div>
-                </div>
+
                 <style>{`
                     ${this.state.theme ?
                     `

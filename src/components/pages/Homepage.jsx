@@ -50,13 +50,13 @@ class Homepage extends React.Component {
                 imgsrc: index1,
                 onclickFnc: ()=> {
                     console.log("go to 1");
-                    this.props.router.push('/app/dashboard/index')
+                    this.props.router.push('/app/decision/readyIndex')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index2,
                 onclickFnc: ()=> {
-                    console.log("go to 2");
+                    this.props.router.push('/app/collogate/make')
                 }
             }, {
                 animateId: 'headShake',
