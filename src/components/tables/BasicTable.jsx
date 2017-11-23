@@ -30,7 +30,7 @@ for (let i = 0; i < 46; i++) {
 
 
 const BasicTable = () => (
-    <Table columns={columns} dataSource={data} pagination={{ pageSize: 10 }} scroll={{ y: 300 }}/>
+    <Table columns={columns} dataSource={data} pagination={{ pageSize: 6 }} />
 );
 
 export default BasicTable;

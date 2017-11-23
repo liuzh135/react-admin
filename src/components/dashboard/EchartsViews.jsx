@@ -9,7 +9,7 @@ const option = {
     title: {
         text: '最近7天用户访问量',
         left: '50%',
-        show: false,
+        show: true,
         textAlign: 'center'
     },
     tooltip: {
@@ -107,13 +107,42 @@ const option = {
                 width: 3
             }
         }
+    },{
+        name: '今日   日',
+        type: 'line',
+        smooth: true,
+        showSymbol: false,
+        symbol: 'circle',
+        symbolSize: 6,
+        data: ['120', '502', '808', '811', '626', '542', '1201'],
+        areaStyle: {
+            normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgba(216, 244, 247,1)'
+                }, {
+                    offset: 1,
+                    color: 'rgba(216, 244, 247,1)'
+                }], false)
+            }
+        },
+        itemStyle: {
+            normal: {
+                color: '#2258da'
+            }
+        },
+        lineStyle: {
+            normal: {
+                width: 3
+            }
+        }
     }]
 };
 
 const EchartsViews = () => (
     <ReactEcharts
         option={option}
-        style={{height: '350px', width: '100%'}}
+        style={{height: '380px', width: '100%'}}
         className={'react_for_echarts'}
     />
 );

@@ -5,172 +5,149 @@
  * 请示报告
  */
 import React from 'react';
-import { Row, Col, Card, Timeline, Icon } from 'antd';
+import { Layout } from 'antd';
+import { Row, Col, Card, Timeline, Icon, Select} from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import BreadcrumbCustom from '../BreadcrumbCustom';
 import EchartsViews from '../dashboard/EchartsViews';
 import EchartsProjects from '../dashboard/EchartsProjects';
-import b1 from '../../style/imgs/b1.jpg';
+import BasicTable from '../tables/BasicTable';
+import BaseEcharView from '../charts/BaseEcharView';
+import EcharCom from '../com/EcharCom';
 
+import { fetchData, receiveData } from '@/action';
+import TableComs from '../com/TableComs';
+
+import ExtBaseicTable from '../tables/ExtBaseicTable';
+import b1 from '../../style/imgs/b1.jpg';
+import EcharBar from '../com/EcharBar';
+const Option = Select.Option;
 
 class DecisionRept extends React.Component {
+
+    constructor(props) {
+        super(props);
+        let d = new Date();
+        this.state = {
+            echartsFlag: false,
+            queryParam: {
+                'activityId': 1,//活动ID
+                'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
+                'userType': 1,//
+            }
+        }
+    }
+
+    //调用action中的ajax方法，获取数据
+    componentWillMount() {
+        const { receiveData } = this.props;
+        receiveData(null, 'auth');
+        console.log("auth +++++" + JSON.stringify(this.props.auth));
+
+        const { fetchData } = this.props;
+        //调用 http请求 获取网络数据
+        //fetchData({funcName: 'admin', stateName: 'auth'});
+    }
+
+    //获取网络数据 渲染UI
+    componentWillReceiveProps(nextProps) {
+
+    }
+
+    handleChange = (v)=> {
+
+    };
+
     render() {
+        let tableComs = new TableComs();
+        let echarCom = new EcharCom();
+
+        let datalist = [];
+        let xlist = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+        let legend = ["高风险", "中风险", "低风险"];
+
+        datalist.push(new EcharBar('高风险', 'line', 'circle', 4, [120, 300, 402, 180, 590, 620, 200], '#7DFFFD', 8));
+        datalist.push(new EcharBar('中风险', 'line', 'circle', 4, [220, 100, 302, 280, 590, 220, 420], '#FFBCFB', 8));
+        datalist.push(new EcharBar('低风险', 'line', 'circle', 4, [320, 400, 102, 80, 290, 320, 120], '#CAFF99', 8));
+
         return (
             <div className="gutter-example button-demo ">
                 <BreadcrumbCustom indexName="请示报告"/>
 
                 <Row gutter={10}>
-                    <Col className="gutter-row" md={4}>
+
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <div className="clear y-center">
-                                    <div className="pull-left mr-m">
-                                        <Icon type="heart" className="text-2x text-danger"/>
+                                <Layout style={{background:"#fff"}}>
+                                    <div className="y-center">
+                                        <div className="pull-left mr-m">
+                                            <Icon type="cloud" className="text-2x"/>
+                                        </div>
+                                        <div className="clear" style={{width:"60px "}}>
+                                            <h4 >风险防控</h4>
+                                        </div>
+
+                                        <div style={{width:"100%"}}>
+                                            <span className="pull-right text mr-m">高风险{tableComs.getStar(3, "★")}
+                                                中风险{tableComs.getStar(2, "★")} 低风险{tableComs.getStar(1, "★")}</span>
+                                        </div>
                                     </div>
-                                    <div className="clear">
-                                        <div className="text-muted">收藏</div>
-                                        <h2>301</h2>
-                                    </div>
-                                </div>
-                            </Card>
-                        </div>
-                        <div className="gutter-box">
-                            <Card bordered={false}>
-                                <div className="clear y-center">
-                                    <div className="pull-left mr-m">
-                                        <Icon type="cloud" className="text-2x"/>
-                                    </div>
-                                    <div className="clear">
-                                        <div className="text-muted">云数据</div>
-                                        <h2>30122</h2>
-                                    </div>
-                                </div>
+
+
+                                </Layout>
+                                <ExtBaseicTable {...tableComs.reptIssue}/>
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" md={4}>
+
+                    <Col className="gutter-row" md={8}>
                         <div className="gutter-box">
-                            <Card bordered={false}>
-                                <div className="clear y-center">
-                                    <div className="pull-left mr-m">
-                                        <Icon type="camera" className="text-2x text-info"/>
-                                    </div>
-                                    <div className="clear">
-                                        <div className="text-muted">照片</div>
-                                        <h2>802</h2>
-                                    </div>
+                            <Card bordered={false} style={{height: '100%'}}>
+                                <div className="pb-m">
+                                    <h3>风险监控统计</h3>
                                 </div>
-                            </Card>
-                        </div>
-                        <div className="gutter-box">
-                            <Card bordered={false}>
-                                <div className="clear y-center">
-                                    <div className="pull-left mr-m">
-                                        <Icon type="mail" className="text-2x text-success"/>
-                                    </div>
-                                    <div className="clear">
-                                        <div className="text-muted">邮件</div>
-                                        <h2>102</h2>
-                                    </div>
+
+                                <div className="card-tool">
+                                    <Select defaultValue="week" style={{ width: 120 ,color:"#256"}}
+                                            onChange={this.handleChange}>
+                                        <Option value="week">一周以内</Option>
+                                        <Option value="month">一个月以内</Option>
+                                        <Option value="thmonth">三个月以内</Option>
+                                    </Select>
                                 </div>
+                                <BaseEcharView option={echarCom.option} legend={legend} xAxis={xlist} data={datalist}
+                                               style={{height: '370px', width: '100%'}}/>
                             </Card>
                         </div>
                     </Col>
+
                     <Col className="gutter-row" md={16}>
                         <div className="gutter-box">
-                            <Card bordered={false} className={'no-padding'}>
-                                <EchartsProjects />
+                            <Card bordered={false}>
+                                <ExtBaseicTable style={{margin:"5px"}}{...tableComs.dataIssue}/>
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" md={8}>
-                        <div className="gutter-box">
-                            <Card bordered={false}>
-                                <div className="pb-m">
-                                    <h3>任务</h3>
-                                    <small>10个已经完成，2个待完成，1个正在进行中</small>
-                                </div>
-                                <a className="card-tool"><Icon type="sync"/></a>
-                                <Timeline>
-                                    <Timeline.Item color="green">新版本迭代会</Timeline.Item>
-                                    <Timeline.Item color="green">完成网站设计初版</Timeline.Item>
-                                    <Timeline.Item color="red">
-                                        <p>联调接口</p>
-                                        <p>功能验收</p>
-                                    </Timeline.Item>
 
-                                    <Timeline.Item color="#108ee9">
-                                        <p>登录功能设计</p>
-                                        <p>权限验证</p>
-                                        <p>页面排版</p>
-                                    </Timeline.Item>
-                                </Timeline>
-                            </Card>
-                        </div>
-                    </Col>
-                    <Col className="gutter-row" md={8}>
-                        <div className="gutter-box">
-                            <Card bordered={false}>
-                                <div className="pb-m">
-                                    <h3>消息栏</h3>
-                                </div>
-                                <a className="card-tool"><Icon type="sync"/></a>
-                                <ul className="list-group no-border">
-                                    <li className="list-group-item">
-                                        <a href="" className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test"/>
-                                        </a>
-                                        <div className="clear">
-                                            <a href="" className="block">鸣人</a>
-                                            <span className="text-muted">终于当上火影了！</span>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <a href="" className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test"/>
-                                        </a>
-                                        <div className="clear">
-                                            <a href="" className="block">佐助</a>
-                                            <span className="text-muted">吊车尾~~</span>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <a href="" className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test"/>
-                                        </a>
-                                        <div className="clear">
-                                            <a href="" className="block">小樱</a>
-                                            <span className="text-muted">佐助，你好帅！</span>
-                                        </div>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <a href="" className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test"/>
-                                        </a>
-                                        <div className="clear">
-                                            <a href="" className="block">雏田</a>
-                                            <span className="text-muted">鸣人君。。。那个。。。我。。喜欢你..</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </Card>
-                        </div>
-                    </Col>
-                    <Col className="gutter-row" md={8}>
-                        <div className="gutter-box">
-                            <Card bordered={false}>
-                                <div className="pb-m">
-                                    <h3>访问量统计</h3>
-                                    <small>最近7天用户访问量</small>
-                                </div>
-                                <a className="card-tool"><Icon type="sync"/></a>
-                                <EchartsViews />
-                            </Card>
-                        </div>
-                    </Col>
                 </Row>
+
             </div>
         )
     }
 }
 
-export default DecisionRept;
+const mapStateToPorps = state => {
+    const { auth } = state.httpData;
+    return {auth};
+};
+
+const mapDispatchToProps = dispatch => ({
+    fetchData: bindActionCreators(fetchData, dispatch),
+    receiveData: bindActionCreators(receiveData, dispatch)
+});
+
+
+export default connect(mapStateToPorps, mapDispatchToProps)(DecisionRept);
