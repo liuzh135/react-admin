@@ -82,11 +82,11 @@ class SealMake extends React.Component {
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
-                            <Card bordered={false}>
-                                <Steps style={{background:"#fff",marginBottom:"15"}}>
-                                    <Step status="finish" title="印章刻制" icon={<Icon type="user" />}/>
-                                    <Step status="process" title="印章使用" icon={<Icon type="solution" />}/>
-                                    <Step status="process" title="印章销毁" icon={<Icon type="credit-card" />}/>
+                            <Card bordered={false} >
+                                <Steps current={1} style={{marginBottom:"15"}}>
+                                    <Step status="process" title="印章刻制" />
+                                    <Step status="wait" title="印章使用" />
+                                    <Step status="wait" title="印章销毁" />
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>
@@ -106,7 +106,7 @@ class SealMake extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.doIssue}/>
+                                <ExtBaseicTable {...tableComs.seal_made_manger}/>
                             </Card>
                         </div>
                     </Col>

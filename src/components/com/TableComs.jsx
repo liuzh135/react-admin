@@ -30,6 +30,11 @@ class TableComs {
         return obj;
     };
 
+
+    isArray = (obj)=> {
+        return Object.prototype.toString.call(obj) === '[object Array]';
+    };
+
     //行的合并 v 从行开始  len合并几项
     getScolumns = (v, len)=> {
         return [{
@@ -53,6 +58,35 @@ class TableComs {
             dataIndex: 'responsibility',
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
+            }
+        }]
+    };
+
+    //行的合并 v 从行开始  len合并几项
+    get2Scolumns = (v, len)=> {
+        return [{
+            title: '关键环节',
+            dataIndex: 'steupName',
+            render: this.renderContent
+        }, {
+            title: '涉及对象',
+            dataIndex: 'objectM',
+            render: this.renderContent
+        }, {
+            title: '廉政风险点及等级',
+            dataIndex: 'f_level',
+            render: this.renderContent
+        }, {
+            title: '防控措施',
+            dataIndex: 'measures',
+            render: (value, row, index) => {
+                return this.objrender(value, index, v, len);
+            }
+        }, {
+            title: '责任主体',
+            dataIndex: 'responsibility',
+            render: (value, row, index) => {
+                return this.objrender(value, index, 0, 2);
             }
         }]
     };
@@ -87,6 +121,8 @@ class TableComs {
             render: this.renderContent
         }
     ];
+
+    //========================三重一大===========================//
 
     //========================数据区===========================//
     readyIssue_data = [{
@@ -210,7 +246,202 @@ class TableComs {
         bordered: true,
         pagination: false
     };
+    //========================三重一大===========================//
 
+    //========================综合事务管理===========================//
+    //========================数据区=========//
+
+    seal_manger_made_data = [{
+        key: '1',
+        steupName: '刻制申请',
+        objectM: <span>公司领导，刻印申请部门、综合<br/>管理部负责人及经办人</span>,
+        f_level: <span>{this.getStar(2, "★")}印章刻制，未经过严格的审核及审批，各部门擅自刻制印章，<br/>造成的不良后果及法律纠纷。</span>,
+        measures: <span>1.严格执行国家公章管理制度和公司印章管理规定；
+            <br/>2.相关部门如需刻制印章，由部门提出印章刻制申请，填写刻制印章（业务专用章）申请表，
+            <br/>经印章刻制申请部门和综合管理部负责人审核，报公司主要领导审批。
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+    seal_manger_use_data = [{
+        key: '1',
+        steupName: '用印审批',
+        objectM: <span>公司领导，刻印申请部门、综合<br/>管理部负责人及经办人</span>,
+        f_level: <span>{this.getStar(2, "★")}印章使用未经严格审批，印章使用不登记、擅自使用印章。</span>,
+        measures: <span>1.申请用印需填写用印审批单，用印部门负责人审核，使用公司印章需公司领导审批；
+            <br/>2.印章保管人见审批单后方可用印，并做好用印登记；
+            <br/>3.公司印章原则上不得外出携带，特殊情况确需带出，须经主要领导审批同意，并有2人共同携带。
+        </span>,
+        responsibility: '印章保管部门'
+    }];
+
+    seal_manger_des_data = [{
+        key: '1',
+        steupName: '销印审批',
+        objectM: <span>公司领导，综合管理部负责人及经办人，<br/>印章保管部门负责人及保管人</span>,
+        f_level: <span>{this.getStar(2, "★")}印章销毁审批不规范，导致应销毁印章未销毁，仍在使用。</span>,
+        measures: <span>1.严格执行国家公章管理制度和公司印章管理规定；
+            <br/>2.发生机构名称变更、机构撤销或合并等事项，需要废止或报废印章时，印章保管部门需先将印章上交综合管理部；
+            <br/>3.综合管理部将印章登记留模，经公司领导审批后统一销毁印章，销毁印章需至少2人在现场，销毁印章后及时登记。
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+    car_equipment_manger_data = [{
+        key: '1',
+        steupName: '车辆配备',
+        objectM: <span>公司领导，综合管理部负责人</span>,
+        f_level: <span>{this.getStar(2, "★")}超标准配车</span>,
+        measures: <span>车辆配备严格执行国家有关规定，新车购置或租赁按规定报批或报备
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+    car_dispatch_manger_data = [{
+        key: '1',
+        steupName: '车辆配备',
+        objectM: <span>公司领导，综合管理部、用车部门负责人<br/>及有关人员，车辆驾驶员</span>,
+        f_level: <span>{this.getStar(2, "★")}未经批准用车
+        <br/>{this.getStar(2, "★")}公车私用</span>,
+        measures: <span>1.各部门因接待需要用车，需向综合管理部申请并填写派车单，经批准后方可用车；车辆出京需公司主要领导审批；
+            <br/> 2.公务用车除执行公务外，需按规定停放停车场；
+            <br/> 3.不定期开展专项检查，发现问题依规严肃处理。
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+    car_dispatch_manger_data = [{
+        key: '1',
+        steupName: '车辆调度',
+        objectM: <span>公司领导，综合管理部、用车部门负责人<br/>及有关人员，车辆驾驶员</span>,
+        f_level: <span>{this.getStar(2, "★")}未经批准用车
+        <br/>{this.getStar(2, "★")}公车私用</span>,
+        measures: <span>1.各部门因接待需要用车，需向综合管理部申请并填写派车单，经批准后方可用车；车辆出京需公司主要领导审批；
+            <br/> 2.公务用车除执行公务外，需按规定停放停车场；
+            <br/> 3.不定期开展专项检查，发现问题依规严肃处理。
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+    car_repair_manger_data = [{
+        key: '1',
+        steupName: '维修保养',
+        objectM: <span>车辆驾驶员</span>,
+        f_level: <span>{this.getStar(2, "★")}不按规定进行车辆维修、保养，随意增加维修、保养项目
+        <br/>{this.getStar(2, "★")}在费用报销过程中弄虚作假、虚报冒领</span>,
+        measures: <span>1.严格按照申请单内容完成维修保养任务，如在过程中需要增加额外维修项目，必须经综合管理部同意，方可执行；
+            <br/> 2.车辆必须在定点厂家维修保养；
+            <br/> 3.维修保养费用由公司直接与厂家结算。
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+    car_charge_manger_data = [{
+        key: '1',
+        steupName: '车辆加油',
+        objectM: <span>车辆驾驶员</span>,
+        f_level: <span>{this.getStar(2, "★")}使用公务用车加油卡给其他车辆加油。
+        <br/>{this.getStar(2, "★")}在费用报销过程中弄虚作假、虚报冒领</span>,
+        measures: <span>公务用车加油卡实行一车一卡，专卡专用
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+
+    reception_manger_data = [{
+        key: '1',
+        steupName: '公务接待申请',
+        objectM: <span>接待部门负责人及相关人员、综合管理部负责人，公司领导</span>,
+        f_level: <span>{this.getStar(2, "★")}未经审批安排公务接待活动
+        <br/>{this.getStar(2, "★")}公款吃喝</span>,
+        measures: <span>1.严格执行公司《公务接待管理暂行办法》，公务接待前填写接待审批单，注明接待对象、人数，陪同人数及领导，经公司领导审批后方可接待；
+            <br/>2.严格公务接待费用报销程序，未经审批的公务接待活动费用，超范围、超标准公务接待费用，财务部一律不予报销；
+            <br/>3.不定期开展专项检查，发现问题依规严肃处理。
+        </span>,
+        responsibility: '综合管理部'
+    }, {
+        key: '2',
+        steupName: '安排接待',
+        objectM: <span>接待部门负责人及相关人员</span>,
+        f_level: <span>{this.getStar(2, "★")}超范围、超标准公务接待</span>,
+        measures: <span>1.严格执行公司《公务接待管理暂行办法》，公务接待前填写接待审批单，注明接待对象、人数，陪同人数及领导，经公司领导审批后方可接待；
+            <br/>2.严格公务接待费用报销程序，未经审批的公务接待活动费用，超范围、超标准公务接待费用，财务部一律不予报销；
+            <br/>3.不定期开展专项检查，发现问题依规严肃处理。
+        </span>,
+        responsibility: '综合管理部'
+    }, {
+        key: '3',
+        steupName: '接待费报销',
+        objectM: <span>接待部门负责人及经办人</span>,
+        f_level: <span>{this.getStar(2, "★")}在费用报销过程中弄虚作假、虚报冒领
+        <br/>{this.getStar(2, "★")}超范围、超标准公务接待</span>,
+        measures: <span>1.严格执行公司《公务接待管理暂行办法》，公务接待前填写接待审批单，注明接待对象、人数，陪同人数及领导，经公司领导审批后方可接待；
+            <br/>2.严格公务接待费用报销程序，未经审批的公务接待活动费用，超范围、超标准公务接待费用，财务部一律不予报销；
+            <br/>3.不定期开展专项检查，发现问题依规严肃处理。
+        </span>,
+        responsibility: '财务部'
+    }];
+
+    //========================数据区=========//
+    //印章管理
+    seal_made_manger = {
+        columns: this.comIssue_columns,
+        data: this.seal_manger_made_data,
+        bordered: true,
+        pagination: false
+    };
+
+    seal_use_manger = {
+        columns: this.comIssue_columns,
+        data: this.seal_manger_use_data,
+        bordered: true,
+        pagination: false
+    };
+
+    seal_des_manger = {
+        columns: this.comIssue_columns,
+        data: this.seal_manger_des_data,
+        bordered: true,
+        pagination: false
+    };
+
+    //车辆管理
+    car_equipment_manger = {
+        columns: this.comIssue_columns,
+        data: this.car_equipment_manger_data,
+        bordered: true,
+        pagination: false
+    };
+
+    car_dispatch_manger = {
+        columns: this.comIssue_columns,
+        data: this.car_dispatch_manger_data,
+        bordered: true,
+        pagination: false
+    };
+
+    car_repair_manger = {
+        columns: this.comIssue_columns,
+        data: this.car_repair_manger_data,
+        bordered: true,
+        pagination: false
+    };
+
+    car_charge_manger = {
+        columns: this.comIssue_columns,
+        data: this.car_charge_manger_data,
+        bordered: true,
+        pagination: false
+    };
+
+    //公务接待
+    reception_manger = {
+        columns: this.get2Scolumns(0, 3),
+        data: this.reception_manger_data,
+        bordered: true,
+        pagination: false
+    };
+    //========================综合事务管理===========================//
 
     data_columns = [{
         title: '责任人',
