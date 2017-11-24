@@ -118,30 +118,31 @@ class Homepage extends React.Component {
         const { router} = this.props;
         console.log("reuter : " + router)
         return (
-            <div className="gutter-example button-demo box-ba">
+            <div className="flex-con">
+                <div className="gutter-example button-demo box-ba">
 
-                <Row gutter={14}>
-                    {animations.map((v, i) => (
-                        <Col className="gutter-row" md={6} key={i}>
-                            <div className="gutter-box">
-                                <Card
-                                    bodyStyle={{ padding: 20 }}
-                                    bordered={false}
-                                    noHovering={true}
-                                    className={`${this.state.animated || (this.state.animatedOne === i) ? 'animated' : ''} ${this.state.animated || (this.state.animatedOne === i) ? 'infinite' : ''} ${v.animateId}`}
-                                    onMouseEnter={() => this.animatedOne(i)}
-                                    onMouseLeave={() => this.animatedOneOver()}>
-                                    <div className="custom-image">
-                                        <img alt="example" width="100%" src={v.imgsrc}
-                                             onClick={()=>this.vFunc(v)}/>
-                                    </div>
+                    <Row gutter={14}>
+                        {animations.map((v, i) => (
+                            <Col className="gutter-row" md={6} key={i}>
+                                <div className="gutter-box">
+                                    <Card
+                                        bodyStyle={{ padding: 20 }}
+                                        bordered={false}
+                                        noHovering={true}
+                                        className={`${this.state.animated || (this.state.animatedOne === i) ? 'animated' : ''} ${this.state.animated || (this.state.animatedOne === i) ? 'infinite' : ''} ${v.animateId}`}
+                                        onMouseEnter={() => this.animatedOne(i)}
+                                        onMouseLeave={() => this.animatedOneOver()}>
+                                        <div className="custom-image">
+                                            <img alt="example" width="100%" src={v.imgsrc}
+                                                 onClick={()=>this.vFunc(v)}/>
+                                        </div>
 
-                                </Card>
-                            </div>
-                        </Col>
-                    ))}
-                </Row>
-                <style>{`
+                                    </Card>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+                    <style>{`
                     .ant-card-bordered {
                         border: 0px solid #e9e9e9;
                     }
@@ -149,7 +150,9 @@ class Homepage extends React.Component {
                         background: transparent;
                     }
                 `}</style>
+                </div>
             </div>
+
         )
     }
 }

@@ -80,7 +80,7 @@ class HeaderCustom extends Component {
     };
 
     toIndex = (e) => {
-        console.log("1111"+e);
+        console.log("1111" + e);
         this.props.router.push('/')
     }
     popoverHide = () => {
@@ -89,37 +89,41 @@ class HeaderCustom extends Component {
         });
     };
     handleVisibleChange = (visible) => {
-        this.setState({ visible });
+        this.setState({visible});
     };
 
     render() {
         const { responsive, path } = this.props;
         return (
             <Header style={{ background: '#069FBF', padding: 0, height: 65 }} className="custom-theme">
+                <div className="ui-flex justify-between between"
+                     style={{height: '100%'}}>
+                    <img src={imgs} style={{marginLeft:'30'}} alt="" />
 
-                <img src={imgs} alt="" className="pull-left be-header"/>
+                    <Menu
+                        mode="horizontal"
+                        style={{ lineHeight: '64px', background: '#069FBF',float: 'right' }}
+                        onClick={this.menuClick}>
+                        <Menu.Item key="admin">
+                            <img src={adminUp} alt="用户中心" style={{ height: '100%' }}/>
+                        </Menu.Item>
+                        <Menu.Item key="index" onClick={this.toIndex}>
+                            <img src={indexUp} alt="主页" onClick={this.toIndex}/>
+                        </Menu.Item>
+                        <Menu.Item key="refresh">
+                            <img src={refreshUp} alt="刷新"/>
+                        </Menu.Item>
+                        <Menu.Item key="clear">
+                            <img src={clearUp} alt="清除"/>
+                        </Menu.Item>
+                        <Menu.Item key="logout" onClick={this.logout}>
+                            <img src={logoutUp} alt="退出登录" onClick={this.logout}/>
+                        </Menu.Item>
 
-                <Menu
-                    mode="horizontal"
-                    style={{ lineHeight: '64px', background: '#069FBF',float: 'right' }}
-                    onClick={this.menuClick}>
-                    <Menu.Item key="admin">
-                        <img src={adminUp} alt="用户中心" style={{ height: '100%' }}/>
-                    </Menu.Item>
-                    <Menu.Item key="index" onClick={this.toIndex}>
-                        <img src={indexUp} alt="主页" onClick={this.toIndex}/>
-                    </Menu.Item>
-                    <Menu.Item key="refresh">
-                        <img src={refreshUp} alt="刷新"/>
-                    </Menu.Item>
-                    <Menu.Item key="clear">
-                        <img src={clearUp} alt="清除"/>
-                    </Menu.Item>
-                    <Menu.Item key="logout" onClick={this.logout}>
-                        <img src={logoutUp} alt="退出登录" onClick={this.logout}/>
-                    </Menu.Item>
+                    </Menu>
+                </div>
 
-                </Menu>
+
                 <style>{`
                     .ant-menu-submenu-horizontal > .ant-menu {
                         width: 120px;
@@ -136,8 +140,8 @@ class HeaderCustom extends Component {
 }
 
 const mapStateToProps = state => {
-    const { responsive = { data: {} } } = state.httpData;
-    return { responsive };
+    const { responsive = {data: {}} } = state.httpData;
+    return {responsive};
 };
 
 export default connect(mapStateToProps)(HeaderCustom);

@@ -31,7 +31,7 @@ class PageIndex extends Component {
         const { receiveData } = this.props;
         const clientWidth = document.body.clientWidth;
         console.log("22222" + clientWidth);
-        receiveData({ isMobile: clientWidth <= 992 }, 'responsive');
+        receiveData({isMobile: clientWidth <= 992}, 'responsive');
     };
 
     toggle = () => {
@@ -48,8 +48,10 @@ class PageIndex extends Component {
                     <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}}
                                   router={router} path={this.props.location.pathname}/>
                     <Layout>
-                        <Content style={{ margin: '0 16px', overflow: 'initial' }}>
+                        <Content
+                            style={{ margin: '0 16px', overflow: 'initial', position: 'relative',height:'90%'}}>
                             {this.props.children}
+
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
                             V1.0.0 ©2017 Created by wyzk
@@ -64,8 +66,8 @@ class PageIndex extends Component {
 }
 
 const mapStateToProps = state => {
-    const { auth = { data: {} }, responsive = { data: {} } } = state.httpData;
-    return { auth, responsive };
+    const { auth = {data: {}}, responsive = {data: {}} } = state.httpData;
+    return {auth, responsive};
 };
 const mapDispatchToProps = dispatch => ({
     receiveData: bindActionCreators(receiveData, dispatch)

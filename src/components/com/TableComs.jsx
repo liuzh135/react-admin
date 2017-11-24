@@ -35,6 +35,7 @@ class TableComs {
         return Object.prototype.toString.call(obj) === '[object Array]';
     };
 
+
     //行的合并 v 从行开始  len合并几项
     getScolumns = (v, len)=> {
         return [{
@@ -83,6 +84,8 @@ class TableComs {
                 return this.objrender(value, index, v, len);
             }
         }, {
+
+
             title: '责任主体',
             dataIndex: 'responsibility',
             render: (value, row, index) => {
