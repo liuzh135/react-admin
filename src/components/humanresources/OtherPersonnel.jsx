@@ -1,8 +1,8 @@
 /**
- * @fileName: Reception.jsx
- * Created on 2017-11-22
+ * @fileName: Selectioncadre.jsx
+ * Created on 2017-11-24
  *
- * 公务接待页面
+ * 其他人事管理
  */
 import React from 'react';
 import { Layout } from 'antd';
@@ -27,7 +27,7 @@ import EcharBar from '../com/EcharBar';
 const Option = Select.Option;
 const Step = Steps.Step;
 
-class Reception extends React.Component {
+class OtherPersonnel extends React.Component {
 
     constructor(props) {
         super(props);
@@ -76,7 +76,7 @@ class Reception extends React.Component {
 
         return (
             <div className="gutter-example button-demo ">
-                <BreadcrumbCustom first="公务接待管理" indexName="综合事务管理"/>
+                <BreadcrumbCustom first="其他人事管理" indexName="人力资源管理"/>
 
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
@@ -159,4 +159,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToPorps, mapDispatchToProps)(Reception);
+export default connect(mapStateToPorps, mapDispatchToProps)(OtherPersonnel);

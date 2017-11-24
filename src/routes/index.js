@@ -51,6 +51,63 @@ import Reception from '../components/com/Reception';
 import PrivateGo from '../components/abroad/PrivateGo';
 import PublicGo from '../components/abroad/PublicGo';
 
+//人力资源
+import Selectioncadre from '../components/humanresources/Selectioncadre';
+import Salarymanager from '../components/humanresources/Salarymanager';
+import Recruit from '../components/humanresources/Recruit';
+import OtherPersonnel from '../components/humanresources/OtherPersonnel';
+
+//财务管理
+import Budgeting from '../components/finance/Budgeting';
+import Brevenue from '../components/finance/Brevenue';
+import Bexpenditure from '../components/finance/Bexpenditure';
+
+import Cashmag from '../components/finance/Cashmag';
+import Bankcount from '../components/finance/Bankcount';
+import BillM from '../components/finance/BillM';
+
+import Creditorrights from '../components/finance/Creditorrights';
+import DebtM from '../components/finance/DebtM';
+//自有资金投资管理
+import Capitalinvestment from '../components/investment/Capitalinvestment';
+
+//工程建设管理
+import Qualityctrl from '../components/construction/Qualityctrl';
+import Progressctrl from '../components/construction/Progressctrl';
+import Investmentctrl from '../components/construction/Investmentctrl';
+import Securityctrl from '../components/construction/Securityctrl';
+import Businessctrl from '../components/construction/Businessctrl';
+import Organizationctrl from '../components/construction/Organizationctrl';
+
+//工程运行管理
+import Waterquality from '../components/operation/Waterquality';
+import Waterdispatch from '../components/operation/Waterdispatch';
+import Maintenance from '../components/operation/Maintenance';
+import Supervision from '../components/operation/Supervision';
+import Accidents from '../components/operation/Accidents';
+//招标投标
+import TenderManger from '../components/tender/TenderManger';
+
+//合同管理
+import Projectcontract from '../components/contract/Projectcontract';
+import Concludecontract from '../components/contract/Concludecontract';
+import Performcontact from '../components/contract/Performcontact';
+
+//资产管理
+import ConfigureAsset from '../components/asset/ConfigureAsset';
+import PossessionAsset from '../components/asset/PossessionAsset';
+import MaintainAsset from '../components/asset/MaintainAsset';
+import RentingAsset from '../components/asset/RentingAsset';
+import CheckAsset from '../components/asset/CheckAsset';
+import ProfitAsset from '../components/asset/ProfitAsset';
+import Investor from '../components/asset/Investor';
+import AppraisalAsset from '../components/asset/AppraisalAsset';
+import DisposalAsset from '../components/asset/DisposalAsset';
+import IncomeDisAsset from '../components/asset/IncomeDisAsset';
+
+//内部监督管理
+import Lettersreport from '../components/supervision/Lettersreport';
+import Auditsuperv from '../components/supervision/Auditsuperv';
 
 const Wysiwyg = (location, cb) => {     // 按需加载富文本配置
     require.ensure([], require => {
@@ -79,22 +136,99 @@ export default class CRouter extends Component {
                             <Route path={'todo'} component={Decisiondo}/>
                         </Route>
 
-                        <Route path={'collogate'}>
-                            <Route path={'des'} component={SealDes}/>
-                            <Route path={'make'} component={SealMake}/>
-                            <Route path={'use'} component={SealUse}/>
+                        <Route path={'comprehensive'}>
+                            <Route path={'collogate'}>
+                                <Route path={'des'} component={SealDes}/>
+                                <Route path={'make'} component={SealMake}/>
+                                <Route path={'use'} component={SealUse}/>
+                            </Route>
+
+                            <Route path={'car'}>
+                                <Route path={'equipment'} component={CarEquipment}/>
+                                <Route path={'dispatch'} component={CarDispatch}/>
+                                <Route path={'repair'} component={CarRepair}/>
+                                <Route path={'charge'} component={CarCharge}/>
+                            </Route>
+                            <Route path={'basecom/reception'} component={Reception}/>
+                            <Route path={'abroad'}>
+                                <Route path={'private'} component={PrivateGo}/>
+                                <Route path={'public'} component={PublicGo}/>
+                            </Route>
                         </Route>
 
-                        <Route path={'car'}>
-                            <Route path={'equipment'} component={CarEquipment}/>
-                            <Route path={'dispatch'} component={CarDispatch}/>
-                            <Route path={'repair'} component={CarRepair}/>
-                            <Route path={'charge'} component={CarCharge}/>
+
+                        <Route path={'persmag'}>
+                            <Route path={'selectcadre'} component={Selectioncadre}/>
+                            <Route path={'salarymanager'} component={Salarymanager}/>
+                            <Route path={'recruit'} component={Recruit}/>
+                            <Route path={'otherPersonnel'} component={OtherPersonnel}/>
                         </Route>
-                        <Route path={'basecom/reception'} component={Reception}/>
-                        <Route path={'abroad'}>
-                            <Route path={'private'} component={PrivateGo}/>
-                            <Route path={'public'} component={PublicGo}/>
+
+                        <Route path={'finance'}>
+                            <Route path={'budget'}>
+                                <Route path={'budgeting'} component={Budgeting}/>
+                                <Route path={'brevenue'} component={Brevenue}/>
+                                <Route path={'bexpenditure'} component={Bexpenditure}/>
+                            </Route>
+                            <Route path={'capital'}>
+                                <Route path={'carCharge'} component={CarCharge}/>
+                                <Route path={'bankcount'} component={Bankcount}/>
+                                <Route path={'billM'} component={BillM}/>
+                            </Route>
+                            <Route path={'credit'}>
+                                <Route path={'creditorrights'} component={Creditorrights}/>
+                                <Route path={'debtM'} component={DebtM}/>
+                            </Route>
+                        </Route>
+
+                        <Route path={'inverstment'}>
+                            <Route path={'capitalinvestment'} component={Capitalinvestment}/>
+                        </Route>
+
+                        <Route path={'construction'}>
+                            <Route path={'qualityctrl'} component={Qualityctrl}/>
+                            <Route path={'progressctrl'} component={Progressctrl}/>
+                            <Route path={'investmentctrl'} component={Investmentctrl}/>
+                            <Route path={'securityctrl'} component={Securityctrl}/>
+                            <Route path={'businessctrl'} component={Businessctrl}/>
+                            <Route path={'organizationctrl'} component={Organizationctrl}/>
+                        </Route>
+
+                        <Route path={'operation'}>
+                            <Route path={'waterquality'} component={Waterquality}/>
+                            <Route path={'waterdispatch'} component={Waterdispatch}/>
+                            <Route path={'maintenance'} component={Maintenance}/>
+                            <Route path={'supervision'} component={Supervision}/>
+                            <Route path={'accidents'} component={Accidents}/>
+                        </Route>
+                        <Route path={'tender/tendermanger'} component={TenderManger}/>
+                        <Route path={'contract'}>
+                            <Route path={'projectcontract'} component={Projectcontract}/>
+                            <Route path={'concludecontract'} component={Concludecontract}/>
+                            <Route path={'performcontact'} component={Performcontact}/>
+                        </Route>
+
+                        <Route path={'supervision'}>
+                            <Route path={'lettersreport'} component={Lettersreport}/>
+                            <Route path={'auditsuperv'} component={Auditsuperv}/>
+                        </Route>
+
+                        <Route path={'asset'}>
+
+                            <Route path={'config/configureAsset'} component={ConfigureAsset}/>
+                            <Route path={'use'}>
+                                <Route path={'possessionAsset'} component={PossessionAsset}/>
+                                <Route path={'maintainAsset'} component={MaintainAsset}/>
+                                <Route path={'rentingAsset'} component={RentingAsset}/>
+                                <Route path={'checkAsset'} component={CheckAsset}/>
+                                <Route path={'profitAsset'} component={ProfitAsset}/>
+                                <Route path={'investor'} component={Investor}/>
+                            </Route>
+                            <Route path={'disposal'}>
+                                <Route path={'appraisalAsset'} component={AppraisalAsset}/>
+                                <Route path={'disposalAsset'} component={DisposalAsset}/>
+                                <Route path={'incomeDisAsset'} component={IncomeDisAsset}/>
+                            </Route>
                         </Route>
 
                         <Route path={'form'}>

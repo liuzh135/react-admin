@@ -2,8 +2,7 @@
  * Created by hao.cheng on 2017/5/7.
  */
 import React from 'react';
-import { Row, Col, Card, Switch } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import { Row, Col, Card } from 'antd';
 import index1 from '../../style/imgs/index/1-1-up.png';
 import index2 from '../../style/imgs/index/1-2-up.png';
 import index3 from '../../style/imgs/index/1-3-up.png';
@@ -24,21 +23,21 @@ class Homepage extends React.Component {
         animatedOne: -1
     };
     animatedAll = (checked) => {
-        checked && this.setState({ animated: true });
-        !checked && this.setState({ animated: false });
+        checked && this.setState({animated: true});
+        !checked && this.setState({animated: false});
 
     };
     animatedOne = (i) => {
-        this.setState({ animatedOne: i });
+        this.setState({animatedOne: i});
     };
     animatedOneOver = () => {
-        this.setState({ animatedOne: -1 });
+        this.setState({animatedOne: -1});
     };
 
     vFunc = (v)=> {
         if (typeof v.onclickFnc === "function") {
             v.onclickFnc();
-        }else {
+        } else {
             console.log("onclickFnc is null");
         }
     };
@@ -56,61 +55,61 @@ class Homepage extends React.Component {
                 animateId: 'headShake',
                 imgsrc: index2,
                 onclickFnc: ()=> {
-                    this.props.router.push('/app/collogate/make')
+                    this.props.router.push('/app/comprehensive/collogate/make')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index3,
                 onclickFnc: ()=> {
-                    console.log("go to 3");
+                    this.props.router.push('/app/persmag/selectcadre')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index4,
                 onclickFnc: ()=> {
-                    console.log("go to 4");
+                    this.props.router.push('/app/finance/budget/budgeting')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index5,
                 onclickFnc: ()=> {
-                    console.log("go to 5");
+                    this.props.router.push('/app/inverstment/capitalinvestment')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index6,
                 onclickFnc: ()=> {
-                    console.log("go to 6");
+                    this.props.router.push('/app/construction/qualityctrl')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index7,
                 onclickFnc: ()=> {
-                    console.log("go to 7");
+                    this.props.router.push('/app/operation/waterquality')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index8,
                 onclickFnc: ()=> {
-                    console.log("go to 8");
+                    this.props.router.push('/app/tender/tendermanger')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index9,
                 onclickFnc: ()=> {
-                    console.log("go to 9");
+                    this.props.router.push('/app/contract/projectcontract')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index10,
                 onclickFnc: ()=> {
-                    console.log("go to 10");
+                    this.props.router.push('/app/asset/config/configureAsset')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index11,
                 onclickFnc: ()=> {
-                    console.log("go to 11");
+                    this.props.router.push('/app/supervision/Lettersreport')
                 }
             }
         ];

@@ -22,11 +22,13 @@ class TableComs {
         if (ind === start) {
             obj.props.rowSpan = len;
         } else {
-            for (let index = 0; index < len; index++) {
-                obj.props.rowSpan = 0;
+
+            for (let index = start + 1; index < start + len; index++) {
+                if (ind === index) {
+                    obj.props.rowSpan = 0;
+                }
             }
         }
-
         return obj;
     };
 
@@ -34,7 +36,6 @@ class TableComs {
     isArray = (obj)=> {
         return Object.prototype.toString.call(obj) === '[object Array]';
     };
-
 
     //行的合并 v 从行开始  len合并几项
     getScolumns = (v, len)=> {
@@ -84,12 +85,22 @@ class TableComs {
                 return this.objrender(value, index, v, len);
             }
         }, {
-
-
             title: '责任主体',
             dataIndex: 'responsibility',
             render: (value, row, index) => {
-                return this.objrender(value, index, 0, 2);
+                const obj = {
+                    children: value,
+                    props: {},
+                };
+                if (index === 0) {
+                    obj.props.rowSpan = 2;
+                }
+                // These two are merged into above cell
+                if (index === 1) {
+                    obj.props.rowSpan = 0;
+                }
+
+                return obj;
             }
         }]
     };
@@ -300,18 +311,6 @@ class TableComs {
         responsibility: '综合管理部'
     }];
 
-    car_dispatch_manger_data = [{
-        key: '1',
-        steupName: '车辆配备',
-        objectM: <span>公司领导，综合管理部、用车部门负责人<br/>及有关人员，车辆驾驶员</span>,
-        f_level: <span>{this.getStar(2, "★")}未经批准用车
-        <br/>{this.getStar(2, "★")}公车私用</span>,
-        measures: <span>1.各部门因接待需要用车，需向综合管理部申请并填写派车单，经批准后方可用车；车辆出京需公司主要领导审批；
-            <br/> 2.公务用车除执行公务外，需按规定停放停车场；
-            <br/> 3.不定期开展专项检查，发现问题依规严肃处理。
-        </span>,
-        responsibility: '综合管理部'
-    }];
 
     car_dispatch_manger_data = [{
         key: '1',
@@ -385,6 +384,69 @@ class TableComs {
         responsibility: '财务部'
     }];
 
+
+    private_manger_data = [{
+        key: '1',
+        steupName: '领导审批',
+        objectM: <span>申请人部门、综合管理部<br/>监察审计部负责人，公司领导
+        </span>,
+        f_level: <span>{this.getStar(2, "★")}未经审批自行出国（境）
+        <br/>{this.getStar(2, "★")}审核把关不严，造成不适宜人员出国（境）</span>,
+        measures: <span>1.严格执行公司《工作人员因私出国（境）管理暂行办法》，重点岗位人员因私出国（境）证件交综合管理部统一保管；
+            <br/>2.申请人部门审核出国事由是否真实，综合管理部审核是否按规定提交申请并请假、监察审计部审核是否存在不宜出国的情形。
+        </span>,
+        responsibility: '综合管理部'
+    },{
+        key: '2',
+        steupName: '交还证件',
+        objectM: <span>申请人
+        </span>,
+        f_level: <span>{this.getStar(2, "★")}不及时交还证件
+        </span>,
+        measures: <span>回国（入境）后综合管理部及时催缴证件
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
+    public_manger_data = [{
+        key: '1',
+        steupName: '立项申请',
+        objectM: <span>申请人部门、综合管理部负责人
+        </span>,
+        f_level: <span>{this.getStar(2, "★")}安排与工作结合不紧密、作为福利待遇性质的出国（境）活动
+        </span>,
+        measures: <span>出国（境）活动立项申请时，需列明活动必要性、主要目的和参加人员情况，并按流程报公司领导审批
+        </span>,
+        responsibility: '综合管理部'
+    },{
+        key: '2',
+        steupName: '国（境）外公务活动',
+        objectM: <span>团组组长及成员
+        </span>,
+        f_level: <span>{this.getStar(2, "★")}团组成员未经团组组长同意单独活动；擅自变更出访路线或延长在国（境）外的期限
+            <br/>{this.getStar(2, "★")}未及时公示出国团组费用
+            <br/>{this.getStar(2, "★")}超标准乘坐交通工具
+            <br/>{this.getStar(2, "★")}从事与出国任务无关的活动
+        </span>,
+        measures: <span>1.严格落实国家加强党员干部出国(境)管理要求，加强对团组成员的教育
+            <br/>2.制定出国（境）公务活动方案，严格按照方案规定的路线、活动和时间开展公务
+            <br/>3.回国（入境）后及时提交工作报告
+            <br/>4.团组费用未经公示，不得报销
+            <br/>5.发生违规违纪问题，追究相关人员责任
+        </span>,
+        responsibility: '综合管理部'
+    },{
+        key: '3',
+        steupName: '交还证件',
+        objectM: <span>团组成员
+        </span>,
+        f_level: <span>{this.getStar(2, "★")}不及时交还证件
+        </span>,
+        measures: <span>回国（入境）后综合管理部及时催缴证件
+        </span>,
+        responsibility: '综合管理部'
+    }];
+
     //========================数据区=========//
     //印章管理
     seal_made_manger = {
@@ -441,6 +503,21 @@ class TableComs {
     reception_manger = {
         columns: this.get2Scolumns(0, 3),
         data: this.reception_manger_data,
+        bordered: true,
+        pagination: false
+    };
+
+    //出入境管理
+    private_manger = {
+        columns: this.getScolumns(0,2),
+        data: this.private_manger_data,
+        bordered: true,
+        pagination: false
+    };
+
+    public_manger = {
+        columns: this.getScolumns(0,2),
+        data: this.public_manger_data,
         bordered: true,
         pagination: false
     };

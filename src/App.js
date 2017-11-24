@@ -58,11 +58,15 @@ class App extends Component {
 
         //左侧栏 decision 特殊处理
         let side_view;
+
+        let patharry = this.props.location.pathname.split("/");
+
         if (this.props.location.pathname.indexOf("decision") > 0) {
-            side_view = <ExtSideCustom menus={de.decision} path={this.props.location.pathname}
+            side_view = <ExtSideCustom menus={de.data.decision} path={this.props.location.pathname}
                                        collapsed={this.state.collapsed}/>;
-        } else {
-            side_view = <BaseSideCustom menus={de.yinz} path={this.props.location.pathname} collapsed={this.state.collapsed}/>;
+        } else if (patharry.length > 2 && de.data[patharry[2]] != null) {
+            side_view = <BaseSideCustom menus={de.data[patharry[2]]} path={this.props.location.pathname}
+                                        collapsed={this.state.collapsed}/>;
         }
 
         return (
