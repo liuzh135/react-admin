@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import echarts from 'echarts';
 
 class BaseEcharView extends React.Component {
 

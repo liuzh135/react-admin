@@ -15,8 +15,6 @@ class SideLeftItem extends Component {
     }
 
     createMenu = v => {
-        let submenu = [];
-
         this.menu = [];
         if (v != null) {
             for (var index in v) {
@@ -24,10 +22,10 @@ class SideLeftItem extends Component {
 
                 let li_class = "ant-menu-item";
                 const {pmsL} = this.props;
-                if (pmsL.path == menuitem.menu) {
+                if (pmsL.path === menuitem.menu) {
                     li_class = "ant-menu-item ant-menu-item-selected"
                 }
-                this.menu.push(<li className={li_class} role="menuitem" aria-selected="false"
+                this.menu.push(<li className={li_class}
                                    style={{paddingLeft:"24px"}}><Link to={menuitem.menu}>
                     <i className="anticon anticon-mobile"></i><span className="nav-text">{menuitem.title}</span></Link>
                 </li>);

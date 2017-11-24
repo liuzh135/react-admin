@@ -2,7 +2,7 @@
  * Created by hao.cheng on 2017/4/15.
  */
 import React from 'react';
-import { Table, Icon } from 'antd';
+import { Table } from 'antd';
 
 
 const columns = [{

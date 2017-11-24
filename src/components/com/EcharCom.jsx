@@ -5,8 +5,6 @@
  * 折线图的样式
  *
  */
-import echarts from 'echarts';
-
 class EcharCom {
 
     title = {
