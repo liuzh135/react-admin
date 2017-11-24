@@ -171,7 +171,7 @@ export default class CRouter extends Component {
                                 <Route path={'bexpenditure'} component={Bexpenditure}/>
                             </Route>
                             <Route path={'capital'}>
-                                <Route path={'carCharge'} component={CarCharge}/>
+                                <Route path={'carCharge'} component={Cashmag}/>
                                 <Route path={'bankcount'} component={Bankcount}/>
                                 <Route path={'billM'} component={BillM}/>
                             </Route>
