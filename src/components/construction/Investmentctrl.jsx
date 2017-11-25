@@ -99,7 +99,7 @@ class Investmentctrl extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_investment_control_manger}/>
                             </Card>
                         </div>
                     </Col>

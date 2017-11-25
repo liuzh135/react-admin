@@ -99,7 +99,7 @@ class Accidents extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.safety_accident_investigation_manger}/>
                             </Card>
                         </div>
                     </Col>

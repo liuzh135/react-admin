@@ -52,7 +52,11 @@ import PrivateGo from '../components/abroad/PrivateGo';
 import PublicGo from '../components/abroad/PublicGo';
 
 //人力资源
+import Motion from '../components/humanresources/Motion';
 import Selectioncadre from '../components/humanresources/Selectioncadre';
+import Investigate from '../components/humanresources/Investigate';
+import Discussion from '../components/humanresources/Discussion';
+import Office from '../components/humanresources/Office';
 import Salarymanager from '../components/humanresources/Salarymanager';
 import Recruit from '../components/humanresources/Recruit';
 import OtherPersonnel from '../components/humanresources/OtherPersonnel';
@@ -158,7 +162,13 @@ export default class CRouter extends Component {
 
 
                         <Route path={'persmag'}>
-                            <Route path={'selectcadre'} component={Selectioncadre}/>
+                            <Route path={'selectcadre'} >
+                                <Route path={'motion'} component={Motion}/>
+                                <Route path={'cadreselection'} component={Selectioncadre}/>
+                                <Route path={'investigate'} component={Investigate}/>
+                                <Route path={'discussion'} component={Discussion}/>
+                                <Route path={'office'} component={Office}/>
+                            </Route>>
                             <Route path={'salarymanager'} component={Salarymanager}/>
                             <Route path={'recruit'} component={Recruit}/>
                             <Route path={'otherPersonnel'} component={OtherPersonnel}/>

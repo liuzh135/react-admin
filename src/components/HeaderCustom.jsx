@@ -80,7 +80,6 @@ class HeaderCustom extends Component {
     };
 
     toIndex = (e) => {
-        console.log("1111" + e);
         this.props.router.push('/')
     }
     popoverHide = () => {
@@ -88,6 +87,11 @@ class HeaderCustom extends Component {
             visible: false,
         });
     };
+
+    clear_user = () => {
+        localStorage.removeItem("user");
+    };
+
     handleVisibleChange = (visible) => {
         this.setState({visible});
     };
@@ -95,29 +99,48 @@ class HeaderCustom extends Component {
     render() {
         const { responsive, path } = this.props;
         return (
-            <Header style={{ background: '#069FBF', padding: 0, height: 65 }} className="custom-theme">
+            <Header style={{ background: '#069FBF', padding: 0, height: 58 }} className="custom-theme">
                 <div className="ui-flex justify-between between"
                      style={{height: '100%'}}>
-                    <img src={imgs} style={{marginLeft:'30'}} alt="" />
+                    <img src={imgs} style={{marginLeft:'30'}} alt=""/>
 
                     <Menu
                         mode="horizontal"
-                        style={{ lineHeight: '64px', background: '#069FBF',float: 'right' }}
+                        style={{ lineHeight: '0px', background: '#069FBF'}}
                         onClick={this.menuClick}>
                         <Menu.Item key="admin">
-                            <img src={adminUp} alt="用户中心" style={{ height: '100%' }}/>
+                            <div className=" d-relative  text-center"><img style={{width:'80%',height:'80%'}}
+                                                                           src={adminUp}
+                                                                           alt="头像"/>
+                                <p className="p-center"> 用户中心</p ></div>
+
                         </Menu.Item>
-                        <Menu.Item key="index" onClick={this.toIndex}>
-                            <img src={indexUp} alt="主页" onClick={this.toIndex}/>
+                        <Menu.Item key="index">
+                            <div className=" d-relative  text-center" onClick={this.toIndex}><img
+                                style={{width:'80%',height:'80%'}}
+                                src={indexUp}
+                                alt="主页"/>
+                                <p className="p-center"> 主页</p ></div>
                         </Menu.Item>
                         <Menu.Item key="refresh">
-                            <img src={refreshUp} alt="刷新"/>
+                            <div className=" d-relative  text-center"><img
+                                style={{width:'80%',height:'80%'}}
+                                src={refreshUp}
+                                alt="刷新"/>
+                                <p className="p-center"> 刷新</p ></div>
                         </Menu.Item>
                         <Menu.Item key="clear">
-                            <img src={clearUp} alt="清除"/>
+                            <div className=" d-relative  text-center" onClick={this.clear_user}><img style={{width:'80%',height:'80%'}}
+                                                                           src={clearUp}
+                                                                           alt="清除"/>
+                                <p className="p-center"> 清除</p ></div>
                         </Menu.Item>
-                        <Menu.Item key="logout" onClick={this.logout}>
-                            <img src={logoutUp} alt="退出登录" onClick={this.logout}/>
+                        <Menu.Item key="logout">
+                            <div className=" d-relative  text-center " onClick={this.logout}><img
+                                style={{width:'80%',height:'80%'}}
+                                src={logoutUp}
+                                alt="退出登录"/>
+                                <p className="p-center"> 退出登录</p ></div>
                         </Menu.Item>
 
                     </Menu>
@@ -125,6 +148,9 @@ class HeaderCustom extends Component {
 
 
                 <style>{`
+                    .ant-layout p{
+                        margin: 2px 0 10px 0;
+                    }
                     .ant-menu-submenu-horizontal > .ant-menu {
                         width: 120px;
                         left: -40px;

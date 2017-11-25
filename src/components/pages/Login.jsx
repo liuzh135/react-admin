@@ -6,7 +6,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchData, receiveData } from '@/action';
-
+import bg_index from '../../style/imgs/bg_index.jpg';
 const FormItem = Form.Item;
 
 class Login extends React.Component {
@@ -14,6 +14,7 @@ class Login extends React.Component {
         const { receiveData } = this.props;
         receiveData(null, 'auth');
     }
+
     componentWillReceiveProps(nextProps) {
         const { auth: nextAuth = {} } = nextProps;
         const { router } = this.props;
@@ -22,14 +23,21 @@ class Login extends React.Component {
             router.push('/');
         }
     }
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
                 const { fetchData } = this.props;
-                if (values.userName === 'admin' && values.password === 'admin') fetchData({funcName: 'admin', stateName: 'auth'});
-                if (values.userName === 'guest' && values.password === 'guest') fetchData({funcName: 'guest', stateName: 'auth'});
+                if (values.userName === 'admin' && values.password === 'admin') fetchData({
+                    funcName: 'admin',
+                    stateName: 'auth'
+                });
+                if (values.userName === 'guest' && values.password === 'guest') fetchData({
+                    funcName: 'guest',
+                    stateName: 'auth'
+                });
             }
         });
     };
@@ -39,24 +47,26 @@ class Login extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <div className="login">
-                <div className="login-form" >
+            <div className="login" >
+                <div className="login-form">
                     <div className="login-logo">
-                        <span>React Admin</span>
+                        <span>廉政风险管理系统</span>
                     </div>
                     <Form onSubmit={this.handleSubmit} style={{maxWidth: '300px'}}>
                         <FormItem>
                             {getFieldDecorator('userName', {
-                                rules: [{ required: true, message: '请输入用户名!' }],
+                                rules: [{required: true, message: '请输入用户名!'}],
                             })(
-                                <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="管理员输入admin, 游客输入guest" />
+                                <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />}
+                                       placeholder="管理员输入admin, 游客输入guest"/>
                             )}
                         </FormItem>
                         <FormItem>
                             {getFieldDecorator('password', {
-                                rules: [{ required: true, message: '请输入密码!' }],
+                                rules: [{required: true, message: '请输入密码!'}],
                             })(
-                                <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="管理员输入admin, 游客输入guest" />
+                                <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password"
+                                       placeholder="管理员输入admin, 游客输入guest"/>
                             )}
                         </FormItem>
                         <FormItem>
@@ -67,13 +77,10 @@ class Login extends React.Component {
                                 <Checkbox>记住我</Checkbox>
                             )}
                             <a className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</a>
-                            <Button type="primary" htmlType="submit" className="login-form-button" style={{width: '100%'}}>
+                            <Button type="primary" htmlType="submit" className="login-form-button"
+                                    style={{width: '100%'}}>
                                 登录
                             </Button>
-                            或 <a href="">现在就去注册!</a>
-                            <p>
-                                <Icon type="github" onClick={this.gitHub} />(第三方登录)
-                            </p>
                         </FormItem>
                     </Form>
                 </div>
@@ -83,14 +90,10 @@ class Login extends React.Component {
     }
 }
 
-//允许我们将 store 中的数据作为 props 绑定到组件上
-//mapStateToProps 会订阅Store, 每次 state改变的时候 都会自动执行 重新计算 UI 组件的参数，从而触发 UI 组件的重新渲染
 const mapStateToPorps = state => {
     const { auth } = state.httpData;
-    return { auth };
+    return {auth};
 };
-
-//将 action 作为 props 绑定到组件上，也会成为 MyComp 的 props。
 const mapDispatchToProps = dispatch => ({
     fetchData: bindActionCreators(fetchData, dispatch),
     receiveData: bindActionCreators(receiveData, dispatch)

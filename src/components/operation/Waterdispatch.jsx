@@ -99,7 +99,7 @@ class Waterdispatch extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_water_monitoring_manger}/>
                             </Card>
                         </div>
                     </Col>

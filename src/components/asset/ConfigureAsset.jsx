@@ -99,7 +99,7 @@ class ConfigureAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.asset_allocation_manger}/>
                             </Card>
                         </div>
                     </Col>

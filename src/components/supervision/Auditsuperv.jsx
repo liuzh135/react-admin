@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { Layout } from 'antd';
-import { Row, Col, Card, Timeline, Icon, Select} from 'antd';
+import { Steps,Row, Col, Card, Timeline, Icon, Select} from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -25,6 +25,7 @@ import ExtBaseicTable from '../tables/ExtBaseicTable';
 import EcharBar from '../com/EcharBar';
 
 const Option = Select.Option;
+const Step = Steps.Step;
 
 class Auditsuperv extends React.Component {
 
@@ -81,6 +82,14 @@ class Auditsuperv extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
+                                <Steps current={1} style={{marginBottom:"15"}}>
+                                    <Step status="wait" title="制定年度审计计划" />
+                                    <Step status="wait" title="成立审计小组" />
+                                    <Step status="wait" title="开展现场审计" />
+                                    <Step status="wait" title="交换审计意见" />
+                                    <Step status="wait" title="下达审计意见书" />
+                                    <Step status="wait" title="督促审议整改" />
+                                </Steps>
 
                                 <Layout style={{background:"#fff"}}>
                                     <div className="y-center">
@@ -99,7 +108,7 @@ class Auditsuperv extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.internal_audit_monitoring_manger}/>
                             </Card>
                         </div>
                     </Col>

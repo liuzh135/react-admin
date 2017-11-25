@@ -107,17 +107,39 @@ class DecisionsModel {
                 title: "干部选拔任用管理",
                 menuId: 1,
                 menu: "/app/persmag/selectcadre",
-                submenu: null
+                submenu: [
+                    {
+                        subId: 1,
+                        path: "/app/persmag/selectcadre/motion",
+                        title: "动议"
+                    }, {
+                        subId: 2,
+                        path: "/app/persmag/selectcadre/cadreselection",
+                        title: "民主推荐"
+                    }, {
+                        subId: 3,
+                        path: "/app/persmag/selectcadre/investigate",
+                        title: "考察"
+                    },{
+                        subId: 4,
+                        path: "/app/persmag/selectcadre/discussion",
+                        title: "讨论决定"
+                    },{
+                        subId: 5,
+                        path: "/app/persmag/selectcadre/office",
+                        title: "任职"
+                    }
+                ]
             },
             {
                 menuId: 2,
-                menu: "/app/persmag/salarymanager",
+                menu: "/app/persmag/recruit",
                 title: "人才招聘管理",
                 submenu: null
             },
             {
                 menuId: 3,
-                menu: "/app/persmag/recruit",
+                menu: "/app/persmag/salarymanager",
                 title: "薪酬福利管理",
                 submenu: null
             },
@@ -220,11 +242,6 @@ class DecisionsModel {
                 title: "商务管理",
                 menuId: 5,
                 menu: "/app/construction/businessctrl",
-                submenu: null
-            }, {
-                title: "组织协调",
-                menuId: 6,
-                menu: "/app/construction/organizationctrl",
                 submenu: null
             }
         ],

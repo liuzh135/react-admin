@@ -2,11 +2,11 @@
  * @fileName: Selectioncadre.jsx
  * Created on 2017-11-24
  *
- * 资产管理-资产使用-资产出租出借
+ * 干部选拔任用-动议
  */
 import React from 'react';
 import { Layout } from 'antd';
-import { Row, Col, Card, Timeline, Icon, Select} from 'antd';
+import { Steps, Row, Col, Card, Timeline, Icon, Select} from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -25,8 +25,9 @@ import ExtBaseicTable from '../tables/ExtBaseicTable';
 import EcharBar from '../com/EcharBar';
 
 const Option = Select.Option;
+const Step = Steps.Step;
 
-class RentingAsset extends React.Component {
+class Motion extends React.Component {
 
     constructor(props) {
         super(props);
@@ -75,12 +76,20 @@ class RentingAsset extends React.Component {
 
         return (
             <div className="gutter-example button-demo ">
-                <BreadcrumbCustom first="资产使用"  second="资产出租出借" indexName="资产管理"/>
+                <BreadcrumbCustom first="干部选拔任用管理" second="动议" indexName="人力资源管理"/>
 
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
+
+                                <Steps current={1} style={{marginBottom:"15"}}>
+                                    <Step status="process" title="动议" />
+                                    <Step status="wait" title="民主推荐" />
+                                    <Step status="wait" title="考察" />
+                                    <Step status="wait" title="讨论决定" />
+                                    <Step status="wait" title="任职" />
+                                </Steps>
 
                                 <Layout style={{background:"#fff"}}>
                                     <div className="y-center">
@@ -99,7 +108,7 @@ class RentingAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.asset_use_manger3}/>
+                                <ExtBaseicTable {...tableComs.motion_cadre_manger}/>
                             </Card>
                         </div>
                     </Col>
@@ -151,4 +160,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToPorps, mapDispatchToProps)(RentingAsset);
+export default connect(mapStateToPorps, mapDispatchToProps)(Motion);

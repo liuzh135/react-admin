@@ -99,7 +99,7 @@ class CheckAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.asset_use_manger4}/>
                             </Card>
                         </div>
                     </Col>

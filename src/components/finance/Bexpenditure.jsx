@@ -84,10 +84,11 @@ class Bexpenditure extends React.Component {
                             <Card bordered={false}>
 
                                 <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="公务接待申请" />
-                                    <Step status="wait" title="接待审批" />
-                                    <Step status="wait" title="安排接待" />
-                                    <Step status="wait" title="接待费报销" />
+                                    <Step status="wait" title="费用支出申请" />
+                                    <Step status="wait" title="部门内审核" />
+                                    <Step status="wait" title="财务部审核" />
+                                    <Step status="wait" title="公司领导审批" />
+                                    <Step status="wait" title="支付" />
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>
@@ -107,7 +108,7 @@ class Bexpenditure extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.finance_budget_expenditure_management_manger}/>
                             </Card>
                         </div>
                     </Col>

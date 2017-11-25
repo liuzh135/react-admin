@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { Layout } from 'antd';
-import { Row, Col, Card, Timeline, Icon, Select} from 'antd';
+import { Steps, Row, Col, Card, Timeline, Icon, Select} from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -25,7 +25,7 @@ import ExtBaseicTable from '../tables/ExtBaseicTable';
 import EcharBar from '../com/EcharBar';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class Concludecontract extends React.Component {
 
     constructor(props) {
@@ -81,6 +81,12 @@ class Concludecontract extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
+                                <Steps current={1} style={{marginBottom:"15"}}>
+                                    <Step status="wait" title="合同调查" />
+                                    <Step status="wait" title="谈判采购" />
+                                    <Step status="wait" title="合同文本拟定" />
+                                    <Step status="wait" title="合同签订" />
+                                </Steps>
 
                                 <Layout style={{background:"#fff"}}>
                                     <div className="y-center">
@@ -99,7 +105,7 @@ class Concludecontract extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.contract_formation_manger}/>
                             </Card>
                         </div>
                     </Col>

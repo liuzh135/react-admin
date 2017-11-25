@@ -84,10 +84,11 @@ class Budgeting extends React.Component {
                             <Card bordered={false}>
 
                                 <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="公务接待申请" />
-                                    <Step status="wait" title="接待审批" />
-                                    <Step status="wait" title="安排接待" />
-                                    <Step status="wait" title="接待费报销" />
+                                    <Step status="wait" title="发布预算编制方案" />
+                                    <Step status="wait" title="各部门编制部门预算" />
+                                    <Step status="wait" title="汇总形成预算编制草案" />
+                                    <Step status="wait" title="公司领导班子审议决策" />
+                                    <Step status="wait" title="印发预算下达文件" />
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>
@@ -107,7 +108,7 @@ class Budgeting extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.finance_budget_expenditure_management_manger}/>
                             </Card>
                         </div>
                     </Col>

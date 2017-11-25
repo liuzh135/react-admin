@@ -84,10 +84,10 @@ class Brevenue extends React.Component {
                             <Card bordered={false}>
 
                                 <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="公务接待申请" />
-                                    <Step status="wait" title="接待审批" />
-                                    <Step status="wait" title="安排接待" />
-                                    <Step status="wait" title="接待费报销" />
+                                    <Step status="wait" title="核算应收水费" />
+                                    <Step status="wait" title="发出水费缴纳通知书" />
+                                    <Step status="wait" title="跟踪并催缴" />
+                                    <Step status="wait" title="水费入账" />
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>
@@ -107,7 +107,7 @@ class Brevenue extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.finance_budget_expenditure_management_manger}/>
                             </Card>
                         </div>
                     </Col>

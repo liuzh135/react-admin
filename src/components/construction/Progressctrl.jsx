@@ -99,7 +99,7 @@ class Progressctrl extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_progress_control_manger}/>
                             </Card>
                         </div>
                     </Col>

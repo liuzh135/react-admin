@@ -99,7 +99,7 @@ class TenderManger extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.tendering_and_bidding_manger}/>
                             </Card>
                         </div>
                     </Col>

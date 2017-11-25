@@ -99,7 +99,7 @@ class Qualityctrl extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_quality_control_manger}/>
                             </Card>
                         </div>
                     </Col>

@@ -99,7 +99,7 @@ class Securityctrl extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_safety_control_manger}/>
                             </Card>
                         </div>
                     </Col>

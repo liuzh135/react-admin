@@ -2,7 +2,7 @@
  * @fileName: Selectioncadre.jsx
  * Created on 2017-11-24
  *
- * 干部选拔任用
+ * 干部选拔任用-民主推荐
  */
 import React from 'react';
 import { Layout } from 'antd';
@@ -76,7 +76,7 @@ class Selectioncadre extends React.Component {
 
         return (
             <div className="gutter-example button-demo ">
-                <BreadcrumbCustom first="干部选拔任用管理" indexName="人力资源管理"/>
+                <BreadcrumbCustom first="干部选拔任用管理" second="民主推荐" indexName="人力资源管理"/>
 
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
@@ -84,10 +84,11 @@ class Selectioncadre extends React.Component {
                             <Card bordered={false}>
 
                                 <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="公务接待申请" />
-                                    <Step status="wait" title="接待审批" />
-                                    <Step status="wait" title="安排接待" />
-                                    <Step status="wait" title="接待费报销" />
+                                    <Step status="finish" title="动议" />
+                                    <Step status="process" title="民主推荐" />
+                                    <Step status="wait" title="考察" />
+                                    <Step status="wait" title="讨论决定" />
+                                    <Step status="wait" title="任职" />
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>
@@ -107,7 +108,7 @@ class Selectioncadre extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.selectCade_cadre_manger}/>
                             </Card>
                         </div>
                     </Col>

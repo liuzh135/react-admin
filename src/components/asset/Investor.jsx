@@ -99,7 +99,7 @@ class Investor extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.asset_use_manger6}/>
                             </Card>
                         </div>
                     </Col>

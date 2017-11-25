@@ -99,7 +99,7 @@ class MaintainAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.asset_use_manger2}/>
                             </Card>
                         </div>
                     </Col>

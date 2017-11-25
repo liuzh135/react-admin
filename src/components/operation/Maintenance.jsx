@@ -99,7 +99,7 @@ class Maintenance extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_maintenance_manger}/>
                             </Card>
                         </div>
                     </Col>

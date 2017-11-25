@@ -99,7 +99,7 @@ class Waterquality extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_water_dispatch_management_manger}/>
                             </Card>
                         </div>
                     </Col>

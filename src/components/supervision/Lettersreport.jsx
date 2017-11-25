@@ -99,7 +99,7 @@ class Lettersreport extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.complaint_reporting_handling_manger}/>
                             </Card>
                         </div>
                     </Col>

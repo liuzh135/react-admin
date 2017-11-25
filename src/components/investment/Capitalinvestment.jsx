@@ -84,10 +84,11 @@ class Capitalinvestment extends React.Component {
                             <Card bordered={false}>
 
                                 <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="公务接待申请" />
-                                    <Step status="wait" title="接待审批" />
-                                    <Step status="wait" title="安排接待" />
-                                    <Step status="wait" title="接待费报销" />
+                                    <Step status="wait" title="项目征集" />
+                                    <Step status="wait" title="项目汇总分析" />
+                                    <Step status="wait" title="制定投资建议方案" />
+                                    <Step status="wait" title="会议决策" />
+                                    <Step status="wait" title="项目实施" />
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>
@@ -104,10 +105,8 @@ class Capitalinvestment extends React.Component {
                                                 中风险{tableComs.getStar(2, "★")} 低风险{tableComs.getStar(1, "★")}</span>
                                         </div>
                                     </div>
-
-
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.funds_project_collection_manger}/>
                             </Card>
                         </div>
                     </Col>

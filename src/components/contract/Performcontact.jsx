@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { Layout } from 'antd';
-import { Row, Col, Card, Timeline, Icon, Select} from 'antd';
+import { Steps ,Row, Col, Card, Timeline, Icon, Select} from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -25,7 +25,7 @@ import ExtBaseicTable from '../tables/ExtBaseicTable';
 import EcharBar from '../com/EcharBar';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class Performcontact extends React.Component {
 
     constructor(props) {
@@ -81,7 +81,12 @@ class Performcontact extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-
+                                <Steps current={1} style={{marginBottom:"15"}}>
+                                    <Step status="wait" title="合同执行" />
+                                    <Step status="wait" title="合同变更、索赔" />
+                                    <Step status="wait" title="合同结算" />
+                                    <Step status="wait" title="合同验收" />
+                                </Steps>
                                 <Layout style={{background:"#fff"}}>
                                     <div className="y-center">
                                         <div className="pull-left mr-m">
@@ -99,7 +104,7 @@ class Performcontact extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.contract_fulfilment_manger}/>
                             </Card>
                         </div>
                     </Col>

@@ -99,7 +99,7 @@ class Businessctrl extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.project_business_management_manger}/>
                             </Card>
                         </div>
                     </Col>

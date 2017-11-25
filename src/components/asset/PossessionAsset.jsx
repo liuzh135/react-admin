@@ -99,7 +99,7 @@ class PossessionAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.asset_use_manger1}/>
                             </Card>
                         </div>
                     </Col>

@@ -99,7 +99,7 @@ class ProfitAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.asset_use_manger5}/>
                             </Card>
                         </div>
                     </Col>

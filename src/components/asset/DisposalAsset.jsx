@@ -99,7 +99,7 @@ class DisposalAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.reception_manger}/>
+                                <ExtBaseicTable {...tableComs.assets_disposal_manger2}/>
                             </Card>
                         </div>
                     </Col>
