@@ -50,11 +50,10 @@ class Login extends React.Component {
     gitHub = () => {
         window.location.href = 'https://github.com/login/oauth/authorize?client_id=792cdcd244e98dcd2dee&redirect_uri=http://localhost:3006/&scope=user&state=reactAdmin';
     };
-
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <Layout style={{backgroundImage:'url(static/media/bg_index.7285dd88.jpg)'}}>
+            <Layout className="login_layout" >
                 <div className="wrap">
                     <div className="login">
                         <div className="login-form">
