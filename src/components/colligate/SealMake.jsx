@@ -83,7 +83,7 @@ class SealMake extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false} >
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="process" title="印章刻制" />
                                     <Step status="wait" title="印章使用" />
                                     <Step status="wait" title="印章销毁" />

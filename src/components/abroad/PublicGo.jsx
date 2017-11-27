@@ -83,12 +83,12 @@ class PublicGo extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="立项申请" />
-                                    <Step status="wait" title="领导审批" />
-                                    <Step status="wait" title="办理出国（境）手续" />
-                                    <Step status="wait" title="国（境）外公务活动" />
-                                    <Step status="wait" title="交还证件并提交报告" />
+                                <Steps current={1} style={{marginBottom:"15px"}}>
+                                    <Step status="wait" title="立项申请"/>
+                                    <Step status="wait" title="领导审批"/>
+                                    <Step status="wait" title="办理出国（境）手续"/>
+                                    <Step status="wait" title="国（境）外公务活动"/>
+                                    <Step status="wait" title="交还证件并提交报告"/>
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>

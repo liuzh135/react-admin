@@ -52,15 +52,16 @@ class TableComs {
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: this.renderContent
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -91,17 +92,18 @@ class TableComs {
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -125,15 +127,16 @@ class TableComs {
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: this.renderContent
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -157,17 +160,18 @@ class TableComs {
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: this.renderContent
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -191,19 +195,20 @@ class TableComs {
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -225,17 +230,18 @@ class TableComs {
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: this.renderContent
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -248,6 +254,7 @@ class TableComs {
             title: '关键环节',
             dataIndex: 'steupName',
             width: 150,
+
             render: this.renderContent
         }, {
             title: '涉及对象',
@@ -259,14 +266,15 @@ class TableComs {
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: this.renderContent
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
-            width: 150,
             dataIndex: 'responsibility',
             render: this.renderContent
         }]
@@ -283,18 +291,22 @@ class TableComs {
         {
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: this.renderContent
         }, {
             title: '廉政风险点及等级',
             dataIndex: 'f_level',
+            width: 550,
             render: this.renderContent
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',

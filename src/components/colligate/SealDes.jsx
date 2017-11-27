@@ -82,7 +82,7 @@ class SealDes extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false} >
-                                <Steps current={3} style={{marginBottom:"15"}}>
+                                <Steps current={3} style={{marginBottom:"15px"}}>
                                     <Step status="finish" title="印章刻制" />
                                     <Step status="finish" title="印章使用" />
                                     <Step status="process" title="印章销毁" />

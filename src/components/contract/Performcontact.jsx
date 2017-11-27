@@ -81,7 +81,7 @@ class Performcontact extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="合同执行" />
                                     <Step status="wait" title="合同变更、索赔" />
                                     <Step status="wait" title="合同结算" />

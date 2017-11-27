@@ -83,7 +83,7 @@ class Budgeting extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="发布预算编制方案" />
                                     <Step status="wait" title="各部门编制部门预算" />
                                     <Step status="wait" title="汇总形成预算编制草案" />

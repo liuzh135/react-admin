@@ -83,7 +83,7 @@ class Investigate extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="finish" title="动议" />
                                     <Step status="finish" title="民主推荐" />
                                     <Step status="process" title="考察" />

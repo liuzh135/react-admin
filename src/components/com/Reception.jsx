@@ -83,7 +83,7 @@ class Reception extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="公务接待申请" />
                                     <Step status="wait" title="接待审批" />
                                     <Step status="wait" title="安排接待" />

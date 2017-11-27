@@ -8,18 +8,24 @@ import themes from '../style/theme';
 
 class BreadcrumbCustom extends React.Component {
 
-    state = {
-        switcherOn: false,
-        theme: null,
-        date: '',
-        themes: JSON.parse(localStorage.getItem('themes')) || [
-            {type: 'info', checked: false},
-            {type: 'grey', checked: false},
-            {type: 'danger', checked: false},
-            {type: 'warn', checked: false},
-            {type: 'white', checked: false},
-        ],
-    };
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            switcherOn: false,
+            theme: null,
+            date: '',
+            timeid: null,
+            themes: JSON.parse(localStorage.getItem('themes')) || [
+                {type: 'info', checked: false},
+                {type: 'grey', checked: false},
+                {type: 'danger', checked: false},
+                {type: 'warn', checked: false},
+                {type: 'white', checked: false},
+            ]
+        };
+
+    }
 
     componentDidMount() {
         this.state.themes.forEach(val => {
@@ -27,6 +33,7 @@ class BreadcrumbCustom extends React.Component {
                 theme: themes['theme' + val.type] || null
             });
         })
+        this.getNowFormatDate();
     };
 
     switcherOn = () => {
@@ -63,20 +70,22 @@ class BreadcrumbCustom extends React.Component {
         minutes < 10 ? minutes = '0' + minutes : minutes;
         second < 10 ? second = '0' + second : second;
         var now_time = (1900 + year) + '年' + month + '月' + date + '日' + "  " + hour + ':' + minutes + ':' + second + '  ' + show_day[day];
-        setTimeout(()=> {
-            this.getNowFormatDate();
-        }, 1000);
 
-        //let dateDom =  ReactDOM.findDOMNode(this.refs.spandate);
-        //dateDom.innerHTML = now_time;
         this.setState({
-            date: now_time
+            date: now_time,
+            timeid: setTimeout(()=> {
+                this.getNowFormatDate();
+            }, 1000)
         });
     };
 
+    componentWillUnmount() {
+        clearTimeout(this.state.timeid)
+    }
+
     render() {
 
-        let date = this.state.date || this.getNowFormatDate();
+        let date = this.state.date || "";
         const themesTag = this.state.themes.map((v, i) => (
             <div className="pull-left y-center mr-m mb-s" key={i}>
                 <i className={`w-24 mr-s b-a ${v.type}`}/>
@@ -97,7 +106,7 @@ class BreadcrumbCustom extends React.Component {
                 </Breadcrumb>
 
                 <div className="pull-right" style={{ margin: '6px 6px' }}>
-                    <span refs="spandate" className="spandate">{date}</span>
+                    <span className="spandate">{date}</span>
                 </div>
                 <style>{`
                     ${this.state.theme ?

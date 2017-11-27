@@ -83,7 +83,7 @@ class Bexpenditure extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="费用支出申请" />
                                     <Step status="wait" title="部门内审核" />
                                     <Step status="wait" title="财务部审核" />

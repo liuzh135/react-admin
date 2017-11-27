@@ -83,7 +83,7 @@ class Motion extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="process" title="动议" />
                                     <Step status="wait" title="民主推荐" />
                                     <Step status="wait" title="考察" />

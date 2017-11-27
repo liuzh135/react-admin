@@ -83,7 +83,7 @@ class Capitalinvestment extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="项目征集" />
                                     <Step status="wait" title="项目汇总分析" />
                                     <Step status="wait" title="制定投资建议方案" />

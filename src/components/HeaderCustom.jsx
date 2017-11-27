@@ -102,7 +102,7 @@ class HeaderCustom extends Component {
             <Header style={{ background: '#069FBF', padding: 0, height: 58 }} className="custom-theme">
                 <div className="ui-flex justify-between between"
                      style={{height: '100%'}}>
-                    <img src={imgs} style={{marginLeft:'30'}} alt=""/>
+                    <img src={imgs} style={{marginLeft:'30px'}} alt=""/>
 
                     <Menu
                         mode="horizontal"

@@ -81,11 +81,11 @@ class Projectcontract extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="立项申请" />
-                                    <Step status="wait" title="相关部门会签" />
-                                    <Step status="wait" title="财务部、计划资产部审核" />
-                                    <Step status="wait" title="公司领导审批" />
+                                <Steps current={1} style={{marginBottom:"15px"}}>
+                                    <Step status="wait" title="立项申请"/>
+                                    <Step status="wait" title="相关部门会签"/>
+                                    <Step status="wait" title="财务部、计划资产部审核"/>
+                                    <Step status="wait" title="公司领导审批"/>
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>

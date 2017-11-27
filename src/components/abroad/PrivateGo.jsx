@@ -83,7 +83,7 @@ class PrivateGo extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="本人申请" />
                                     <Step status="wait" title="领导审批" />
                                     <Step status="wait" title="领取证件" />

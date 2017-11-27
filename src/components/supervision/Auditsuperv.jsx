@@ -82,7 +82,7 @@ class Auditsuperv extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="制定年度审计计划"/>
                                     <Step status="wait" title="成立审计小组"/>
                                     <Step status="wait" title="开展现场审计"/>

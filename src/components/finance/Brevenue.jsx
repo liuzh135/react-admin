@@ -83,7 +83,7 @@ class Brevenue extends React.Component {
                         <div className="gutter-box">
                             <Card bordered={false}>
 
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="核算应收水费" />
                                     <Step status="wait" title="发出水费缴纳通知书" />
                                     <Step status="wait" title="跟踪并催缴" />

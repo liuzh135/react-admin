@@ -81,7 +81,7 @@ class Concludecontract extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
-                                <Steps current={1} style={{marginBottom:"15"}}>
+                                <Steps current={1} style={{marginBottom:"15px"}}>
                                     <Step status="wait" title="合同调查" />
                                     <Step status="wait" title="谈判采购" />
                                     <Step status="wait" title="合同文本拟定" />
