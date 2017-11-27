@@ -99,7 +99,7 @@ class AppraisalAsset extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.assets_disposal_manger1}/>
+                                <ExtBaseicTable {...tableComs.assets_disposal_manger1} />
                             </Card>
                         </div>
                     </Col>

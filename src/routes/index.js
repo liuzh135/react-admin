@@ -131,7 +131,7 @@ export default class CRouter extends Component {
         return (
             <Router history={hashHistory}>
                 <Route path={'/'} components={Page}>
-                    <IndexRedirect to="/pageIndex/homepage"/>
+                    <IndexRedirect to="/login"/>
                     <Route path={'app'} component={App}>
                         <Route path={'decision'}>
                             <Route path={'readyIndex'} component={DecisionreadyIndex}/>

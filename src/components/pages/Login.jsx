@@ -13,6 +13,11 @@ class Login extends React.Component {
     componentWillMount() {
         const { receiveData } = this.props;
         receiveData(null, 'auth');
+        const user = JSON.parse(localStorage.getItem('user'));
+        const { router } = this.props;
+        if (user != null){
+            router.push('/pageIndex/homepage');
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -20,7 +25,7 @@ class Login extends React.Component {
         const { router } = this.props;
         if (nextAuth.data && nextAuth.data.uid) {   // 判断是否登陆
             localStorage.setItem('user', JSON.stringify(nextAuth.data));
-            router.push('/');
+            router.push('/pageIndex/homepage');
         }
     }
 

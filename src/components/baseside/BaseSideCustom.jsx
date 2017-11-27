@@ -29,11 +29,13 @@ class BaseSideCustom extends Component {
     componentDidMount() {
         this.setMenuOpen(this.props);
     }
+
     componentWillReceiveProps(nextProps) {
         console.log(nextProps);
         this.onCollapse(nextProps.collapsed);
         this.setMenuOpen(nextProps)
     }
+
     setMenuOpen = props => {
         const {path} = props;
         this.setState({
@@ -65,27 +67,28 @@ class BaseSideCustom extends Component {
         })
     };
 
-    createMenu = v =>{
+    createMenu = v => {
         let submenu = [];
 
         this.menu = [];
-        if (v != null){
-            for(var index in v){
+        if (v != null) {
+            for (var index in v) {
                 let menuitem = v[index];
-                if (menuitem.submenu != null){
-                    submenu =  menuitem.submenu;
+                if (menuitem.submenu != null) {
+                    submenu = menuitem.submenu;
                     let submenuView = [];
-                    for(var suni in submenu){
+                    for (var suni in submenu) {
                         let subItem = submenu[suni];
-                        submenuView.push( <Menu.Item key={subItem.path}><Link to={subItem.path}>{subItem.title}</Link></Menu.Item>);
+                        submenuView.push(<Menu.Item key={subItem.path}><Link
+                            to={subItem.path}>{subItem.title}</Link></Menu.Item>);
                     }
                     this.menu.push(<SubMenu
                         key={menuitem.menu}
                         title={<span><Icon type="scan" /><span className="nav-text">{menuitem.title}</span></span>}
                     >{submenuView}</SubMenu>);
-                }else {
+                } else {
                     this.menu.push(<Menu.Item key={menuitem.menu}>
-                        <Link to={menuitem.menu}><Icon type="mobile" /><span className="nav-text">{menuitem.title}</span></Link>
+                        <Link to={menuitem.menu}><Icon type="mobile"/><span className="nav-text">{menuitem.title}</span></Link>
                     </Menu.Item>);
                 }
             }
@@ -102,13 +105,13 @@ class BaseSideCustom extends Component {
                 trigger={null}
                 breakpoint="lg"
                 collapsed={this.props.collapsed}
-                style={{overflowY: 'auto'}}
+                style={{overflowY: 'auto',background:"#f4f4f4"}}
             >
-                <div className="logo" />
+                <div className="logo"/>
                 <Menu
                     onClick={this.menuClick}
                     mode="inline"
-                    theme="dark"
+                    theme="light"
                     selectedKeys={[this.state.selectedKey]}
                     openKeys={this.state.firstHide ? null : [this.state.openKey]}
                     onOpenChange={this.openMenu}>

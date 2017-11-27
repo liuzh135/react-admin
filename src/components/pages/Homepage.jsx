@@ -122,8 +122,8 @@ class Homepage extends React.Component {
 
                     <Row gutter={14}>
                         {animations.map((v, i) => (
-                            <Col className="gutter-row" md={6} key={i}>
-                                <div className="gutter-box">
+                            <Col  className="gutter-row" md={6} key={i}>
+                                <div className="gutter-box" style={{cursor:'pointer'}}>
                                     <Card
                                         bodyStyle={{ padding: 20 }}
                                         bordered={false}
@@ -133,7 +133,7 @@ class Homepage extends React.Component {
                                         onMouseLeave={() => this.animatedOneOver()}>
                                         <div className="custom-image">
                                             <img alt="example" width="100%" src={v.imgsrc}
-                                                 onClick={()=>this.vFunc(v)}/>
+                                                  onClick={()=>this.vFunc(v)}/>
                                         </div>
 
                                     </Card>

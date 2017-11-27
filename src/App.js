@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
+import {Layout } from 'antd';
 import './style/index.less';
 import SiderCustom from './components/SiderCustom';
 import BaseSideCustom from './components/baseside/BaseSideCustom';
@@ -62,8 +62,8 @@ class App extends Component {
         let patharry = this.props.location.pathname.split("/");
 
         if (this.props.location.pathname.indexOf("decision") > 0) {
-            side_view = <ExtSideCustom menus={de.data.decision} path={this.props.location.pathname}
-                                       collapsed={this.state.collapsed}/>;
+            side_view = <BaseSideCustom menus={de.data.decision} path={this.props.location.pathname}
+                                        collapsed={this.state.collapsed}/>;
         } else if (patharry.length > 2 && de.data[patharry[2]] != null) {
             side_view = <BaseSideCustom menus={de.data[patharry[2]]} path={this.props.location.pathname}
                                         collapsed={this.state.collapsed}/>;
@@ -71,6 +71,7 @@ class App extends Component {
 
         return (
             <Layout >
+
                 <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}}
                               router={router} path={this.props.location.pathname}/>
 
@@ -81,9 +82,7 @@ class App extends Component {
                             {this.props.children}
                         </Content>
 
-                        <Footer style={{ textAlign: 'center' }}>
-                            V1.0.0 ©2017 Created by wyzk
-                        </Footer>
+
                     </Layout>
 
                 </Layout>
@@ -102,6 +101,10 @@ class App extends Component {
         );
     }
 }
+
+//<!-- <Footer style={{ height:30,textAlign: 'center' }}>
+//    V1.0.0 ©2017 Created by wyzk
+//</Footer> -->
 
 const mapStateToProps = state => {
     const { auth = {data: {}}, responsive = {data: {}} } = state.httpData;

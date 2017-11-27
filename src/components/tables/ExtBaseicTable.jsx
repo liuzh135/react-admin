@@ -15,10 +15,10 @@ class ExtBaseicTable extends React.Component {
     }
 
     render() {
-        const {style,pagination,data,columns,bordered} = this.props;
+        const {data} = this.props;
+
         return (
-            <Table style = {style} columns={columns} dataSource={data} bordered={bordered}
-                   pagination={pagination}/>
+            <Table {...this.props} dataSource={data}/>
         )
     }
 }

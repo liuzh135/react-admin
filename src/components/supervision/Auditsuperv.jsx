@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import { Layout } from 'antd';
-import { Steps,Row, Col, Card, Timeline, Icon, Select} from 'antd';
+import { Affix,Steps,Row, Col, Card, Timeline, Icon, Select} from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -76,19 +76,19 @@ class Auditsuperv extends React.Component {
 
         return (
             <div className="gutter-example button-demo ">
-                <BreadcrumbCustom first="内部审计监督"  indexName="内部监督管理"/>
+                <BreadcrumbCustom first="内部审计监督" indexName="内部监督管理"/>
 
-                <Row gutter={10}>
+                <Row gutter={10} className=" scrollable-container ">
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Steps current={1} style={{marginBottom:"15"}}>
-                                    <Step status="wait" title="制定年度审计计划" />
-                                    <Step status="wait" title="成立审计小组" />
-                                    <Step status="wait" title="开展现场审计" />
-                                    <Step status="wait" title="交换审计意见" />
-                                    <Step status="wait" title="下达审计意见书" />
-                                    <Step status="wait" title="督促审议整改" />
+                                    <Step status="wait" title="制定年度审计计划"/>
+                                    <Step status="wait" title="成立审计小组"/>
+                                    <Step status="wait" title="开展现场审计"/>
+                                    <Step status="wait" title="交换审计意见"/>
+                                    <Step status="wait" title="下达审计意见书"/>
+                                    <Step status="wait" title="督促审议整改"/>
                                 </Steps>
 
                                 <Layout style={{background:"#fff"}}>
@@ -108,7 +108,7 @@ class Auditsuperv extends React.Component {
 
 
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.internal_audit_monitoring_manger}/>
+                                <ExtBaseicTable {...tableComs.internal_audit_monitoring_manger} />
                             </Card>
                         </div>
                     </Col>
@@ -133,17 +133,16 @@ class Auditsuperv extends React.Component {
                             </Card>
                         </div>
                     </Col>
-
                     <Col className="gutter-row" md={16}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <ExtBaseicTable style={{margin:"5px"}}{...tableComs.dataIssue}/>
+
                             </Card>
                         </div>
                     </Col>
 
                 </Row>
-
             </div>
         )
     }

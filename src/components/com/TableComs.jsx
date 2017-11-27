@@ -42,10 +42,12 @@ class TableComs {
         return [{
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: this.renderContent
         }, {
             title: '廉政风险点及等级',
@@ -58,6 +60,7 @@ class TableComs {
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -69,16 +72,19 @@ class TableComs {
         return [{
             title: '流程',
             dataIndex: 'liuc',
+            width: 100,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -95,6 +101,7 @@ class TableComs {
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -106,10 +113,12 @@ class TableComs {
         return [{
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -124,6 +133,7 @@ class TableComs {
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -135,10 +145,12 @@ class TableComs {
         return [{
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -155,6 +167,7 @@ class TableComs {
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -166,10 +179,12 @@ class TableComs {
         return [{
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -188,6 +203,7 @@ class TableComs {
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -199,10 +215,12 @@ class TableComs {
         return [{
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: this.renderContent
         }, {
             title: '廉政风险点及等级',
@@ -217,6 +235,7 @@ class TableComs {
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -228,10 +247,12 @@ class TableComs {
         return [{
             title: '关键环节',
             dataIndex: 'steupName',
+            width: 150,
             render: this.renderContent
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -245,6 +266,7 @@ class TableComs {
             render: this.renderContent
         }, {
             title: '责任主体',
+            width: 150,
             dataIndex: 'responsibility',
             render: this.renderContent
         }]
@@ -379,7 +401,8 @@ class TableComs {
         columns: this.getScolumns(0, 2),
         data: this.readyIssue_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //请示报告 数据适配
@@ -387,7 +410,8 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.reptIssue_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //集体决策 数据适配
@@ -395,7 +419,8 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.ourIssue_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //落实执行 数据适配
@@ -403,7 +428,8 @@ class TableComs {
         columns: this.getScolumns(0, 3),
         data: this.doIssue_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     //========================三重一大===========================//
 
@@ -598,21 +624,24 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.seal_manger_made_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     seal_use_manger = {
         columns: this.comIssue_columns,
         data: this.seal_manger_use_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     seal_des_manger = {
         columns: this.comIssue_columns,
         data: this.seal_manger_des_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //车辆管理
@@ -620,28 +649,32 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.car_equipment_manger_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     car_dispatch_manger = {
         columns: this.comIssue_columns,
         data: this.car_dispatch_manger_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     car_repair_manger = {
         columns: this.comIssue_columns,
         data: this.car_repair_manger_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     car_charge_manger = {
         columns: this.comIssue_columns,
         data: this.car_charge_manger_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //公务接待
@@ -649,7 +682,8 @@ class TableComs {
         columns: this.get2Scolumns(0, 3),
         data: this.reception_manger_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //出入境管理
@@ -657,14 +691,16 @@ class TableComs {
         columns: this.getScolumns(0, 2),
         data: this.private_manger_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     public_manger = {
         columns: this.getScolumns(0, 2),
         data: this.public_manger_data,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     //========================综合事务管理===========================//
 
@@ -693,7 +729,8 @@ class TableComs {
         columns: this.get2Scolumns(0, 3),
         data: this.hrm_motion,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
 
@@ -746,7 +783,8 @@ class TableComs {
         columns: this.getScolumns(0, 3),
         data: this.hrm_democracy_recommendation,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     hrm_inspect = [{
@@ -816,7 +854,8 @@ class TableComs {
         columns: this.getScolumns(0, 3),
         data: this.hrm_inspect,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     hrm_discussion_and_decision = [{
@@ -871,7 +910,8 @@ class TableComs {
         columns: this.getScolumns(0, 3),
         data: this.hrm_discussion_and_decision,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
 
@@ -909,7 +949,8 @@ class TableComs {
         columns: this.getScolumns(0, 3),
         data: this.hrm_in_office,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     hrm_recruitment = [{
@@ -982,7 +1023,8 @@ class TableComs {
         columns: this.getScolumns(0, 6),
         data: this.hrm_recruitment,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     hrm_salary_and_welfare = [{
@@ -1016,7 +1058,8 @@ class TableComs {
         columns: this.getScolumns(0, 6),
         data: this.hrm_salary_and_welfare,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     hrm_other = [{
@@ -1068,7 +1111,8 @@ class TableComs {
         columns: this.getScolumns(1, 2),
         data: this.hrm_other,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //========================人力资源管理===========================//
@@ -1115,7 +1159,8 @@ class TableComs {
         columns: this.get3Scolumns(0, 2),
         data: this.finance_budget_expenditure_management,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     finance_cash_management = [{
@@ -1170,7 +1215,8 @@ class TableComs {
         columns: this.get3Scolumns(0, 3),
         data: this.finance_cash_management,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     finance_bank_account_management = [{
@@ -1228,7 +1274,8 @@ class TableComs {
         columns: this.get3Scolumns(0, 3),
         data: this.finance_bank_account_management,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     finance_bill_management = [{
@@ -1260,7 +1307,8 @@ class TableComs {
         columns: this.get4Scolumns(0, 3),
         data: this.finance_bill_management,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
 
@@ -1317,7 +1365,8 @@ class TableComs {
         columns: this.get5Scolumns(0, 2),
         data: this.finance_debt_management,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     //========================财务管理===========================//
 
@@ -1401,7 +1450,8 @@ class TableComs {
         columns: this.get6Scolumns(1, 2),
         data: this.funds_project_collection,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     //========================自有资金投资管理===========================//
 //========================工程建设管理===========================//
@@ -1510,7 +1560,8 @@ class TableComs {
         columns: this.get5Scolumns(0, 3),
         data: this.project_quality_control,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
 
@@ -1546,7 +1597,8 @@ class TableComs {
         columns: this.get4Scolumns(0, 2),
         data: this.project_progress_control,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     project_investment_control = [{
         //投资控制
@@ -1600,7 +1652,8 @@ class TableComs {
         columns: this.get5Scolumns(0, 2),
         data: this.project_progress_control,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     project_safety_control = [{
@@ -1657,7 +1710,8 @@ class TableComs {
         columns: this.get4Scolumns(0, 3),
         data: this.project_safety_control,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     project_business_management = [{
@@ -1713,7 +1767,8 @@ class TableComs {
         columns: this.get1Scolumns(0, 2),
         data: this.project_business_management,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //========================工程建设管理===========================//
@@ -1759,7 +1814,8 @@ class TableComs {
         columns: this.get5Scolumns(0, 3),
         data: this.project_water_dispatch_management,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     project_water_monitoring = [{
@@ -1780,7 +1836,8 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.project_water_monitoring,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
 
@@ -1810,7 +1867,8 @@ class TableComs {
         columns: this.get5Scolumns(0, 2),
         data: this.project_maintenance,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     project_safety_production_monitor = [{
@@ -1841,7 +1899,8 @@ class TableComs {
         columns: this.get5Scolumns(0, 2),
         data: this.project_safety_production_monitor,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     safety_accident_investigation = [{
@@ -1882,7 +1941,8 @@ class TableComs {
         columns: this.getScolumns(0, 3),
         data: this.safety_accident_investigation,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     //========================工程运行管理===========================//
 
@@ -2026,7 +2086,8 @@ class TableComs {
         columns: this.getScolumns(0, 10),
         data: this.tendering_and_bidding,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     //========================招标采购管理===========================//
 
@@ -2050,7 +2111,8 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.project_setting,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
 
@@ -2090,7 +2152,8 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.contract_formation,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     contract_fulfilment = [{
@@ -2139,7 +2202,8 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.contract_fulfilment,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //========================合同管理===========================//
@@ -2167,7 +2231,8 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.asset_allocation,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     asset_use1 = [{
         //资产使用
@@ -2245,40 +2310,46 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.asset_use1,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     asset_use_manger2 = {
         columns: this.comIssue_columns,
         data: this.asset_use2,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     asset_use_manger3 = {
         columns: this.comIssue_columns,
         data: this.asset_use3,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     asset_use_manger4 = {
         columns: this.comIssue_columns,
         data: this.asset_use4,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     asset_use_manger5 = {
         columns: this.comIssue_columns,
         data: this.asset_use5,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
     asset_use_manger6 = {
         columns: this.comIssue_columns,
         data: this.asset_use6,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
-    assets_disposal1=[{
+    assets_disposal1 = [{
         //资产处置
         key: '1',
         steupName: '资产评估',
@@ -2290,7 +2361,7 @@ class TableComs {
         </span>,
         responsibility: '综合管理部、财务部'
     }];
-    assets_disposal2=[{
+    assets_disposal2 = [{
         key: '1',
         steupName: '资产处置',
         objectM: <span>公司领导、综合管理部、财务部负责人</span>,
@@ -2321,21 +2392,24 @@ class TableComs {
         columns: this.comIssue_columns,
         data: this.assets_disposal1,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     assets_disposal_manger2 = {
         columns: this.comIssue_columns,
         data: this.assets_disposal2,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     assets_disposal_manger3 = {
         columns: this.comIssue_columns,
         data: this.assets_disposal3,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //========================资产管理===========================//
@@ -2436,10 +2510,11 @@ class TableComs {
     }];
 
     complaint_reporting_handling_manger = {
-        columns: this.getScolumns(0,5),
+        columns: this.getScolumns(0, 5),
         data: this.complaint_reporting_handling,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     internal_audit_monitoring = [{
@@ -2501,10 +2576,11 @@ class TableComs {
     }];
 
     internal_audit_monitoring_manger = {
-        columns: this.getScolumns(0,5),
+        columns: this.getScolumns(0, 5),
         data: this.internal_audit_monitoring,
         bordered: true,
-        pagination: false
+        pagination: false,
+        scroll: {y: 240}
     };
 
     //========================内部监督管理===========================//
@@ -2512,18 +2588,23 @@ class TableComs {
     data_columns = [{
         title: '责任人',
         dataIndex: 'liable',
+        width: 150,
     }, {
         title: '时间',
         dataIndex: 'date',
+        width: 150,
     }, {
         title: '事件描述',
         dataIndex: 'description',
+        width: 150,
     }, {
         title: '风险等级',
         dataIndex: 'risk',
+        width: 150,
     }, {
         title: '违规环节',
         dataIndex: 'link',
+        width: 150,
     }, {
         title: '违规说明',
         dataIndex: 'explain',
@@ -2551,7 +2632,8 @@ class TableComs {
         columns: this.data_columns,
         data: this.getDatas(),
         bordered: true,
-        pagination: {pageSize: 5}
+        scroll:{y:232},
+        title: ()=>"风险监控统计表"
     };
 
 }
