@@ -114,6 +114,6 @@
     "extends": "react-app"
   },
   "theme": {
-    "primary-color": "#1088ae"
+    "primary-color": "#1DA57A"
   }
 }

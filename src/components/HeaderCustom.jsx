@@ -31,22 +31,8 @@ class HeaderCustom extends Component {
 
     componentDidMount() {
         const QueryString = queryString();
-        // if (QueryString.hasOwnProperty('code')) {
-        //     console.log(QueryString);
-        //     const _user = JSON.parse(localStorage.getItem('user'));
-        //     !_user && gitOauthToken(QueryString.code).then(res => {
-        //         console.log(res);
-        //         gitOauthInfo(res.access_token).then(info => {
-        //             this.setState({
-        //                 user: info
-        //             });
-        //             localStorage.setItem('user', JSON.stringify(info));
-        //         });
-        //     });
-        //     _user && this.setState({
-        //         user: _user
-        //     });
-        // }
+        console.log("QueryString:" + QueryString);//第三方登录
+
         const _user = JSON.parse(localStorage.getItem('user')) || '测试';
         if (!_user && QueryString.hasOwnProperty('code')) {
             gitOauthToken(QueryString.code).then(res => {
@@ -97,7 +83,8 @@ class HeaderCustom extends Component {
     };
 
     render() {
-        const { responsive, path } = this.props;
+        let user = this.state.user;
+        let adminString = user.userName || '用户中心';
         return (
             <Header style={{ background: '#069FBF', padding: 0, height: 58 }} className="custom-theme">
                 <div className="ui-flex justify-between between"
@@ -112,7 +99,7 @@ class HeaderCustom extends Component {
                             <div className=" d-relative  text-center"><img style={{width:'80%',height:'80%'}}
                                                                            src={adminUp}
                                                                            alt="头像"/>
-                                <p className="p-center"> 用户中心</p ></div>
+                                <p className="p-center"> {adminString}</p ></div>
 
                         </Menu.Item>
                         <Menu.Item key="index">
@@ -136,7 +123,7 @@ class HeaderCustom extends Component {
                                 <p className="p-center"> 清除</p ></div>
                         </Menu.Item>
                         <Menu.Item key="logout">
-                            <div className=" d-relative  text-center " onClick={this.logout}><img
+                            <div className=" d-relative  text-center "><img
                                 style={{width:'80%',height:'80%'}}
                                 src={logoutUp}
                                 alt="退出登录"/>

@@ -98,7 +98,7 @@ class BreadcrumbCustom extends React.Component {
         const {indexName} = this.props || "首页";
         return (
             <span>
-                <Breadcrumb className="pull-left" style={{ margin: '6px 0' }}>
+                <Breadcrumb separator=">" className="pull-left" style={{ margin: '6px 0' }}>
                     <Breadcrumb.Item><Icon type="mobile"/><span style={{ margin: '0px 12px' }}
                                                                 className="nav-text">{indexName}</span></Breadcrumb.Item>
                     {first}
