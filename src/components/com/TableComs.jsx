@@ -32,7 +32,6 @@ class TableComs {
         return obj;
     };
 
-
     isArray = (obj)=> {
         return Object.prototype.toString.call(obj) === '[object Array]';
     };
@@ -57,11 +56,12 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-            width: 550,
+
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 180,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -99,11 +99,11 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 180,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -132,11 +132,11 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 180,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -165,13 +165,13 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 180,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -202,13 +202,13 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 180,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -235,13 +235,13 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 180,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -271,11 +271,11 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
+            width: 180,
             render: this.renderContent
         }]
     };
@@ -414,7 +414,7 @@ class TableComs {
         data: this.readyIssue_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //请示报告 数据适配
@@ -423,7 +423,7 @@ class TableComs {
         data: this.reptIssue_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //集体决策 数据适配
@@ -432,7 +432,7 @@ class TableComs {
         data: this.ourIssue_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //落实执行 数据适配
@@ -441,7 +441,7 @@ class TableComs {
         data: this.doIssue_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     //========================三重一大===========================//
 
@@ -637,7 +637,7 @@ class TableComs {
         data: this.seal_manger_made_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     seal_use_manger = {
@@ -645,7 +645,7 @@ class TableComs {
         data: this.seal_manger_use_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     seal_des_manger = {
@@ -653,7 +653,7 @@ class TableComs {
         data: this.seal_manger_des_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //车辆管理
@@ -662,7 +662,7 @@ class TableComs {
         data: this.car_equipment_manger_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     car_dispatch_manger = {
@@ -670,7 +670,7 @@ class TableComs {
         data: this.car_dispatch_manger_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     car_repair_manger = {
@@ -678,7 +678,7 @@ class TableComs {
         data: this.car_repair_manger_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     car_charge_manger = {
@@ -686,7 +686,7 @@ class TableComs {
         data: this.car_charge_manger_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //公务接待
@@ -695,7 +695,7 @@ class TableComs {
         data: this.reception_manger_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //出入境管理
@@ -704,7 +704,7 @@ class TableComs {
         data: this.private_manger_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     public_manger = {
@@ -712,7 +712,7 @@ class TableComs {
         data: this.public_manger_data,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     //========================综合事务管理===========================//
 
@@ -742,7 +742,7 @@ class TableComs {
         data: this.hrm_motion,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
 
@@ -796,7 +796,7 @@ class TableComs {
         data: this.hrm_democracy_recommendation,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     hrm_inspect = [{
@@ -867,7 +867,7 @@ class TableComs {
         data: this.hrm_inspect,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     hrm_discussion_and_decision = [{
@@ -923,7 +923,7 @@ class TableComs {
         data: this.hrm_discussion_and_decision,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
 
@@ -962,7 +962,7 @@ class TableComs {
         data: this.hrm_in_office,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     hrm_recruitment = [{
@@ -1036,7 +1036,7 @@ class TableComs {
         data: this.hrm_recruitment,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     hrm_salary_and_welfare = [{
@@ -1071,7 +1071,7 @@ class TableComs {
         data: this.hrm_salary_and_welfare,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     hrm_other = [{
@@ -1124,7 +1124,7 @@ class TableComs {
         data: this.hrm_other,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //========================人力资源管理===========================//
@@ -1172,7 +1172,7 @@ class TableComs {
         data: this.finance_budget_expenditure_management,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     finance_cash_management = [{
@@ -1228,7 +1228,7 @@ class TableComs {
         data: this.finance_cash_management,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     finance_bank_account_management = [{
@@ -1287,7 +1287,7 @@ class TableComs {
         data: this.finance_bank_account_management,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     finance_bill_management = [{
@@ -1320,7 +1320,7 @@ class TableComs {
         data: this.finance_bill_management,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
 
@@ -1378,7 +1378,7 @@ class TableComs {
         data: this.finance_debt_management,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     //========================财务管理===========================//
 
@@ -1463,7 +1463,7 @@ class TableComs {
         data: this.funds_project_collection,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     //========================自有资金投资管理===========================//
 //========================工程建设管理===========================//
@@ -1573,7 +1573,7 @@ class TableComs {
         data: this.project_quality_control,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
 
@@ -1610,7 +1610,7 @@ class TableComs {
         data: this.project_progress_control,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     project_investment_control = [{
         //投资控制
@@ -1665,7 +1665,7 @@ class TableComs {
         data: this.project_progress_control,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     project_safety_control = [{
@@ -1723,7 +1723,7 @@ class TableComs {
         data: this.project_safety_control,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     project_business_management = [{
@@ -1780,7 +1780,7 @@ class TableComs {
         data: this.project_business_management,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //========================工程建设管理===========================//
@@ -1827,7 +1827,7 @@ class TableComs {
         data: this.project_water_dispatch_management,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     project_water_monitoring = [{
@@ -1849,7 +1849,7 @@ class TableComs {
         data: this.project_water_monitoring,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
 
@@ -1880,7 +1880,7 @@ class TableComs {
         data: this.project_maintenance,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     project_safety_production_monitor = [{
@@ -1912,7 +1912,7 @@ class TableComs {
         data: this.project_safety_production_monitor,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     safety_accident_investigation = [{
@@ -1954,7 +1954,7 @@ class TableComs {
         data: this.safety_accident_investigation,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     //========================工程运行管理===========================//
 
@@ -2099,7 +2099,7 @@ class TableComs {
         data: this.tendering_and_bidding,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     //========================招标采购管理===========================//
 
@@ -2124,7 +2124,7 @@ class TableComs {
         data: this.project_setting,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
 
@@ -2133,7 +2133,7 @@ class TableComs {
         key: '1',
         steupName: '谈判采购',
         objectM: <span>履约责任部门负责人、采购小组成员</span>,
-        f_level: <span>}参照“招标采购”部分。
+        f_level: <span>参照“招标采购”部分。
         </span>,
         measures: <span>参照“招标采购”部分。
         </span>,
@@ -2165,7 +2165,7 @@ class TableComs {
         data: this.contract_formation,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     contract_fulfilment = [{
@@ -2215,7 +2215,7 @@ class TableComs {
         data: this.contract_fulfilment,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //========================合同管理===========================//
@@ -2244,7 +2244,7 @@ class TableComs {
         data: this.asset_allocation,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     asset_use1 = [{
         //资产使用
@@ -2293,6 +2293,7 @@ class TableComs {
         </span>,
         responsibility: '综合管理部、财务部'
     }];
+
     asset_use5 = [{
         key: '1',
         steupName: '资产收益管理',
@@ -2323,42 +2324,42 @@ class TableComs {
         data: this.asset_use1,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     asset_use_manger2 = {
         columns: this.comIssue_columns,
         data: this.asset_use2,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     asset_use_manger3 = {
         columns: this.comIssue_columns,
         data: this.asset_use3,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     asset_use_manger4 = {
         columns: this.comIssue_columns,
         data: this.asset_use4,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     asset_use_manger5 = {
         columns: this.comIssue_columns,
         data: this.asset_use5,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
     asset_use_manger6 = {
         columns: this.comIssue_columns,
         data: this.asset_use6,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     assets_disposal1 = [{
@@ -2405,7 +2406,7 @@ class TableComs {
         data: this.assets_disposal1,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     assets_disposal_manger2 = {
@@ -2413,7 +2414,7 @@ class TableComs {
         data: this.assets_disposal2,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     assets_disposal_manger3 = {
@@ -2421,7 +2422,7 @@ class TableComs {
         data: this.assets_disposal3,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //========================资产管理===========================//
@@ -2526,7 +2527,7 @@ class TableComs {
         data: this.complaint_reporting_handling,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     internal_audit_monitoring = [{
@@ -2592,7 +2593,7 @@ class TableComs {
         data: this.internal_audit_monitoring,
         bordered: true,
         pagination: false,
-        scroll: {y: 240}
+        scroll: {y: 250}
     };
 
     //========================内部监督管理===========================//
@@ -2644,7 +2645,7 @@ class TableComs {
         columns: this.data_columns,
         data: this.getDatas(),
         bordered: true,
-        scroll:{y:232},
+        scroll:{y:228},
         title: ()=>"风险监控统计表"
     };
 

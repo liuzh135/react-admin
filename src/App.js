@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import {Layout } from 'antd';
+import React, {Component} from 'react';
+import {Layout} from 'antd';
 import './style/index.less';
 import SiderCustom from './components/SiderCustom';
 import BaseSideCustom from './components/baseside/BaseSideCustom';
 import HeaderCustom from './components/HeaderCustom';
 import ExtSideCustom from './components/baseside/ExtSideCustom';
 import DecisionsModel from './menu/DecisionsModel';
-import { receiveData } from './action';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {receiveData} from './action';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
     componentWillMount() {
         const { receiveData } = this.props;
         const user = JSON.parse(localStorage.getItem('user'));
+        console.log("1111111111111111");
         user && receiveData(user, 'auth');
         const { router } = this.props;
         if (user == null) {
@@ -42,7 +44,7 @@ class App extends Component {
         const { receiveData } = this.props;
         const clientWidth = document.body.clientWidth;
         console.log("111111" + clientWidth);
-        receiveData({isMobile: clientWidth <= 992}, 'responsive');
+        receiveData({ isMobile: clientWidth <= 992 }, 'responsive');
     };
     //响应式
     toggle = () => {
@@ -74,15 +76,15 @@ class App extends Component {
         }
 
         return (
-            <Layout >
+            <Layout>
 
                 <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}}
                               router={router} path={this.props.location.pathname}/>
 
-                <Layout >
-                    { !responsive.data.isMobile && side_view }
+                <Layout>
+                    {!responsive.data.isMobile && side_view}
                     <Layout>
-                        <Content style={{ margin: '0 16px', overflow: 'initial' }}>
+                        <Content style={{ margin: '0 10px', overflow: 'initial' }}>
                             {this.props.children}
                         </Content>
 
@@ -91,11 +93,17 @@ class App extends Component {
 
                 </Layout>
                 {
-                    responsive.data.isMobile && (   // 手机端对滚动很慢的处理
+                    (   // 手机端对滚动很慢的处理
                         <style>
                             {`
-                            #root{
-                                height: auto;
+
+                            .ant-card-wider-padding .ant-card-body {
+                              padding: 16px 16px;
+                            }
+
+                            .ant-card-body {
+                              padding: 14px;
+                              zoom: 1;
                             }
                         `}
                         </style>
@@ -106,13 +114,10 @@ class App extends Component {
     }
 }
 
-//<!-- <Footer style={{ height:30,textAlign: 'center' }}>
-//    V1.0.0 ©2017 Created by wyzk
-//</Footer> -->
 
 const mapStateToProps = state => {
-    const { auth = {data: {}}, responsive = {data: {}} } = state.httpData;
-    return {auth, responsive};
+    const { auth = { data: {} }, responsive = { data: {} } } = state.httpData;
+    return { auth, responsive };
 };
 const mapDispatchToProps = dispatch => ({
     receiveData: bindActionCreators(receiveData, dispatch)

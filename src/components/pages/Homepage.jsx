@@ -2,7 +2,7 @@
  * Created by hao.cheng on 2017/5/7.
  */
 import React from 'react';
-import { Row, Col, Card } from 'antd';
+import {Row, Col, Card} from 'antd';
 import index1 from '../../style/imgs/index/1-1-up.png';
 import index2 from '../../style/imgs/index/1-2-up.png';
 import index3 from '../../style/imgs/index/1-3-up.png';
@@ -23,18 +23,18 @@ class Homepage extends React.Component {
         animatedOne: -1
     };
     animatedAll = (checked) => {
-        checked && this.setState({animated: true});
-        !checked && this.setState({animated: false});
+        checked && this.setState({ animated: true });
+        !checked && this.setState({ animated: false });
 
     };
     animatedOne = (i) => {
-        this.setState({animatedOne: i});
+        this.setState({ animatedOne: i });
     };
     animatedOneOver = () => {
-        this.setState({animatedOne: -1});
+        this.setState({ animatedOne: -1 });
     };
 
-    vFunc = (v)=> {
+    vFunc = (v) => {
         if (typeof v.onclickFnc === "function") {
             v.onclickFnc();
         } else {
@@ -47,68 +47,68 @@ class Homepage extends React.Component {
             {
                 animateId: 'headShake',
                 imgsrc: index1,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     console.log("go to 1");
                     this.props.router.push('/app/decision/readyIndex')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index2,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/comprehensive/collogate/make')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index3,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/persmag/selectcadre/motion')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index4,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/finance/budget/budgeting')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index5,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/inverstment/capitalinvestment')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index6,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/construction/qualityctrl')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index7,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/operation/waterquality')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index8,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/tender/tendermanger')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index9,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/contract/projectcontract')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index10,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/asset/config/configureAsset')
                 }
             }, {
                 animateId: 'headShake',
                 imgsrc: index11,
-                onclickFnc: ()=> {
+                onclickFnc: () => {
                     this.props.router.push('/app/supervision/Lettersreport')
                 }
             }
@@ -121,7 +121,7 @@ class Homepage extends React.Component {
                     <Row gutter={14}>
                         {animations.map((v, i) => (
                             <Col className="gutter-row" md={6} key={i}>
-                                <div className="gutter-box" style={{cursor:'pointer'}}>
+                                <div className="gutter-box" style={{ cursor: 'pointer' }}>
                                     <Card
                                         bodyStyle={{ padding: 20 }}
                                         bordered={false}
@@ -131,7 +131,7 @@ class Homepage extends React.Component {
                                         onMouseLeave={() => this.animatedOneOver()}>
                                         <div className="custom-image">
                                             <img alt="example" width="100%" src={v.imgsrc}
-                                                 onClick={()=>this.vFunc(v)}/>
+                                                 onClick={() => this.vFunc(v)}/>
                                         </div>
 
                                     </Card>

@@ -107,7 +107,8 @@ class BaseSideCustom extends Component {
                 collapsed={this.props.collapsed}
                 style={{overflowY: 'auto',background:"#f4f4f4"}}
             >
-                <div className="logo"/>
+                {/*<div className="logo"/>*/}
+
                 <Menu
                     onClick={this.menuClick}
                     mode="inline"
