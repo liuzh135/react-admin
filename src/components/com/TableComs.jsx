@@ -32,6 +32,7 @@ class TableComs {
         return obj;
     };
 
+
     isArray = (obj)=> {
         return Object.prototype.toString.call(obj) === '[object Array]';
     };
@@ -56,12 +57,12 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
-
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 180,
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -99,11 +100,12 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 180,
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -132,11 +134,12 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 180,
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -165,13 +168,14 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 180,
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -202,13 +206,14 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 180,
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -234,6 +239,7 @@ class TableComs {
             render: this.renderContent
         }, {
             title: '防控措施',
+            width: 550,
             dataIndex: 'measures',
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
@@ -241,7 +247,7 @@ class TableComs {
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 180,
+            width: 150,
             render: (value, row, index) => {
                 return this.objrender(value, index, v, len);
             }
@@ -271,11 +277,12 @@ class TableComs {
         }, {
             title: '防控措施',
             dataIndex: 'measures',
+            width: 550,
             render: this.renderContent
         }, {
             title: '责任主体',
             dataIndex: 'responsibility',
-            width: 180,
+            width: 150,
             render: this.renderContent
         }]
     };
@@ -310,6 +317,7 @@ class TableComs {
             render: this.renderContent
         }, {
             title: '责任主体',
+            width: 150,
             dataIndex: 'responsibility',
             render: this.renderContent
         }
@@ -2133,7 +2141,7 @@ class TableComs {
         key: '1',
         steupName: '谈判采购',
         objectM: <span>履约责任部门负责人、采购小组成员</span>,
-        f_level: <span>参照“招标采购”部分。
+        f_level: <span>}参照“招标采购”部分。
         </span>,
         measures: <span>参照“招标采购”部分。
         </span>,
