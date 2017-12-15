@@ -15,21 +15,25 @@ class DecisionsModel {
                 title: "议题准备",
                 menuId: 1,
                 menu: "/app/decision/readyIndex",
+                icon: "arrow-down",
                 submenu: null
             },
             {
                 menuId: 2,
                 menu: "/app/decision/rept",
                 title: "请示报告",
+                icon: "arrow-down",
                 submenu: null
             }, {
                 menuId: 3,
                 title: "集体决策",
+                icon: "arrow-down",
                 menu: "/app/decision/our",
                 submenu: null
             }, {
                 menuId: 4,
                 title: "执行落实",
+                icon: "arrow-down",
                 menu: "/app/decision/todo",
                 submenu: null
             }
@@ -38,6 +42,7 @@ class DecisionsModel {
             {
                 title: "印章管理",
                 menuId: 1,
+                icon: "hdd",
                 menu: "/app/comprehensive/collogate",
                 submenu: [
                     {
@@ -59,6 +64,7 @@ class DecisionsModel {
                 menuId: 2,
                 menu: "/app/comprehensive/car",
                 title: "公务用车管理",
+                icon: "car",
                 submenu: [
                     {
                         subId: 1,
@@ -83,12 +89,14 @@ class DecisionsModel {
                 menuId: 3,
                 menu: "/app/comprehensive/basecom/reception",
                 title: "公务接待管理",
+                icon: "idcard",
                 submenu: null
             },
             {
                 menuId: 4,
                 menu: "/app/comprehensive/abroad",
                 title: "出国（境）管理",
+                icon: "coffee",
                 submenu: [
                     {
                         subId: 1,
@@ -107,6 +115,7 @@ class DecisionsModel {
                 title: "干部选拔任用管理",
                 menuId: 1,
                 menu: "/app/persmag/selectcadre",
+                icon: "scan",
                 submenu: [
                     {
                         subId: 1,
@@ -135,18 +144,21 @@ class DecisionsModel {
                 menuId: 2,
                 menu: "/app/persmag/recruit",
                 title: "人才招聘管理",
+                icon: "usergroup-add",
                 submenu: null
             },
             {
                 menuId: 3,
                 menu: "/app/persmag/salarymanager",
                 title: "薪酬福利管理",
+                icon: "red-envelope",
                 submenu: null
             },
             {
                 menuId: 4,
                 menu: "/app/persmag/otherPersonnel",
                 title: "其他人事管理",
+                icon: "schedule ",
                 submenu: null
             }
         ],
@@ -155,6 +167,7 @@ class DecisionsModel {
                 title: "预算管理",
                 menuId: 1,
                 menu: "/app/finance/budget",
+                icon: "shop",
                 submenu: [
                     {
                         subId: 1,
@@ -175,6 +188,7 @@ class DecisionsModel {
                 menuId: 2,
                 menu: "/app/finance/capital",
                 title: "资金管理",
+                icon: "pay-circle-o",
                 submenu: [
                     {
                         subId: 1,
@@ -195,6 +209,7 @@ class DecisionsModel {
                 menuId: 3,
                 menu: "/app/finance/credit",
                 title: "债权债务管理",
+                icon: "database",
                 submenu: [
                     {
                         subId: 1,
@@ -212,6 +227,7 @@ class DecisionsModel {
             {
                 title: "自有资金投资管理",
                 menuId: 1,
+                icon: "pushpin-o",
                 menu: "/app/inverstment/capitalinvestment",
                 submenu: null
             }
@@ -220,12 +236,14 @@ class DecisionsModel {
             {
                 title: "质量控制",
                 menuId: 1,
+                icon: "bell",
                 menu: "/app/construction/qualityctrl",
                 submenu: null
             },
             {
                 title: "进度控制",
                 menuId: 2,
+                icon: "usb",
                 menu: "/app/construction/progressctrl",
                 submenu: null
             }, {
@@ -367,12 +385,14 @@ class DecisionsModel {
                 title: "信访举报及问题处理",
                 menuId: 1,
                 menu: "/app/supervision/Lettersreport",
+                icon: "schedule",
                 submenu: null
             },
             {
                 title: "内部审计监督",
                 menuId: 2,
                 menu: "/app/supervision/auditsuperv",
+                icon: "appstore-o",
                 submenu: null
             }
         ]

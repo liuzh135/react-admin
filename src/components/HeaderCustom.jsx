@@ -86,7 +86,7 @@ class HeaderCustom extends Component {
         let user = this.state.user;
         let adminString = user.userName || '用户中心';
         return (
-            <Header style={{ background: '#069FBF', padding: 0, height: 57 }} className="custom-theme">
+            <Header style={{ background: '#069FBF', padding: 0, height: 65 }} className="custom-theme">
                 <div className="ui-flex justify-between between"
                      style={{height: '100%'}}>
                     <img src={imgs} style={{marginLeft:'30px'}} alt=""/>
@@ -145,6 +145,9 @@ class HeaderCustom extends Component {
                     .ant-menu-item {
                         padding: 0 ;
                         height:100%;
+                    }
+                    .ant-menu-horizontal {
+                        border-bottom: 0px;
                     }
                 `}</style>
             </Header>

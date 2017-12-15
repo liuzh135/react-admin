@@ -81,7 +81,7 @@ class App extends Component {
                 <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}}
                               router={router} path={this.props.location.pathname}/>
 
-                <Layout>
+                <Layout style={{height:"90%"}}>
                     {!responsive.data.isMobile && side_view}
                     <Layout>
                         <Content style={{ margin: '0 10px', overflow: 'initial' }}>

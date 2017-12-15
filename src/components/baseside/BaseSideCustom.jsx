@@ -74,6 +74,7 @@ class BaseSideCustom extends Component {
         if (v != null) {
             for (var index in v) {
                 let menuitem = v[index];
+                let icon = menuitem.icon || "mobile" ;
                 if (menuitem.submenu != null) {
                     submenu = menuitem.submenu;
                     let submenuView = [];
@@ -84,11 +85,11 @@ class BaseSideCustom extends Component {
                     }
                     this.menu.push(<SubMenu
                         key={menuitem.menu}
-                        title={<span><Icon type="scan" /><span className="nav-text">{menuitem.title}</span></span>}
+                        title={<span><Icon type={icon} /><span className="nav-text">{menuitem.title}</span></span>}
                     >{submenuView}</SubMenu>);
                 } else {
                     this.menu.push(<Menu.Item key={menuitem.menu}>
-                        <Link to={menuitem.menu}><Icon type="mobile"/><span className="nav-text">{menuitem.title}</span></Link>
+                        <Link to={menuitem.menu}><Icon type={icon}/><span className="nav-text">{menuitem.title}</span></Link>
                     </Menu.Item>);
                 }
             }

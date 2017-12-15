@@ -54,6 +54,8 @@ class BaseEcharView extends React.Component {
             <ReactEcharts
                 option={dataOption}
                 style={style}
+                notMerge={true}
+                lazyUpdate={true}
                 className={'react_for_echarts'}
             />
         )
