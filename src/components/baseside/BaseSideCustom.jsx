@@ -74,7 +74,7 @@ class BaseSideCustom extends Component {
         if (v != null) {
             for (var index in v) {
                 let menuitem = v[index];
-                let icon = menuitem.icon || "mobile" ;
+                let icon = menuitem.icon || "" ;
                 if (menuitem.submenu != null) {
                     submenu = menuitem.submenu;
                     let submenuView = [];

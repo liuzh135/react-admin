@@ -12,28 +12,28 @@ class DecisionsModel {
     data = {
         decision: [
             {
-                title: "议题准备",
+                title: "1、议题准备",
                 menuId: 1,
                 menu: "/app/decision/readyIndex",
-                icon: "arrow-down",
+                icon: "",
                 submenu: null
             },
             {
                 menuId: 2,
                 menu: "/app/decision/rept",
-                title: "请示报告",
-                icon: "arrow-down",
+                title: "2、请示报告",
+                icon: "",
                 submenu: null
             }, {
                 menuId: 3,
-                title: "集体决策",
-                icon: "arrow-down",
+                title: "3、集体决策",
+                icon: "",
                 menu: "/app/decision/our",
                 submenu: null
             }, {
                 menuId: 4,
-                title: "执行落实",
-                icon: "arrow-down",
+                title: "4、执行落实",
+                icon: "",
                 menu: "/app/decision/todo",
                 submenu: null
             }

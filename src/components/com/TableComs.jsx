@@ -91,6 +91,21 @@ class TableComs {
         for (let j = 0; j < i; j++) {
             iconView.push(<Icon type={colorString} style={{ margin: '3px', color: '#0fb0f0' }}/>);
         }
+        for (let j = 0; j < 3 - i; j++) {
+            iconView.push(<Icon type="star-o" style={{ margin: '3px', color: '#0fb0f0' }}/>);
+        }
+        return <span>{iconView}</span>;
+    };
+
+    //星星的图标显示
+    getStar1 = (i, string) => {
+        // return <Rate count={i} disabled defaultValue={i} style={{ color:"#00CC00",fontSize: 16 }}/>;
+        let iconView = [];
+        let colorString = string == null ? "star" : string;
+
+        for (let j = 0; j < i; j++) {
+            iconView.push(<Icon type={colorString} style={{ margin: '3px', color: '#0fb0f0' }}/>);
+        }
         return <span>{iconView}</span>;
     };
 
@@ -98,45 +113,46 @@ class TableComs {
         let firstLi;
         let nextLi;
         let FleveView = [];
-        let clsName = maxlen == 1 ? "fleft-1m" : maxlen == 2 ? "fleft-2m" : "fleft-3m";
-        if (typeof expand === 'boolean' && !expand) {
-            let modeData = flevels[0].span;
-            let modestar = flevels[0].star;
-            let modeString = modeData.substring(0, 20) + "...";
-            firstLi = <div>
-                <div className={clsName}>
-                    {this.getStar(modestar, "star")}
-                </div>
-                <div className="fleft-10m">
-                    <span>{modeString}</span>
-                </div>
-            </div>;
-            FleveView.push(firstLi);
-        } else {
-            for (let i = 0; i < flevels.length; i++) {
-                if (i == 0) {
-                    firstLi = <div>
-                        <div className={clsName}>
-                            {this.getStar(flevels[i].star, "star")}
-                        </div>
-                        <div className="fleft-10m">
-                            <span>{flevels[i].span}</span>
-                        </div>
-                    </div>;
-                    FleveView.push(firstLi);
-                } else {
-                    nextLi = <div className="clear-float margin-top">
-                        <div className={clsName}>
-                            {this.getStar(flevels[i].star, "star")}
-                        </div>
-                        <div className="fleft-10m">
-                            <span> {flevels[i].span}</span>
-                        </div>
-                    </div>;
-                    FleveView.push(nextLi);
-                }
+        // let clsName = maxlen == 1 ? "fleft-1m" : maxlen == 2 ? "fleft-2m" : "fleft-3m";
+        let clsName = "fleft-3m";
+        // if (typeof expand === 'boolean' && !expand) {
+        //     let modeData = flevels[0].span;
+        //     let modestar = flevels[0].star;
+        //     let modeString = modeData.substring(0, 20) + "...";
+        //     firstLi = <div>
+        //         <div className={clsName}>
+        //             {this.getStar(modestar, "star")}
+        //         </div>
+        //         <div className="fleft-10m">
+        //             <span>{modeString}</span>
+        //         </div>
+        //     </div>;
+        //     FleveView.push(firstLi);
+        // } else {
+        for (let i = 0; i < flevels.length; i++) {
+            if (i == 0) {
+                firstLi = <div>
+                    <div className={clsName}>
+                        {this.getStar(flevels[i].star, "star")}
+                    </div>
+                    <div className="fleft-10m">
+                        <span>{flevels[i].span}</span>
+                    </div>
+                </div>;
+                FleveView.push(firstLi);
+            } else {
+                nextLi = <div className="clear-float margin-top">
+                    <div className={clsName}>
+                        {this.getStar(flevels[i].star, "star")}
+                    </div>
+                    <div className="fleft-10m">
+                        <span> {flevels[i].span}</span>
+                    </div>
+                </div>;
+                FleveView.push(nextLi);
             }
         }
+        // }
         return <div>{FleveView}</div>;
 
     };
@@ -144,17 +160,17 @@ class TableComs {
     getMeasures = (measures, expand) => {
         let measuresView = [];
         let contentLi;
-        if (typeof expand === 'boolean' && !expand) {
-            let modeData = measures[0];
-            let modeString = modeData.substring(0, 20) + "...";
-            contentLi = <li>{modeString}</li>;
+        // if (typeof expand === 'boolean' && !expand) {
+        //     let modeData = measures[0];
+        //     let modeString = modeData.substring(0, 20) + "...";
+        //     contentLi = <li>{modeString}</li>;
+        //     measuresView.push(contentLi);
+        // } else {
+        for (let i = 0; i < measures.length; i++) {
+            contentLi = <li>{measures[i]}</li>;
             measuresView.push(contentLi);
-        } else {
-            for (let i = 0; i < measures.length; i++) {
-                contentLi = <li>{measures[i]}</li>;
-                measuresView.push(contentLi);
-            }
         }
+        // }
         let clsName = measuresView.length > 1 ? "ul-text" : "";
         return <ul className={clsName}>{measuresView}</ul>;
     };
@@ -169,7 +185,7 @@ class TableComs {
         }, {
             title: '涉及对象',
             dataIndex: 'objectM',
-            width: 200,
+            width: 150,
             render: this.renderContent
         }, {
             title: '廉政风险点及等级',
@@ -195,7 +211,7 @@ class TableComs {
     readyIssue_data = (expand) => [{
         key: '1',
         steupName: '议题研究',
-        objectM: '主责部门负责人、公司分管领导',
+        objectM: <span>主责部门负责人<br/>公司分管领导</span>,
         f_level:
             this.getFLevel([
                 {
@@ -213,7 +229,7 @@ class TableComs {
     }, {
         key: '2',
         steupName: '征求意见',
-        objectM: '主责部门负责人、公司分管领导',
+        objectM: <span>主责部门负责人<br/>公司分管领导</span>,
         f_level:
             this.getFLevel([
                 {
@@ -233,7 +249,7 @@ class TableComs {
     reptIssue_data = (expand) => [{
         key: '1',
         steupName: '议题研究',
-        objectM: '主责部门负责人和相关工作人员',
+        objectM: <span>主责部门负责人<br/>相关工作人员</span>,
         f_level:
             this.getFLevel([
                 {
@@ -273,8 +289,8 @@ class TableComs {
         measures:
             this.getMeasures(["严格执行决策制度，未达到与会规定人数，会议应推迟召开；"
                 , "涉及“三重一大”事项必须经公司总经理办公会/党委会研究决定；"
-            ,"主要领导（或会议召集人）原则上应末位发表意见；"
-            ,"公司纪委（或监察审计部）负责人出席或列席会议进行监督，对应回避未回避情况及时提醒。"], expand),
+                , "主要领导（或会议召集人）原则上应末位发表意见；"
+                , "公司纪委（或监察审计部）负责人出席或列席会议进行监督，对应回避未回避情况及时提醒。"], expand),
         responsibility: '公司领导班子'
     }, {
         key: '2',
@@ -292,12 +308,12 @@ class TableComs {
         measures:
             this.getMeasures(["落实民主集中制，会议表决实行一人一票，少数服从多数，对分歧明显，且人数接近的事项应暂缓做出决策；"
                 , "涉及“三重一大”事项必须经公司总经理办公会/党委会研究决定；"
-                ,"落实“三重一大”决策制度监督检查制度，对会议决策不规范的情况，公司纪委有权向会议召集人提出意见和建议。"], expand),
+                , "落实“三重一大”决策制度监督检查制度，对会议决策不规范的情况，公司纪委有权向会议召集人提出意见和建议。"], expand),
         responsibility: '会议召集人'
     }];
 
 
-    doIssue_data = (expand) =>[{
+    doIssue_data = (expand) => [{
         key: '1',
         steupName: '会议记录',
         objectM: '会议记录人',
@@ -335,7 +351,7 @@ class TableComs {
                 }], 2, expand),
         measures:
             this.getMeasures(["建立督查督导工作机制，及时跟踪会议决定落实情况；"
-                ,"发现不执行或者选择性执行会议决定依据有关规定进行问责。"], expand),
+                , "发现不执行或者选择性执行会议决定依据有关规定进行问责。"], expand),
         responsibility: '综合管理部、党委办公室'
     }];
 
@@ -348,8 +364,8 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.readyIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 3 },
-            scroll: { x: true, y: 250 }
+            pagination: false,
+            style:{padding:'0 10px'}
         };
     };
 
@@ -359,8 +375,8 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.reptIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 3 },
-            scroll: { x: true, y: 250 }
+            pagination: false,
+            style:{padding:'0 10px'}
         };
     };
 
@@ -370,8 +386,8 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.ourIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 3 },
-            scroll: { x: true, y: 250 }
+            pagination: false,
+            style:{padding:'0 10px'}
         };
 
     };
@@ -382,8 +398,8 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.doIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 3 },
-            scroll: { x: true, y: 250 }
+            pagination: false,
+            style:{padding:'0 10px'}
         };
 
     };
@@ -2533,8 +2549,8 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.complaint_reporting_handling(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
-            scroll: { x: true, y: 250 }
+            pagination: false,
+            style:{padding:'0 10px'}
         }
     };
 
@@ -2641,8 +2657,8 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.internal_audit_monitoring(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
-            scroll: { x: true, y: 250 },
+            pagination: false,
+            style:{padding:'0 10px'}
         }
     };
 
@@ -2696,9 +2712,8 @@ class TableComs {
         columns: this.data_columns,
         data: this.getDatas(),
         bordered: true,
-        scroll: { y: 220 },
+        pagination: { pageSize: 3 },
         size: "small",
-        title: () => "风险监控统计表"
     };
 }
 

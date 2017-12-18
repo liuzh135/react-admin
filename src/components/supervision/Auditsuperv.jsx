@@ -91,23 +91,25 @@ class Auditsuperv extends React.Component {
         //刷新2次  解决echars 的宽度问题
         let first = this.state.first || false;
         let ecahrs = !first ? "" : <BaseEcharView option={echarCom.option} legend={legend} xAxis={xlist} data={datalist}
-                                                  style={{ height: '320px', width: '100%' }}/>;
+                                                  style={{ height: '100%', width: '100%' }}/>;
         return (
-            <div className="gutter-example button-demo ">
+            <div className="gutter-example button-demo " style={{ height: '100%' }}>
                 <BreadcrumbCustom first="内部审计监督" indexName="内部监督管理"/>
 
-                <Row gutter={10} className=" scrollable-container ">
-                    <Col className="gutter-row" md={24} style={{ padding: '0px' }}>
-                        <div className="">
-                            <Card bordered={false} noHovering={true}>
+                <Row gutter={10} className=" scrollable-container " style={{ height: '93%' }}>
+                    <Col className="gutter-row" md={24}
+                         style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>
+                        <div style={{ height: '100%' }}>
+                            <div style={{ padding: '5px 10px' }}>
                                 <Layout style={{ background: "#fff" }}>
                                     <div className="y-center justify-content">
-                                        <div className="text-center" style={{ flex: "1" }}>
-                                            <div className=" pull-left">
-                                                <Button size="default" onClick={this.handleButton}>风险防控(展开)</Button>
+                                        <div className="text-center" style={{ flex: "0.8" }}>
+                                            <div className="pull-left " style={{ fontSize: "14px" }}>
+                                                <Icon type="cloud" style={{ marginRight: "3px" }}/>
+                                                <span style={{ fontSize: "13px" }}>风险防控</span>
                                             </div>
-                                        </div>
 
+                                        </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
                                             <Step status="wait" title="制定年度审计计划"/>
@@ -119,19 +121,25 @@ class Auditsuperv extends React.Component {
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
-                                            <span className="pull-right ">高风险 {tableComs.getStar(3, "star")}
-                                                中风险 {tableComs.getStar(2, "star")} 低风险 {tableComs.getStar(1, "star")}</span>
+                                            <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
+                                                中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
                                         </div>
                                     </div>
                                 </Layout>
+                            </div>
+                            <div style={{ overflow: 'scroll',height:'95%'}}>
                                 <ExtBaseicTable {...(tableComs.internal_audit_monitoring_manger(expand))} />
-                            </Card>
+                            </div>
                         </div>
                     </Col>
 
                     <Col className="gutter-row" md={24}
-                         style={{ paddingTop: '10px', backgroundColor: "#fff", borderTop: "1px solid #E9E9E9" }}>
-                        <div className="" style={{ width: "30%", float: "left" }}>
+                         style={{
+                             height: '44%',
+                             backgroundColor: "#fff",
+                             borderTop: "1px solid #E9E9E9"
+                         }}>
+                        <div className="" style={{ width: "30%", height: '100%', float: "left" }}>
                             <Card bordered={false} style={{ height: '100%' }} noHovering={true}>
                                 <div className="pb-m">
                                     <h3>风险监控统计</h3>
@@ -150,9 +158,9 @@ class Auditsuperv extends React.Component {
 
                             </Card>
                         </div>
-                        <div className="" style={{ width: "70%", float: "left" }}>
-                            <Card bordered={false} noHovering={true}>
-                                <ExtBaseicTable style={{ margin: "5px" }}{...tableComs.dataIssue}/>
+                        <div className="" style={{ width: "70%", height: '100%', float: "left" }}>
+                            <Card bordered={false} noHovering={true} style={{ height: '100%' }}>
+                                <ExtBaseicTable style={{ margin: "5px", height: '100%' }}{...tableComs.dataIssue}/>
 
                             </Card>
                         </div>
@@ -188,6 +196,17 @@ class Auditsuperv extends React.Component {
                                     border-radius: 0px;
                                     border-bottom: 0px;
                                 }
+
+                                .ant-card-body{
+                                    height: 100%;
+                                }
+                                .ant-spin-nested-loading ,.ant-spin-container{
+                                    height: 100%;
+                                }
+                                .ant-table-small{
+                                    height: 80%;
+                                }
+
                         `}
                         </style>
                     )

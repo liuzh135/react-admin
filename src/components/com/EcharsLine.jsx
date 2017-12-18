@@ -26,18 +26,7 @@ class EcharsLine {
             }
 
         };
-        this.areaStyle = {
-            normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    offset: 0,
-                    color: color
-                }, {
-                    offset: 1,
-                    color: color
-                }], false),
-                type: 'default'
-            }
-        };
+
         this.markPoint = {
             data: [
                 {type: 'max', name: '最大值'},
