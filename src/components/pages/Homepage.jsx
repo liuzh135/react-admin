@@ -2,7 +2,7 @@
  * Created by hao.cheng on 2017/5/7.
  */
 import React from 'react';
-import {Row, Col, Card} from 'antd';
+import {Card, Col, Layout, Row} from 'antd';
 import index1 from '../../style/imgs/index/1-1-up.png';
 import index2 from '../../style/imgs/index/1-2-up.png';
 import index3 from '../../style/imgs/index/1-3-up.png';
@@ -148,8 +148,8 @@ class Homepage extends React.Component {
                     }
                 `}</style>
                 </div>
-            </div>
 
+            </div>
         )
     }
 }

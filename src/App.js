@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {Layout} from 'antd';
 import './style/index.less';
-import SiderCustom from './components/SiderCustom';
 import BaseSideCustom from './components/baseside/BaseSideCustom';
 import HeaderCustom from './components/HeaderCustom';
-import ExtSideCustom from './components/baseside/ExtSideCustom';
 import DecisionsModel from './menu/DecisionsModel';
 import {receiveData} from './action';
 import {connect} from 'react-redux';

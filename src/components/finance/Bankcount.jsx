@@ -4,27 +4,26 @@
  *
  * 财务管理-资金管理-银行账户管理
  */
-import React from 'react';
-import { Layout } from 'antd';
-import { Row, Col, Card, Timeline, Icon, Select} from 'antd';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React from "react";
+import EcharCom from "../com/EcharCom";
+import EcharBar from "../com/EcharBar";
+import Bacecomstyle from "../Bacecomstyle";
+import TableComs from "../com/TableComs";
+import {Card, Col, Icon, Layout, Row, Select, Steps} from 'antd';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 
 import BreadcrumbCustom from '../BreadcrumbCustom';
-import EchartsViews from '../dashboard/EchartsViews';
-import EchartsProjects from '../dashboard/EchartsProjects';
-import BasicTable from '../tables/BasicTable';
 import BaseEcharView from '../charts/BaseEcharView';
-import EcharCom from '../com/EcharCom';
 
-import { fetchData, receiveData } from '@/action';
-import TableComs from '../com/TableComs';
+import {fetchData, receiveData} from '@/action';
 
 import ExtBaseicTable from '../tables/ExtBaseicTable';
-import EcharBar from '../com/EcharBar';
 
 const Option = Select.Option;
+const Step = Steps.Step;
+
 
 class Bankcount extends React.Component {
 
@@ -33,6 +32,8 @@ class Bankcount extends React.Component {
         let d = new Date();
         this.state = {
             echartsFlag: false,
+            first: false,
+            expand: false,
             queryParam: {
                 'activityId': 1,//活动ID
                 'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
@@ -52,13 +53,29 @@ class Bankcount extends React.Component {
         //fetchData({funcName: 'admin', stateName: 'auth'});
     }
 
+    componentDidMount() {
+        let first = this.state.first || false;
+        if (!first) {
+            this.setState({
+                first: true
+            });
+        }
+    }
+
     //获取网络数据 渲染UI
     componentWillReceiveProps(nextProps) {
 
     }
 
-    handleChange = (v)=> {
+    handleChange = (v) => {
 
+    };
+
+    handleButton = () => {
+        let state = this.state.expand || false;
+        this.setState({
+            expand: !state,
+        });
     };
 
     render() {
@@ -69,71 +86,93 @@ class Bankcount extends React.Component {
         let xlist = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
         let legend = ["高风险", "中风险", "低风险"];
 
-        datalist.push(new EcharBar('高风险', 'line', 'circle', 4, [120, 300, 402, 180, 590, 620, 200], '#7DFFFD', 8));
-        datalist.push(new EcharBar('中风险', 'line', 'circle', 4, [220, 100, 302, 280, 590, 220, 420], '#FFBCFB', 8));
-        datalist.push(new EcharBar('低风险', 'line', 'circle', 4, [320, 400, 102, 80, 290, 320, 120], '#CAFF99', 8));
+        datalist.push(new EcharBar('高风险', 'line', 'circle', 4, [120, 300, 402, 180, 590, 620, 200], '#35C9CB', 6));
+        datalist.push(new EcharBar('中风险', 'line', 'circle', 4, [220, 100, 302, 280, 590, 220, 420], '#B9A6DF', 6));
+        datalist.push(new EcharBar('低风险', 'line', 'circle', 4, [320, 400, 102, 80, 290, 320, 120], '#5EB3EF', 6));
 
+        let expand = this.state.expand || false;
+        //刷新2次  解决echars 的宽度问题
+        let first = this.state.first || false;
+        let ecahrs = !first ? "" : <BaseEcharView option={echarCom.option} legend={legend} xAxis={xlist} data={datalist}
+                                                  style={{ height: '82%', width: '100%' }}/>;
         return (
-            <div className="gutter-example button-demo ">
+            <div className="gutter-example button-demo " style={{ height: '100%' }}>
                 <BreadcrumbCustom first="资金管理" second="银行账户管理" indexName="财务管理"/>
+                <Row gutter={10} className=" scrollable-container " style={{ height: '95%' }}>
+                    <Col className="gutter-row" md={24}
+                         style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>
+                        <div style={{ height: '100%' }}>
+                            <div style={{ padding: '5px 10px' }}>
+                                <Layout style={{ background: "#fff" }}>
+                                    <div className="y-center justify-content">
+                                        <div className="text-center" style={{ flex: "0.8" }}>
+                                            <div className="pull-left " style={{ fontSize: "14px" }}>
+                                                <Icon type="cloud" style={{ marginRight: "3px" }}/>
+                                                <span style={{ fontSize: "13px" }}>风险防控</span>
+                                            </div>
 
-                <Row gutter={10}>
-                    <Col className="gutter-row" md={24}>
-                        <div className="gutter-box">
-                            <Card bordered={false}>
-                                <Layout style={{background:"#fff"}}>
-                                    <div className="y-center">
-                                        <div className="pull-left mr-m">
-                                            <Icon type="cloud" className="text-2x"/>
-                                        </div>
-                                        <div className="clear" style={{width:"60px "}}>
-                                            <h4 >风险防控</h4>
                                         </div>
 
-                                        <div style={{width:"100%"}}>
-                                            <span className="pull-right text mr-m">高风险{tableComs.getStar(3, "★")}
-                                                中风险{tableComs.getStar(2, "★")} 低风险{tableComs.getStar(1, "★")}</span>
+                                        <div className="pull-right" style={{ flex: "2" }}>
+                                            <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
+                                                中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
                                         </div>
                                     </div>
-
-
                                 </Layout>
-                                <ExtBaseicTable {...tableComs.finance_bank_account_management_manger}/>
-                            </Card>
+                            </div>
+                            <div style={{ overflow: 'scroll', height: '95%' }}>
+                                <ExtBaseicTable {...(tableComs.finance_bank_account_management_manger(expand))} />
+                            </div>
                         </div>
                     </Col>
 
-                    <Col className="gutter-row" md={8}>
-                        <div className="gutter-box">
-                            <Card bordered={false} style={{height: '100%'}}>
-                                <div className="pb-m">
-                                    <h3>风险监控统计</h3>
+                    <Col className="gutter-row" md={24}
+                         style={{
+                             height: '44%',
+                             backgroundColor: "#fff",
+                             borderTop: "1px solid #E9E9E9"
+                         }}>
+                        <div className="" style={{ width: "30%", height: '100%', float: "left" }}>
+                            <div style={{ position: 'relative', height: '100%' }}>
+                                <div style={{
+                                    height: '14%',
+                                    width: '100%',
+                                    paddingLeft: '5px',
+                                    position: 'relative'
+                                }}>
+                                    <div style={{ fontSize: "14px" }}>
+                                        <Icon type="area-chart" style={{ marginRight: "3px" }}/>
+                                        <span style={{ fontSize: "13px" }}>风险监控统计</span>
+                                    </div>
+
+                                    <div className="card-tool">
+                                        <Select defaultValue="week"
+                                                style={{ paddingRight: '5px', width: 120, color: "#256" }}
+                                                onChange={this.handleChange}>
+                                            <Option value="week">一周以内</Option>
+                                            <Option value="month">一个月以内</Option>
+                                            <Option value="thmonth">三个月以内</Option>
+                                        </Select>
+                                    </div>
                                 </div>
 
-                                <div className="card-tool">
-                                    <Select defaultValue="week" style={{ width: 120 ,color:"#256"}}
-                                            onChange={this.handleChange}>
-                                        <Option value="week">一周以内</Option>
-                                        <Option value="month">一个月以内</Option>
-                                        <Option value="thmonth">三个月以内</Option>
-                                    </Select>
-                                </div>
-                                <BaseEcharView option={echarCom.option} legend={legend} xAxis={xlist} data={datalist}
-                                               style={{height: '370px', width: '100%'}}/>
-                            </Card>
+
+                                {ecahrs}
+
+                            </div>
                         </div>
-                    </Col>
+                        <div className="" style={{ width: "70%", height: '100%', float: "left" }}>
+                            <Card bordered={false} noHovering={true} style={{ height: '100%' }}>
+                                <ExtBaseicTable style={{ margin: "5px", height: '100%' }}{...tableComs.dataIssue}/>
 
-                    <Col className="gutter-row" md={16}>
-                        <div className="gutter-box">
-                            <Card bordered={false}>
-                                <ExtBaseicTable style={{margin:"5px"}}{...tableComs.dataIssue}/>
                             </Card>
                         </div>
                     </Col>
 
                 </Row>
-
+                {
+                    Bacecomstyle
+                }
             </div>
         )
     }

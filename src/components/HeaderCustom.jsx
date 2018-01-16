@@ -66,7 +66,7 @@ class HeaderCustom extends Component {
     };
 
     toIndex = (e) => {
-        this.props.router.push('/')
+        this.props.router.push('/pageIndex/homepage')
     }
     popoverHide = () => {
         this.setState({

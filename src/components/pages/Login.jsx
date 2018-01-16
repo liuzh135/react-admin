@@ -16,9 +16,9 @@ class Login extends React.Component {
         receiveData(null, 'auth');
         const user = JSON.parse(localStorage.getItem('user'));
         const { router } = this.props;
-        if (user != null) {
-            router.push('/pageIndex/homepage');
-        }
+        // if (user != null) {
+        //     router.push('/pageIndex/homepage');
+        // }
     }
 
     componentWillReceiveProps(nextProps) {

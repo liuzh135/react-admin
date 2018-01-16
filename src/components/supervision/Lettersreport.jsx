@@ -4,22 +4,22 @@
  *
  * 内部监督管理-信访举报及问题处理
  */
-import React from 'react';
-import { Layout } from 'antd';
-import { Row, Col, Card, Button, Icon, Select} from 'antd';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React from "react";
+import EcharCom from "../com/EcharCom";
+import EcharBar from "../com/EcharBar";
+import Bacecomstyle from "../Bacecomstyle";
+import TableComs from "../com/TableComs";
+import {Card, Col, Icon, Layout, Row, Select, Steps} from 'antd';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 
 import BreadcrumbCustom from '../BreadcrumbCustom';
 import BaseEcharView from '../charts/BaseEcharView';
-import EcharCom from '../com/EcharCom';
 
-import { fetchData, receiveData } from '@/action';
-import TableComs from '../com/TableComs';
+import {fetchData, receiveData} from '@/action';
 
 import ExtBaseicTable from '../tables/ExtBaseicTable';
-import EcharBar from '../com/EcharBar';
 
 const Option = Select.Option;
 
@@ -92,12 +92,11 @@ class Lettersreport extends React.Component {
         //刷新2次  解决echars 的宽度问题
         let first = this.state.first || false;
         let ecahrs = !first ? "" : <BaseEcharView option={echarCom.option} legend={legend} xAxis={xlist} data={datalist}
-                                                  style={{ height: '100%', width: '100%' }}/>;
+                                                  style={{ height: '82%', width: '100%' }}/>;
         return (
             <div className="gutter-example button-demo " style={{ height: '100%' }}>
                 <BreadcrumbCustom first="信访举报及问题处理" indexName="内部监督管理"/>
-
-                <Row gutter={10} className=" scrollable-container " style={{ height: '93%' }}>
+                <Row gutter={10} className=" scrollable-container " style={{ height: '95%' }}>
                     <Col className="gutter-row" md={24}
                          style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>
                         <div style={{ height: '100%' }}>
@@ -111,8 +110,6 @@ class Lettersreport extends React.Component {
                                             </div>
 
                                         </div>
-
-
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
@@ -120,7 +117,7 @@ class Lettersreport extends React.Component {
                                     </div>
                                 </Layout>
                             </div>
-                            <div style={{ overflow: 'scroll',height:'95%'}}>
+                            <div style={{ overflow: 'scroll', height: '95%' }}>
                                 <ExtBaseicTable {...(tableComs.complaint_reporting_handling_manger(expand))} />
                             </div>
                         </div>
@@ -133,23 +130,33 @@ class Lettersreport extends React.Component {
                              borderTop: "1px solid #E9E9E9"
                          }}>
                         <div className="" style={{ width: "30%", height: '100%', float: "left" }}>
-                            <Card bordered={false} style={{ height: '100%' }} noHovering={true}>
-                                <div className="pb-m">
-                                    <h3>风险监控统计</h3>
+                            <div style={{ position: 'relative', height: '100%' }}>
+                                <div style={{
+                                    height: '14%',
+                                    width: '100%',
+                                    paddingLeft: '5px',
+                                    position: 'relative'
+                                }}>
+                                    <div style={{ fontSize: "14px" }}>
+                                        <Icon type="area-chart" style={{ marginRight: "3px" }}/>
+                                        <span style={{ fontSize: "13px" }}>风险监控统计</span>
+                                    </div>
+
+                                    <div className="card-tool">
+                                        <Select defaultValue="week"
+                                                style={{ paddingRight: '5px', width: 120, color: "#256" }}
+                                                onChange={this.handleChange}>
+                                            <Option value="week">一周以内</Option>
+                                            <Option value="month">一个月以内</Option>
+                                            <Option value="thmonth">三个月以内</Option>
+                                        </Select>
+                                    </div>
                                 </div>
 
-                                <div className="card-tool">
-                                    <Select defaultValue="week" style={{ width: 120, color: "#256" }}
-                                            onChange={this.handleChange}>
-                                        <Option value="week">一周以内</Option>
-                                        <Option value="month">一个月以内</Option>
-                                        <Option value="thmonth">三个月以内</Option>
-                                    </Select>
-                                </div>
 
                                 {ecahrs}
 
-                            </Card>
+                            </div>
                         </div>
                         <div className="" style={{ width: "70%", height: '100%', float: "left" }}>
                             <Card bordered={false} noHovering={true} style={{ height: '100%' }}>
@@ -161,48 +168,7 @@ class Lettersreport extends React.Component {
 
                 </Row>
                 {
-                    (
-                        <style>
-                            {`
-                                .ant-steps .ant-steps-head-inner {
-                                  width: 18px;
-                                  height: 18px;
-                                  line-height: 16px;
-                                  font-size: 12px;
-                                }
-                                .ant-steps .ant-steps-title {
-                                    font-size: 12px;
-                                    line-height: 20px;
-                                }
-                                .ant-table table{
-                                    letter-spacing:1px;
-                                }
-                                .ul-text{
-                                   list-style-type: decimal;
-                                   list-style-position:outside;
-                                   padding-left:15px;
-                                }
-                                .ant-table-tbody > tr > td {
-                                    padding: 10px 8px;
-                                }
-                                .ant-btn {
-                                    border-radius: 0px;
-                                    border-bottom: 0px;
-                                }
-
-                                .ant-card-body{
-                                    height: 100%;
-                                }
-                                .ant-spin-nested-loading ,.ant-spin-container{
-                                    height: 100%;
-                                }
-                                .ant-table-small{
-                                    height: 80%;
-                                }
-
-                        `}
-                        </style>
-                    )
+                    Bacecomstyle
                 }
             </div>
         )

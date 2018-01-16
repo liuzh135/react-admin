@@ -74,7 +74,8 @@ class BaseSideCustom extends Component {
         if (v != null) {
             for (var index in v) {
                 let menuitem = v[index];
-                let icon = menuitem.icon || "" ;
+                let icon = menuitem.icon || "book" ;
+
                 if (menuitem.submenu != null) {
                     submenu = menuitem.submenu;
                     let submenuView = [];
@@ -106,7 +107,7 @@ class BaseSideCustom extends Component {
                 trigger={null}
                 breakpoint="lg"
                 collapsed={this.props.collapsed}
-                style={{overflowY: 'auto',background:"#f4f4f4"}}
+                style={{overflowY: 'auto',background:"#ffffff"}}
             >
                 {/*<div className="logo"/>*/}
 
