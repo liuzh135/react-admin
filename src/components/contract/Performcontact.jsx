@@ -112,10 +112,10 @@ class Performcontact extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="合同执行" />
-                                            <Step status="wait" title="合同变更、索赔" />
-                                            <Step status="wait" title="合同结算" />
-                                            <Step status="wait" title="合同验收" />
+                                            <Step status="process" title="合同执行" />
+                                            <Step status="process" title="合同变更、索赔" />
+                                            <Step status="process" title="合同结算" />
+                                            <Step status="process" title="合同验收" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

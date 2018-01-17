@@ -114,11 +114,10 @@ class Discussion extends React.Component {
                                         </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="动议" />
-                                            <Step status="finish" title="民主推荐" />
-                                            <Step status="finish" title="考察" />
-                                            <Step status="process" title="讨论决定" />
-                                            <Step status="wait" title="任职" />
+                                            <Step status="process" title="介绍拟任人选情况" />
+                                            <Step status="process" title="会议讨论" />
+                                            <Step status="process" title="集体表决形成决定" />
+                                            <Step status="process" title="报备" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

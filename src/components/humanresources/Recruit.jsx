@@ -112,12 +112,23 @@ class Recruit extends React.Component {
                                             </div>
 
                                         </div>
-
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
                                         </div>
                                     </div>
+                                    <Steps current={1} style={{ flex: "6" }}>
+                                        <Step status="process" title="编制招聘计划和方案" />
+                                        <Step status="process" title="批准计划和方案" />
+                                        <Step status="process" title="发布招聘公告" />
+                                        <Step status="process" title="接收简历与资格审查" />
+                                        <Step status="process" title="组织考试（笔试、面试）" />
+                                        <Step status="process" title="考察和体检" />
+                                        <Step status="process" title="确定拟聘人员" />
+                                        <Step status="process" title="公示" />
+                                        <Step status="process" title="签订聘用合同" />
+                                    </Steps>
+
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>

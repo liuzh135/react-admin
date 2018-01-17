@@ -114,11 +114,10 @@ class Selectioncadre extends React.Component {
                                         </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="动议" />
-                                            <Step status="process" title="民主推荐" />
-                                            <Step status="wait" title="考察" />
-                                            <Step status="wait" title="讨论决定" />
-                                            <Step status="wait" title="任职" />
+                                            <Step status="process" title="会议推荐" />
+                                            <Step status="process" title="个别谈话推荐" />
+                                            <Step status="process" title="推荐情况汇总" />
+                                            <Step status="process" title="确定考察对象" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

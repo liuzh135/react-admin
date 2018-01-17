@@ -112,6 +112,11 @@ class Bankcount extends React.Component {
                                             </div>
 
                                         </div>
+                                        <Steps current={1} style={{ flex: "6" }}>
+                                            <Step status="process" title="开立银行账户"/>
+                                            <Step status="process" title="办理结算业务"/>
+                                            <Step status="process" title="账户日常管理"/>
+                                        </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}

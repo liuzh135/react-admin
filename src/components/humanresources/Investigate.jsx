@@ -114,11 +114,11 @@ class Investigate extends React.Component {
                                         </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="动议"/>
-                                            <Step status="finish" title="民主推荐"/>
-                                            <Step status="process" title="考察"/>
-                                            <Step status="wait" title="讨论决定"/>
-                                            <Step status="wait" title="任职"/>
+                                            <Step status="process" title="制定考察方案"/>
+                                            <Step status="process" title="发布考察预告"/>
+                                            <Step status="process" title="实施考察"/>
+                                            <Step status="process" title="党风廉政意见回复"/>
+                                            <Step status="process" title="提出任用建议"/>
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

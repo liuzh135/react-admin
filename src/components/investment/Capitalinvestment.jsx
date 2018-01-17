@@ -112,11 +112,11 @@ class Capitalinvestment extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="项目征集" />
-                                            <Step status="wait" title="项目汇总分析" />
-                                            <Step status="wait" title="制定投资建议方案" />
-                                            <Step status="wait" title="会议决策" />
-                                            <Step status="wait" title="项目实施" />
+                                            <Step status="process" title="项目征集" />
+                                            <Step status="process" title="项目汇总分析" />
+                                            <Step status="process" title="制定投资建议方案" />
+                                            <Step status="process" title="会议决策" />
+                                            <Step status="process" title="项目实施" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

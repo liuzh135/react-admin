@@ -110,13 +110,11 @@ class DecisionreadyIndex extends React.Component {
                                             </div>
 
                                         </div>
-                                        <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="process" title="议题准备"/>
-                                            <Step status="wait" title="请示报告"/>
-                                            <Step status="wait" title="集体决策"/>
-                                            <Step status="wait" title="执行落实"/>
-                                        </Steps>
 
+                                        <Steps current={1} style={{ flex: "2" }}>
+                                            <Step status="process" title="议题研究"/>
+                                            <Step status="process" title="征求意见"/>
+                                        </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}

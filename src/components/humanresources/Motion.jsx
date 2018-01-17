@@ -114,12 +114,8 @@ class Motion extends React.Component {
 
                                         </div>
 
-                                        <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="process" title="动议" />
-                                            <Step status="wait" title="民主推荐" />
-                                            <Step status="wait" title="考察" />
-                                            <Step status="wait" title="讨论决定" />
-                                            <Step status="wait" title="任职" />
+                                        <Steps current={1} style={{ flex: "2" }}>
+                                            <Step status="process" title="制定工作方案" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

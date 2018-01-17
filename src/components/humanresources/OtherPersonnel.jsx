@@ -112,7 +112,12 @@ class OtherPersonnel extends React.Component {
                                             </div>
 
                                         </div>
-
+                                        <Steps current={1} style={{ flex: "6" }}>
+                                            <Step status="process" title="绩效考核管理" />
+                                            <Step status="process" title="人事档案管理" />
+                                            <Step status="process" title="职称申报管理" />
+                                            <Step status="process" title="培训管理" />
+                                        </Steps>
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>

@@ -113,11 +113,9 @@ class Decisionour extends React.Component {
 
                                         </div>
 
-                                        <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="议题准备"/>
-                                            <Step status="finish" title="请示报告"/>
-                                            <Step status="process" title="集体决策"/>
-                                            <Step status="wait" title="执行落实"/>
+                                        <Steps current={1} style={{ flex: "2" }}>
+                                            <Step status="process" title="议题讨论"/>
+                                            <Step status="process" title="会议决定"/>
                                         </Steps>
 
 

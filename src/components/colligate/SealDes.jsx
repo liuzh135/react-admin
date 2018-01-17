@@ -111,9 +111,10 @@ class SealDes extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="印章刻制"/>
-                                            <Step status="finish" title="印章使用"/>
-                                            <Step status="process" title="印章销毁"/>
+                                            <Step status="process" title="销印申请"/>
+                                            <Step status="process" title="销印审批"/>
+                                            <Step status="process" title="登记留模"/>
+                                            <Step status="process" title="销毁并登记"/>
                                         </Steps>
 
 

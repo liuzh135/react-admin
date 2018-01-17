@@ -112,10 +112,10 @@ class Concludecontract extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="合同调查" />
-                                            <Step status="wait" title="谈判采购" />
-                                            <Step status="wait" title="合同文本拟定" />
-                                            <Step status="wait" title="合同签订" />
+                                            <Step status="process" title="合同调查" />
+                                            <Step status="process" title="谈判采购" />
+                                            <Step status="process" title="合同文本拟定" />
+                                            <Step status="process" title="合同签订" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

@@ -112,10 +112,9 @@ class CarCharge extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="车辆配备"/>
-                                            <Step status="finish" title="车辆调度"/>
-                                            <Step status="finish" title="车辆保养"/>
-                                            <Step status="process" title="车辆加油"/>
+                                            <Step status="process" title="总油卡充值"/>
+                                            <Step status="process" title="分油卡拨款"/>
+                                            <Step status="process" title="加油站加油"/>
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

@@ -112,9 +112,10 @@ class SealMake extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="process" title="印章刻制"/>
-                                            <Step status="wait" title="印章使用"/>
-                                            <Step status="wait" title="印章销毁"/>
+                                            <Step status="process" title="刻制申请"/>
+                                            <Step status="process" title="领导审批"/>
+                                            <Step status="process" title="刻制印章"/>
+                                            <Step status="process" title="登记保管"/>
                                         </Steps>
 
 

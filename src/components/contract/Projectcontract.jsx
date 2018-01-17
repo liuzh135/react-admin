@@ -112,10 +112,10 @@ class Projectcontract extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="立项申请"/>
-                                            <Step status="wait" title="相关部门会签"/>
-                                            <Step status="wait" title="财务部、计划资产部审核"/>
-                                            <Step status="wait" title="公司领导审批"/>
+                                            <Step status="process" title="立项申请"/>
+                                            <Step status="process" title="相关部门会签"/>
+                                            <Step status="process" title="财务部、计划资产部审核"/>
+                                            <Step status="process" title="公司领导审批"/>
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

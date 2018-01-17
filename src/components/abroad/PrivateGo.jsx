@@ -23,7 +23,7 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class PrivateGo extends React.Component {
 
     constructor(props) {
@@ -111,6 +111,14 @@ class PrivateGo extends React.Component {
                                             </div>
 
                                         </div>
+                                        <Steps current={1} style={{ flex: "6" }}>
+                                            <Step status="process" title="本人申请"/>
+                                            <Step status="process" title="领导审批"/>
+                                            <Step status="process" title="领取证件"/>
+                                            <Step status="process" title="出国（境）活动"/>
+                                            <Step status="process" title="回国（入境）后交还证件"/>
+                                        </Steps>
+
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>

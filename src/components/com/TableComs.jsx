@@ -1883,6 +1883,18 @@ class TableComs {
             style: { padding: '0 10px' }
         }
     };
+
+
+    finance_budget_management_manger = () => {
+        return {
+            columns: this.comIssue_columns,
+            data: [],
+            bordered: true,
+            pagination: false,
+            style: { padding: '0 10px' }
+        }
+    };
+
     //========================财务管理===========================//
 
 

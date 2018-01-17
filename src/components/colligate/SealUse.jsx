@@ -111,9 +111,9 @@ class SealUse  extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="印章刻制"/>
-                                            <Step status="process" title="印章使用"/>
-                                            <Step status="wait" title="印章销毁"/>
+                                            <Step status="process" title="用印申请"/>
+                                            <Step status="process" title="用印审批"/>
+                                            <Step status="process" title="用印并登记"/>
                                         </Steps>
 
 

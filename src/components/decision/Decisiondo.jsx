@@ -115,10 +115,9 @@ class Decisiondo extends React.Component {
 
                                         <Steps current={1} style={{ flex: "6" }}>
                                             <Steps current={1} style={{ flex: "6" }}>
-                                                <Step status="finish" title="议题准备"/>
-                                                <Step status="finish" title="请示报告"/>
-                                                <Step status="finish" title="集体决策"/>
-                                                <Step status="process" title="执行落实"/>
+                                                <Step status="process" title="会议记录"/>
+                                                <Step status="process" title="会议文件签发"/>
+                                                <Step status="process" title="执行会议决定"/>
                                             </Steps>
                                         </Steps>
 

@@ -112,6 +112,11 @@ class Cashmag extends React.Component {
                                             </div>
 
                                         </div>
+                                        <Steps current={1} style={{ flex: "6" }}>
+                                            <Step status="process" title="现金取得"/>
+                                            <Step status="process" title="现金保管"/>
+                                            <Step status="process" title="现金支出"/>
+                                        </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}

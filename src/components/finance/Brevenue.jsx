@@ -114,10 +114,10 @@ class Brevenue extends React.Component {
                                         </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="核算应收水费" />
-                                            <Step status="wait" title="发出水费缴纳通知书" />
-                                            <Step status="wait" title="跟踪并催缴" />
-                                            <Step status="wait" title="水费入账" />
+                                            <Step status="process" title="核算应收水费" />
+                                            <Step status="process" title="发出水费缴纳通知书" />
+                                            <Step status="process" title="跟踪并催缴" />
+                                            <Step status="process" title="水费入账" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
@@ -128,7 +128,7 @@ class Brevenue extends React.Component {
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>
-                                <ExtBaseicTable {...(tableComs.finance_debt_management_manger(expand))} />
+                                <ExtBaseicTable {...(tableComs.finance_budget_management_manger())} />
                             </div>
                         </div>
                     </Col>

@@ -114,11 +114,9 @@ class Office extends React.Component {
                                         </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="动议" />
-                                            <Step status="finish" title="民主推荐" />
-                                            <Step status="finish" title="考察" />
-                                            <Step status="finish" title="讨论决定" />
-                                            <Step status="process" title="任职" />
+                                            <Step status="process" title="任前公示" />
+                                            <Step status="process" title="反映问题调查处理" />
+                                            <Step status="process" title="试用期满考核" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

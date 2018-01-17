@@ -110,11 +110,8 @@ class DecisionRept extends React.Component {
                                             </div>
 
                                         </div>
-                                        <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="议题准备"/>
-                                            <Step status="process" title="请示报告"/>
-                                            <Step status="wait" title="集体决策"/>
-                                            <Step status="wait" title="执行落实"/>
+                                        <Steps current={1} style={{ flex: "2" }}>
+                                            <Step status="process" title="请示签报"/>
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

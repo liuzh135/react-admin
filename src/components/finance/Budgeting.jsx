@@ -114,11 +114,11 @@ class Budgeting extends React.Component {
                                         </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="发布预算编制方案" />
-                                            <Step status="wait" title="各部门编制部门预算" />
-                                            <Step status="wait" title="汇总形成预算编制草案" />
-                                            <Step status="wait" title="公司领导班子审议决策" />
-                                            <Step status="wait" title="印发预算下达文件" />
+                                            <Step status="process" title="发布预算编制方案" />
+                                            <Step status="process" title="各部门编制部门预算" />
+                                            <Step status="process" title="汇总形成预算编制草案" />
+                                            <Step status="process" title="公司领导班子审议决策" />
+                                            <Step status="process" title="印发预算下达文件" />
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
@@ -129,7 +129,7 @@ class Budgeting extends React.Component {
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>
-                                <ExtBaseicTable {...(tableComs.finance_debt_management_manger(expand))} />
+                                <ExtBaseicTable {...(tableComs.finance_budget_management_manger())} />
                             </div>
                         </div>
                     </Col>

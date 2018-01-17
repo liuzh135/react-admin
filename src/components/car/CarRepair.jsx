@@ -111,10 +111,10 @@ class CarRepair extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="finish" title="车辆配备"/>
-                                            <Step status="finish" title="车辆调度"/>
-                                            <Step status="process" title="车辆保养"/>
-                                            <Step status="wait" title="车辆加油"/>
+                                            <Step status="process" title="维修保养申请"/>
+                                            <Step status="process" title="车队初审"/>
+                                            <Step status="process" title="综合管理部审"/>
+                                            <Step status="process" title="定点维修保养"/>
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

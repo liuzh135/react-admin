@@ -112,12 +112,12 @@ class Auditsuperv extends React.Component {
 
                                         </div>
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="制定年度审计计划"/>
-                                            <Step status="wait" title="成立审计小组"/>
-                                            <Step status="wait" title="开展现场审计"/>
-                                            <Step status="wait" title="交换审计意见"/>
-                                            <Step status="wait" title="下达审计意见书"/>
-                                            <Step status="wait" title="督促审议整改"/>
+                                            <Step status="process" title="制定年度审计计划"/>
+                                            <Step status="process" title="成立审计小组"/>
+                                            <Step status="process" title="开展现场审计"/>
+                                            <Step status="process" title="交换审计意见"/>
+                                            <Step status="process" title="下达审计意见书"/>
+                                            <Step status="process" title="督促审议整改"/>
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>

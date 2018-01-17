@@ -114,11 +114,11 @@ class Bexpenditure extends React.Component {
                                         </div>
 
                                         <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="wait" title="费用支出申请"/>
-                                            <Step status="wait" title="部门内审核"/>
-                                            <Step status="wait" title="财务部审核"/>
-                                            <Step status="wait" title="公司领导审批"/>
-                                            <Step status="wait" title="支付"/>
+                                            <Step status="process" title="费用支出申请"/>
+                                            <Step status="process" title="部门内审核"/>
+                                            <Step status="process" title="财务部审核"/>
+                                            <Step status="process" title="公司领导审批"/>
+                                            <Step status="process" title="支付"/>
                                         </Steps>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
@@ -129,7 +129,7 @@ class Bexpenditure extends React.Component {
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>
-                                <ExtBaseicTable {...(tableComs.finance_debt_management_manger(expand))} />
+                                <ExtBaseicTable {...(tableComs.finance_budget_management_manger())} />
                             </div>
                         </div>
                     </Col>

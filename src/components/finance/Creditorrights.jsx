@@ -112,7 +112,10 @@ class Creditorrights extends React.Component {
                                             </div>
 
                                         </div>
-
+                                        <Steps current={1} style={{ flex: "2" }}>
+                                            <Step status="process" title="债权清理"/>
+                                            <Step status="process" title="对外借款"/>
+                                        </Steps>
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
