@@ -85,7 +85,7 @@ class Login extends React.Component {
                                     })(
                                         <Checkbox>记住我</Checkbox>
                                     )}
-                                    <a className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</a>
+                                    {/*<a className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</a>*/}
                                     <Button type="primary" htmlType="submit" className="login-form-button"
                                             style={{width: '100%'}}>
                                         登录
