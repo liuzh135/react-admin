@@ -225,12 +225,33 @@ class DecisionsModel {
         ],
         inverstment: [
             {
-                title: "自有资金投资管理",
+                title: "项目征集",
                 menuId: 1,
                 icon: "pushpin-o",
-                menu: "/app/inverstment/capitalinvestment",
+                menu: "/app/inverstment/projectCollection",
                 submenu: null
-            }
+            },
+            {
+                title: "项目汇总分析",
+                menuId: 2,
+                icon: "pushpin-o",
+                menu: "/app/inverstment/metanalysis",
+                submenu: null
+            },
+            {
+                title: "会议决策",
+                menuId: 3,
+                icon: "pushpin-o",
+                menu: "/app/inverstment/conferenceDecision",
+                submenu: null
+            },
+            {
+                title: "项目实施",
+                menuId: 4,
+                icon: "pushpin-o",
+                menu: "/app/inverstment/projectImplementation",
+                submenu: null
+            },
         ],
         construction: [
             {
@@ -294,7 +315,7 @@ class DecisionsModel {
         ],
         tender: [
             {
-                title: "招标采购管理",
+                title: "招标投标",
                 menuId: 1,
                 menu: "/app/tender/tendermanger",
                 submenu: null
@@ -330,54 +351,14 @@ class DecisionsModel {
             {
                 title: "资产使用",
                 menuId: 2,
-                menu: "/app/asset/use",
-                submenu: [
-                    {
-                        subId: 1,
-                        path: "/app/asset/use/possessionAsset",
-                        title: "资产自用"
-                    }, {
-                        subId: 2,
-                        path: "/app/asset/use/maintainAsset",
-                        title: "资产维护"
-                    }, {
-                        subId: 3,
-                        path: "/app/asset/use/rentingAsset",
-                        title: "资产出租出借"
-                    }, {
-                        subId: 4,
-                        path: "/app/asset/use/checkAsset",
-                        title: "资产清查"
-                    }, {
-                        subId: 5,
-                        path: "/app/asset/use/profitAsset",
-                        title: "资产收益管理"
-                    }, {
-                        subId: 6,
-                        path: "/app/asset/use/investor",
-                        title: "出资人管理"
-                    }
-                ]
+                menu: "/app/asset/use/possessionAsset",
+                submenu: null
             },
             {
                 title: "资产处置",
                 menuId: 3,
-                menu: "/app/asset/disposal",
-                submenu: [
-                    {
-                        subId: 1,
-                        path: "/app/asset/disposal/appraisalAsset",
-                        title: "资产评估"
-                    }, {
-                        subId: 2,
-                        path: "/app/asset/disposal/disposalAsset",
-                        title: "资产处置"
-                    }, {
-                        subId: 3,
-                        path: "/app/asset/disposal/incomeDisAsset",
-                        title: "处置收入管理"
-                    }
-                ]
+                menu: "/app/asset/disposal/appraisalAsset",
+                submenu: null
             }
         ],
         supervision: [

@@ -73,7 +73,7 @@ class Homepage extends React.Component {
                 animateId: 'headShake',
                 imgsrc: index5,
                 onclickFnc: () => {
-                    this.props.router.push('/app/inverstment/capitalinvestment')
+                    this.props.router.push('/app/inverstment/projectCollection')
                 }
             }, {
                 animateId: 'headShake',

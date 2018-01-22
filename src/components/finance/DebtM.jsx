@@ -112,10 +112,14 @@ class DebtM extends React.Component {
                                             </div>
 
                                         </div>
-                                        <Steps current={1} style={{ flex: "2" }}>
-                                            <Step status="process" title="银行贷款"/>
-                                            <Step status="process" title="对外担保"/>
-                                        </Steps>
+
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'40%'}}>
+                                                <Step status="process" title="银行贷款"/>
+                                                <Step status="process" title="对外担保"/>
+                                            </Steps>
+                                        </div>
+
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>

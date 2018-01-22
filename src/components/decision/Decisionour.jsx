@@ -113,11 +113,12 @@ class Decisionour extends React.Component {
 
                                         </div>
 
-                                        <Steps current={1} style={{ flex: "2" }}>
-                                            <Step status="process" title="议题讨论"/>
-                                            <Step status="process" title="会议决定"/>
-                                        </Steps>
-
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'40%'}}>
+                                                <Step status="process" title="议题讨论"/>
+                                                <Step status="process" title="会议决定"/>
+                                            </Steps>
+                                        </div>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}

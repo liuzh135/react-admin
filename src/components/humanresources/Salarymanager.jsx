@@ -112,10 +112,14 @@ class Salarymanager extends React.Component {
                                             </div>
 
                                         </div>
-                                        <Steps current={1} style={{ flex: "6" }}>
-                                            <Step status="process" title="薪酬福利调整" />
-                                            <Step status="process" title="薪酬福利标准的核算和审定" />
-                                        </Steps>
+
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'40%'}}>
+                                                <Step status="process" title="薪酬福利调整" />
+                                                <Step status="process" title="薪酬福利标准的核算和审定" />
+                                            </Steps>
+                                        </div>
+
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>

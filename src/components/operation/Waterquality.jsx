@@ -22,7 +22,7 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class Waterquality extends React.Component {
 
     constructor(props) {
@@ -110,6 +110,14 @@ class Waterquality extends React.Component {
                                             </div>
 
                                         </div>
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'60%'}}>
+                                                <Step status="process" title="水量调度方案制定"/>
+                                                <Step status="process" title="水量调度执行"/>
+                                                <Step status="process" title="水量调度应急管理"/>
+                                            </Steps>
+                                        </div>
+
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>

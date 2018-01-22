@@ -4,6 +4,26 @@
 import React from 'react';
 import {Icon} from 'antd';
 
+export const getStepString = (steps = []) => {
+    let stepView = [];
+    steps.map((step, index) => {
+        let subView = <div className="ant-steps-item ant-steps-status-process"
+                           style={{width:'20%', marginRight: '-14px'}}>
+            <div className="ant-steps-tail" style={{paddingRight:'14px'}}><i></i></div>
+            <div className="ant-steps-step">
+                <div className="ant-steps-head">
+                    <div className="ant-steps-head-inner"><span className="ant-steps-icon">{step.key}</span></div>
+                </div>
+                <div className="ant-steps-main">
+                    <div className="ant-steps-title">{step.value}</div>
+                </div>
+            </div>
+        </div>;
+        stepView.push(subView);
+    });
+    return <div className="ant-steps ant-steps-horizontal ant-steps-label-horizontal" style={{ margin: '6px'}}>{stepView}</div> ;
+};
+
 class TableComs {
 
     renderContent = (value, row, index) => {
@@ -106,7 +126,7 @@ class TableComs {
         let colorString = string == null ? "star" : string;
 
         for (let j = 0; j < i; j++) {
-            iconView.push(<Icon type="star" style={{ margin: '3px', color: '#0fb0f0' }}/>);
+            iconView.push(<Icon type="star" key={j} style={{ margin: '3px', color: '#0fb0f0' }}/>);
         }
         return <span>{iconView}</span>;
     };
@@ -2035,6 +2055,178 @@ class TableComs {
         }
 
     };
+
+    project_collection  = (expand) => [{
+        //项目征集
+        key: '1',
+        steupName: '项目酝酿',
+        objectM: this.getobjectM(['各部门负责人']),
+        f_level:
+            this.getFLevel([
+                {
+                    star: 3,
+                    span: '有倾向性地酝酿或选择项目，将与个人或部门有利益关联的项目列入征集建议；'
+                }
+                , {
+                    star: 2,
+                    span: '提出对公司不利的投资建议方案，如投资总额明显偏高；'
+                }, {
+                    star: 2,
+                    span: '未在部门内征求意见。'
+                }
+            ], 3, expand),
+        measures:
+            this.getMeasures([
+                "项目酝酿和选择建议，应说明项目投资的必要性、可行性，如可能存在利益关联应进行重点说明；",
+                "项目征集过程中，各部门应通过适当方式在部门内广泛征求意见；",
+                "项目投资建议由各部门集体讨论，关键指标如投资额度等，需列出明细或说明理由。",
+            ], expand),
+        responsibility: '项目征集部门'
+    }];
+
+    project_collection_manger = (expand) => {
+        return {
+            columns: this.comIssue_columns,
+            data: this.project_collection(expand),
+            bordered: true,
+            pagination: false,
+            style: { padding: '0 10px' }
+        }
+
+    };
+
+    project_any  = (expand) => [{
+        //项目汇总分析
+        key: '1',
+        steupName: '项目汇总',
+        objectM: this.getobjectM(['计划资产部负责人及有关工作人员']),
+        f_level:
+            this.getFLevel([
+                {
+                    star: 2,
+                    span: '有倾向性的选择项目进行汇总，导致各部门征集的项目未列入公司《年度投资总体费用安排及项目计划》中；'
+                }
+                , {
+                    star: 2,
+                    span: '将有利益关联的项目靠前排序，提高项目立项概率。'
+                }
+            ], 2, expand),
+        measures:
+            this.getMeasures([
+                "《年度投资总体费用安排及项目计划》的拟定由计划资产部相关人员集体研究；",
+                "各部门所征集项目未列入计划时，应简要说明原因；",
+                "征集项目评估分析和项目排序，应提出明确原则和标准，必要时项目评估分析可邀请专家参与；",
+                "计划资产部拟定的《年度投资总体费用安排及项目计划》需报公司领导审阅。",
+            ], expand),
+
+        responsibility: '计划资产部'
+    }, {
+        key: '2',
+        steupName: '评估分析',
+        objectM: this.getobjectM(['计划资产部负责人及有关工作人员']),
+        f_level:
+            this.getFLevel([
+                {
+                    star: 2,
+                    span: '有倾向性的选择项目进行汇总，导致各部门征集的项目未列入公司《年度投资总体费用安排及项目计划》中；'
+                }
+                , {
+                    star: 2,
+                    span: '将有利益关联的项目靠前排序，提高项目立项概率。'
+                }
+            ], 2, expand),
+        measures:
+            this.getMeasures([
+                "《年度投资总体费用安排及项目计划》的拟定由计划资产部相关人员集体研究；",
+                "各部门所征集项目未列入计划时，应简要说明原因；",
+                "征集项目评估分析和项目排序，应提出明确原则和标准，必要时项目评估分析可邀请专家参与；",
+                "计划资产部拟定的《年度投资总体费用安排及项目计划》需报公司领导审阅。",
+            ], expand),
+        responsibility: '计划资产部'
+    }];
+
+    project_any_manger = (expand) => {
+        return {
+            columns: this.comIssue_columns,
+            data: this.project_any(expand),
+            bordered: true,
+            pagination: false,
+            style: { padding: '0 10px' }
+        }
+
+    };
+
+    project_sun  = (expand) => [{
+        //会议决策
+        key: '1',
+        steupName: '“三重一大”决策',
+        objectM: this.getobjectM(['公司领导']),
+        f_level:
+            this.getFLevel([
+                {
+                    star: 2,
+                    span: '有倾向性的选择项目进行汇总，导致各部门征集的项目未列入公司《年度投资总体费用安排及项目计划》中；'
+                }
+                , {
+                    star: 2,
+                    span: '将有利益关联的项目靠前排序，提高项目立项概率。'
+                }
+            ], 2, expand),
+        measures:
+            this.getMeasures([
+                "严格执行决策制度，未达到与会规定人数，会议应推迟召开；",
+                "涉及“三重一大”事项必须经公司总经理办公会/党委会研究决定；",
+                "主要领导（或会议召集人）原则上应末位发表意见；",
+                "公司纪委（或监察审计部）负责人出席或列席会议进行监督，对应回避未回避情况及时提醒。",
+            ], expand),
+        responsibility: '公司领导'
+    }];
+
+    project_sun_manger = (expand) => {
+        return {
+            columns: this.comIssue_columns,
+            data: this.project_sun(expand),
+            bordered: true,
+            pagination: false,
+            style: { padding: '0 10px' }
+        }
+
+    };
+
+
+    project_do  = (expand) => [{
+        //项目实施
+        key: '1',
+        steupName: '实施方案编制',
+        objectM: this.getobjectM(['主责部门负责人及有关工作人员']),
+        f_level:
+            this.getFLevel([
+                {
+                    star: 2,
+                    span: '实施方案不合理，为牟取私利，擅自改变项目内容、提高项目标准、超预算等。'
+                }
+            ], 2, expand),
+
+        measures:
+            this.getMeasures([
+                "主责部门编制实施方案需严格对照公司印发的《年度投资总体费用安排及项目计划》进行，",
+                "擅自改变项目内容、提高项目标准、超预算的项目财务部不予费用支出，",
+                "计划资产部不予验收。",
+            ], expand)
+        ,
+        responsibility: '计划资产部'
+    }];
+
+    project_do_manger = (expand) => {
+        return {
+            columns: this.comIssue_columns,
+            data: this.project_do(expand),
+            bordered: true,
+            pagination: false,
+            style: { padding: '0 10px' }
+        }
+
+    };
 //========================自有资金投资管理===========================//
 //========================工程建设管理===========================//
     project_quality_control = (expand) => [{
@@ -2514,8 +2706,13 @@ class TableComs {
         key: '2',
         steupName: '变更造价',
         objectM: this.getobjectM(['计划资产部、工程运行部、现场建设管理机构', '监理单位有关人员']),
-        f_level: <span>未按照合同约定或相关规范审核造价。
-        </span>,
+        f_level:
+            this.getFLevel([
+                {
+                    star: 0,
+                    span: '未按照合同约定或相关规范审核造价'
+                }
+            ], 0, expand),
         measures:
             this.getMeasures([
                 "制定变更与索赔管理制度及流程，建立项目法人、监理单位、施工单位、设计代表等共同确认制度；",
@@ -3364,9 +3561,8 @@ class TableComs {
                 "对违规领用、逾期不交进行通报和逾期处理；定期开展资产盘点，确保账实相符。",
             ], expand),
         responsibility: '资产使用部门'
-    }];
-    asset_use2 = (expand) => [{
-        key: '1',
+    },{
+        key: '2',
         steupName: '资产维护',
         objectM: this.getobjectM(['资产使用部门负责人及经办人']),
         f_level:
@@ -3382,9 +3578,8 @@ class TableComs {
                 "推行定点维修。",
             ], expand),
         responsibility: '资产使用部门'
-    }];
-    asset_use3 = (expand) => [{
-        key: '1',
+    },{
+        key: '3',
         steupName: '资产出租出借',
         objectM: this.getobjectM(['公司领导', '综合管理部、资产使用部门负责人']),
         f_level:
@@ -3401,9 +3596,8 @@ class TableComs {
                 "涉及投资性的出租出借事项应事先论证。",
             ], expand),
         responsibility: '综合管理部'
-    }];
-    asset_use4 = (expand) => [{
-        key: '1',
+    },{
+        key: '4',
         steupName: '资产清查',
         objectM: this.getobjectM(['综合管理部', '财务部', '资产使用部门负责人及经办人']),
         f_level:
@@ -3420,10 +3614,8 @@ class TableComs {
                 "加强资产日常管理，定期开展资产清查盘点。",
             ], expand),
         responsibility: '综合管理部、财务部'
-    }];
-
-    asset_use5 = (expand) => [{
-        key: '1',
+    },{
+        key: '5',
         steupName: '资产收益管理',
         objectM: this.getobjectM(['公司领导', '综合管理部、财务部负责人']),
         f_level:
@@ -3439,10 +3631,8 @@ class TableComs {
                 "定期对资产收益进行专项检查。",
             ], expand),
         responsibility: '财务部'
-    }];
-
-    asset_use6 = (expand) => [{
-        key: '1',
+    },{
+        key: '6',
         steupName: '出资人管理',
         objectM: this.getobjectM(['公司领导']),
         f_level:
@@ -3471,54 +3661,6 @@ class TableComs {
         }
 
     };
-    asset_use_manger2 = (expand) => {
-        return {
-            columns: this.comIssue_columns,
-            data: this.asset_use2(expand),
-            bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
-        }
-
-    };
-    asset_use_manger3 = (expand) => {
-        return {
-            columns: this.comIssue_columns,
-            data: this.asset_use3(expand),
-            bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
-        }
-
-    };
-    asset_use_manger4 = (expand) => {
-        return {
-            columns: this.comIssue_columns,
-            data: this.asset_use4(expand),
-            bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
-        }
-
-    };
-    asset_use_manger5 = (expand) => {
-        return {
-            columns: this.comIssue_columns,
-            data: this.asset_use5(expand),
-            bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
-        }
-    };
-    asset_use_manger6 = (expand) => {
-        return {
-            columns: this.comIssue_columns,
-            data: this.asset_use6(expand),
-            bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
-        }
-    };
 
     assets_disposal1 = (expand) => [{
         //资产处置
@@ -3538,9 +3680,8 @@ class TableComs {
                 "建立完善资产管理信息系统，为资产评估提供基础数据。",
             ], expand),
         responsibility: '综合管理部、财务部'
-    }];
-    assets_disposal2 = (expand) => [{
-        key: '1',
+    },{
+        key: '2',
         steupName: '资产处置',
         objectM: this.getobjectM(['公司领导', '综合管理部、财务部负责人']),
         f_level:
@@ -3566,9 +3707,8 @@ class TableComs {
                 "实行重大资产处置事项和结果公示制度。",
             ], expand),
         responsibility: '综合管理部、财务部'
-    }];
-    assets_disposal3 = (expand) => [{
-        key: '1',
+    },{
+        key: '3',
         steupName: '处置收入管理',
         objectM: this.getobjectM(['资产处置部门负责人']),
         f_level:
@@ -3590,28 +3730,6 @@ class TableComs {
         return {
             columns: this.comIssue_columns,
             data: this.assets_disposal1(expan),
-            bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
-        }
-    };
-
-    assets_disposal_manger2 = (expan) => {
-        return {
-            columns: this.comIssue_columns,
-            data: this.assets_disposal2(expan),
-            bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
-        }
-
-    };
-
-    assets_disposal_manger3 = (expan) => {
-
-        return {
-            columns: this.comIssue_columns,
-            data: this.assets_disposal3(expan),
             bordered: true,
             pagination: false,
             style: { padding: '0 10px' }
@@ -3732,8 +3850,12 @@ class TableComs {
         steupName: '公司纪委会和党委会审议',
         objectM: this.getobjectM(['公司纪委', '党委委员']),
         f_level:
-            <span>同第一章“三重一大”决策管理中的“集体决策”部分。
-        </span>,
+            this.getFLevel([
+                {
+                    star: 0,
+                    span: '同第一章“三重一大”决策管理中的“集体决策”部分'
+                }
+            ], 0, expand),
         measures: <span>同第一章“三重一大”决策管理中的“集体决策”部分。
         </span>,
         responsibility: '公司纪委、党委班子'

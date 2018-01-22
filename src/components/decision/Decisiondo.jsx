@@ -113,13 +113,13 @@ class Decisiondo extends React.Component {
 
                                         </div>
 
-                                        <Steps current={1} style={{ flex: "6" }}>
-                                            <Steps current={1} style={{ flex: "6" }}>
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'60%'}}>
                                                 <Step status="process" title="会议记录"/>
                                                 <Step status="process" title="会议文件签发"/>
                                                 <Step status="process" title="执行会议决定"/>
                                             </Steps>
-                                        </Steps>
+                                        </div>
 
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}

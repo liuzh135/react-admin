@@ -73,7 +73,10 @@ import BillM from '../components/finance/BillM';
 import Creditorrights from '../components/finance/Creditorrights';
 import DebtM from '../components/finance/DebtM';
 //自有资金投资管理
-import Capitalinvestment from '../components/investment/Capitalinvestment';
+import ProjectCollection from '../components/investment/ProjectCollection';
+import Metanalysis from '../components/investment/Metanalysis';
+import ConferenceDecision from '../components/investment/ConferenceDecision';
+import ProjectImplementation from '../components/investment/ProjectImplementation';
 
 //工程建设管理
 import Qualityctrl from '../components/construction/Qualityctrl';
@@ -100,14 +103,7 @@ import Performcontact from '../components/contract/Performcontact';
 //资产管理
 import ConfigureAsset from '../components/asset/ConfigureAsset';
 import PossessionAsset from '../components/asset/PossessionAsset';
-import MaintainAsset from '../components/asset/MaintainAsset';
-import RentingAsset from '../components/asset/RentingAsset';
-import CheckAsset from '../components/asset/CheckAsset';
-import ProfitAsset from '../components/asset/ProfitAsset';
-import Investor from '../components/asset/Investor';
 import AppraisalAsset from '../components/asset/AppraisalAsset';
-import DisposalAsset from '../components/asset/DisposalAsset';
-import IncomeDisAsset from '../components/asset/IncomeDisAsset';
 
 //内部监督管理
 import Lettersreport from '../components/supervision/Lettersreport';
@@ -192,7 +188,10 @@ export default class CRouter extends Component {
                         </Route>
 
                         <Route path={'inverstment'}>
-                            <Route path={'capitalinvestment'} component={Capitalinvestment}/>
+                            <Route path={'projectCollection'} component={ProjectCollection}/>
+                            <Route path={'metanalysis'} component={Metanalysis}/>
+                            <Route path={'conferenceDecision'} component={ConferenceDecision}/>
+                            <Route path={'projectImplementation'} component={ProjectImplementation}/>
                         </Route>
 
                         <Route path={'construction'}>
@@ -224,20 +223,12 @@ export default class CRouter extends Component {
                         </Route>
 
                         <Route path={'asset'}>
-
                             <Route path={'config/configureAsset'} component={ConfigureAsset}/>
                             <Route path={'use'}>
                                 <Route path={'possessionAsset'} component={PossessionAsset}/>
-                                <Route path={'maintainAsset'} component={MaintainAsset}/>
-                                <Route path={'rentingAsset'} component={RentingAsset}/>
-                                <Route path={'checkAsset'} component={CheckAsset}/>
-                                <Route path={'profitAsset'} component={ProfitAsset}/>
-                                <Route path={'investor'} component={Investor}/>
                             </Route>
                             <Route path={'disposal'}>
                                 <Route path={'appraisalAsset'} component={AppraisalAsset}/>
-                                <Route path={'disposalAsset'} component={DisposalAsset}/>
-                                <Route path={'incomeDisAsset'} component={IncomeDisAsset}/>
                             </Route>
                         </Route>
 

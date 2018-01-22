@@ -8,7 +8,7 @@ import React from "react";
 import EcharCom from "../com/EcharCom";
 import EcharBar from "../com/EcharBar";
 import Bacecomstyle from "../Bacecomstyle";
-import TableComs from "../com/TableComs";
+import TableComs, {getStepString} from "../com/TableComs";
 import {Card, Col, Icon, Layout, Row, Select, Steps} from 'antd';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -32,23 +32,11 @@ class Lettersreport extends React.Component {
             echartsFlag: false,
             first: false,
             expand: false,
-            queryParam: {
-                'activityId': 1,//活动ID
-                'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
-                'userType': 1,//
-            }
         }
     }
 
     //调用action中的ajax方法，获取数据
     componentWillMount() {
-        const { receiveData } = this.props;
-        receiveData(null, 'auth');
-        console.log("auth +++++" + JSON.stringify(this.props.auth));
-
-        const { fetchData } = this.props;
-        //调用 http请求 获取网络数据
-        //fetchData({funcName: 'admin', stateName: 'auth'});
     }
 
     componentDidMount() {
@@ -75,6 +63,39 @@ class Lettersreport extends React.Component {
             expand: !state,
         });
     };
+
+    getStep1 = () => {
+        return getStepString([{
+            key:1,
+            value:"登记受理"
+        },{
+            key:2,
+            value:"线索处置审批"
+        },{
+            key:3,
+            value:"初步核实"
+        },{
+            key:4,
+            value:"立案审查"
+        },{
+            key:5,
+            value:"案件审理"
+        }]);
+    };
+
+    getStep2 = () => {
+        return getStepString([{
+            key:6,
+            value:"公司纪委会和党委会审议"
+        },{
+            key:7,
+            value:"作出处分决定"
+        },{
+            key:8,
+            value:"落实处分决定"
+        }]);
+    };
+
 
     render() {
         let tableComs = new TableComs();
@@ -115,6 +136,8 @@ class Lettersreport extends React.Component {
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
                                         </div>
                                     </div>
+                                    {this.getStep1()}
+                                    {this.getStep2()}
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>

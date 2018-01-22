@@ -8,7 +8,7 @@ import React from "react";
 import EcharCom from "../com/EcharCom";
 import EcharBar from "../com/EcharBar";
 import Bacecomstyle from "../Bacecomstyle";
-import TableComs from "../com/TableComs";
+import TableComs, {getStepString} from "../com/TableComs";
 import {Card, Col, Icon, Layout, Row, Select, Steps} from 'antd';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -22,9 +22,6 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-const Step = Steps.Step;
-
-
 class Recruit extends React.Component {
 
     constructor(props) {
@@ -34,23 +31,11 @@ class Recruit extends React.Component {
             echartsFlag: false,
             first: false,
             expand: false,
-            queryParam: {
-                'activityId': 1,//活动ID
-                'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
-                'userType': 1,//
-            }
         }
     }
 
     //调用action中的ajax方法，获取数据
     componentWillMount() {
-        const { receiveData } = this.props;
-        receiveData(null, 'auth');
-        console.log("auth +++++" + JSON.stringify(this.props.auth));
-
-        const { fetchData } = this.props;
-        //调用 http请求 获取网络数据
-        //fetchData({funcName: 'admin', stateName: 'auth'});
     }
 
     componentDidMount() {
@@ -78,6 +63,42 @@ class Recruit extends React.Component {
         });
     };
 
+
+    getStep1 = () => {
+        return getStepString([{
+            key:1,
+            value:"编制招聘计划和方案"
+        },{
+            key:2,
+            value:"批准计划和方案"
+        },{
+            key:3,
+            value:"发布招聘公告"
+        },{
+            key:4,
+            value:"接收简历与资格审查"
+        },{
+            key:5,
+            value:"组织考试（笔试、面试）"
+        }]);
+    };
+
+    getStep2 = () => {
+        return getStepString([{
+            key:6,
+            value:"考察和体检"
+        },{
+            key:7,
+            value:"确定拟聘人员"
+        },{
+            key:8,
+            value:"公示"
+        },{
+            key:9,
+            value:"签订聘用合同"
+        }]);
+    };
+
     render() {
         let tableComs = new TableComs();
         let echarCom = new EcharCom();
@@ -95,6 +116,8 @@ class Recruit extends React.Component {
         let first = this.state.first || false;
         let ecahrs = !first ? "" : <BaseEcharView option={echarCom.option} legend={legend} xAxis={xlist} data={datalist}
                                                   style={{ height: '82%', width: '100%' }}/>;
+        let step1 = this.getStep1();
+        let step2 = this.getStep2();
         return (
             <div className="gutter-example button-demo " style={{ height: '100%' }}>
                 <BreadcrumbCustom first="人才招聘管理" indexName="人力资源管理"/>
@@ -117,17 +140,8 @@ class Recruit extends React.Component {
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
                                         </div>
                                     </div>
-                                    <Steps current={1} style={{ flex: "6" }}>
-                                        <Step status="process" title="编制招聘计划和方案" />
-                                        <Step status="process" title="批准计划和方案" />
-                                        <Step status="process" title="发布招聘公告" />
-                                        <Step status="process" title="接收简历与资格审查" />
-                                        <Step status="process" title="组织考试（笔试、面试）" />
-                                        <Step status="process" title="考察和体检" />
-                                        <Step status="process" title="确定拟聘人员" />
-                                        <Step status="process" title="公示" />
-                                        <Step status="process" title="签订聘用合同" />
-                                    </Steps>
+                                    {step1}
+                                    {step2}
 
                                 </Layout>
                             </div>
@@ -191,7 +205,7 @@ class Recruit extends React.Component {
 
 const mapStateToPorps = state => {
     const { auth } = state.httpData;
-    return {auth};
+    return { auth };
 };
 
 const mapDispatchToProps = dispatch => ({

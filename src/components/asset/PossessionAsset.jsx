@@ -32,23 +32,11 @@ class PossessionAsset extends React.Component {
             echartsFlag: false,
             first: false,
             expand: false,
-            queryParam: {
-                'activityId': 1,//活动ID
-                'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
-                'userType': 1,//
-            }
         }
     }
 
     //调用action中的ajax方法，获取数据
     componentWillMount() {
-        const { receiveData } = this.props;
-        receiveData(null, 'auth');
-        console.log("auth +++++" + JSON.stringify(this.props.auth));
-
-        const { fetchData } = this.props;
-        //调用 http请求 获取网络数据
-        //fetchData({funcName: 'admin', stateName: 'auth'});
     }
 
     componentDidMount() {
@@ -95,7 +83,7 @@ class PossessionAsset extends React.Component {
                                                   style={{ height: '82%', width: '100%' }}/>;
         return (
             <div className="gutter-example button-demo " style={{ height: '100%' }}>
-                <BreadcrumbCustom first="资产使用"  second="资产自用" indexName="资产管理"/>
+                <BreadcrumbCustom first="资产使用"   indexName="资产管理"/>
                 <Row gutter={10} className=" scrollable-container " style={{ height: '95%' }}>
                     <Col className="gutter-row" md={24}
                          style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>

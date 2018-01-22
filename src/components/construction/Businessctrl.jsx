@@ -22,7 +22,7 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class Businessctrl extends React.Component {
 
     constructor(props) {
@@ -110,6 +110,15 @@ class Businessctrl extends React.Component {
                                             </div>
 
                                         </div>
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'100%'}}>
+                                                <Step status="process" title="变更技术方案"/>
+                                                <Step status="process" title="变更造价"/>
+                                                <Step status="process" title="分包"/>
+                                                <Step status="process" title="合同补充条款（协议）"/>
+                                            </Steps>
+                                        </div>
+
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>

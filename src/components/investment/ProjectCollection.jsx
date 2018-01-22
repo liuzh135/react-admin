@@ -2,28 +2,29 @@
  * @fileName: Selectioncadre.jsx
  * Created on 2017-11-24
  *
- * 资产管理-资产使用-资产维护
+ * 自有资金投资管理-->项目征集
  */
-import React from "react";
-import EcharCom from "../com/EcharCom";
-import EcharBar from "../com/EcharBar";
-import Bacecomstyle from "../Bacecomstyle";
-import TableComs from "../com/TableComs";
+import React from 'react';
 import {Card, Col, Icon, Layout, Row, Select, Steps} from 'antd';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 
 import BreadcrumbCustom from '../BreadcrumbCustom';
+import Bacecomstyle from '../Bacecomstyle';
 import BaseEcharView from '../charts/BaseEcharView';
+import EcharCom from '../com/EcharCom';
 
 import {fetchData, receiveData} from '@/action';
+import TableComs from '../com/TableComs';
 
 import ExtBaseicTable from '../tables/ExtBaseicTable';
+import EcharBar from '../com/EcharBar';
 
 const Option = Select.Option;
+const Step = Steps.Step;
 
-class MaintainAsset extends React.Component {
+class ProjectCollection extends React.Component {
 
     constructor(props) {
         super(props);
@@ -95,7 +96,7 @@ class MaintainAsset extends React.Component {
                                                   style={{ height: '82%', width: '100%' }}/>;
         return (
             <div className="gutter-example button-demo " style={{ height: '100%' }}>
-                <BreadcrumbCustom first="资产使用"  second="资产维护" indexName="资产管理"/>
+                <BreadcrumbCustom  first="项目征集" indexName="自有资金投资管理"/>
                 <Row gutter={10} className=" scrollable-container " style={{ height: '95%' }}>
                     <Col className="gutter-row" md={24}
                          style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>
@@ -110,6 +111,13 @@ class MaintainAsset extends React.Component {
                                             </div>
 
                                         </div>
+
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'40%'}}>
+                                                <Step status="process" title="项目酝酿"/>
+                                            </Steps>
+                                        </div>
+
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
@@ -118,7 +126,7 @@ class MaintainAsset extends React.Component {
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>
-                                <ExtBaseicTable {...(tableComs.asset_use_manger2(expand))} />
+                                <ExtBaseicTable {...(tableComs.project_collection_manger(expand))} />
                             </div>
                         </div>
                     </Col>
@@ -168,13 +176,79 @@ class MaintainAsset extends React.Component {
 
                 </Row>
                 {
-                    Bacecomstyle
+                    <style>
+                        {`
+                                .ant-steps .ant-steps-head-inner {
+                                  width: 18px;
+                                  height: 18px;
+                                  line-height: 16px;
+                                  font-size: 12px;
+                                }
+                                .ant-steps .ant-steps-title {
+                                    font-size: 12px;
+                                    line-height: 20px;
+                                }
+                                .ant-table table{
+                                    letter-spacing:1px;
+                                }
+                                .ul-text{
+                                   list-style-type: decimal;
+                                   list-style-position:outside;
+                                   padding-left:15px;
+                                }
+                                .ant-table-tbody > tr > td {
+                                    padding: 10px 8px;
+                                }
+                                .ant-btn {
+                                    border-radius: 0px;
+                                    border-bottom: 0px;
+                                }
+
+                                .ant-card-body{
+                                    height: 100%;
+                                }
+                                .ant-spin-nested-loading ,.ant-spin-container{
+                                    height: 100%;
+                                }
+                                .ant-spin-container{
+                                    overflow: scroll;
+                                }
+                                .ant-table-row-level-0 > td:nth-child(1)
+                                ,.ant-table-row-level-0 > td:nth-child(2)
+                                ,.ant-table-row-level-0 > td:nth-child(6)
+                                , .ant-table-thead > tr > th:nth-child(1)
+                                , .ant-table-thead > tr > th:nth-child(2)
+                                , .ant-table-thead > tr > th:nth-child(3)
+                                , .ant-table-thead > tr > th:nth-child(4)
+                                , .ant-table-thead > tr > th:nth-child(5)
+                                , .ant-table-thead > tr > th:nth-child(6)
+                                {
+                                    text-align: center;
+                                }
+                                .ant-table-thead > tr > th{
+                                   background: transparent;
+                                }
+                                .ant-table-small .ant-table-thead > tr > th{
+                                   background: transparent;
+                                }
+                                .ant-spin-container > .ant-table-small .ant-table-row-level-0 td:nth-child(3)
+                                ,.ant-spin-container > .ant-table-small .ant-table-row-level-0 td:nth-child(4)
+                                ,.ant-spin-container > .ant-table-small .ant-table-row-level-0 td:nth-child(6)
+                                {
+                                    text-align: center;
+                                }
+                                .ant-table-thead > tr > th{
+                                    padding: 10px 8px;
+                                }
+
+
+                        `}
+                    </style>
                 }
             </div>
         )
     }
 }
-
 const mapStateToPorps = state => {
     const { auth } = state.httpData;
     return {auth};
@@ -186,4 +260,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToPorps, mapDispatchToProps)(MaintainAsset);
+export default connect(mapStateToPorps, mapDispatchToProps)(ProjectCollection);

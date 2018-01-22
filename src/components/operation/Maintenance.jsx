@@ -22,7 +22,7 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class Maintenance extends React.Component {
 
     constructor(props) {
@@ -109,6 +109,12 @@ class Maintenance extends React.Component {
                                                 <span style={{ fontSize: "13px" }}>风险防控</span>
                                             </div>
 
+                                        </div>
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'40%'}}>
+                                                <Step status="process" title="工程维修养护计划上报和审批"/>
+                                                <Step status="process" title="工程维修养护队伍选择"/>
+                                            </Steps>
                                         </div>
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}

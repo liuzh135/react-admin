@@ -22,21 +22,16 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
+const Step = Steps.Step;
 
 class Qualityctrl extends React.Component {
 
     constructor(props) {
         super(props);
-        let d = new Date();
         this.state = {
             echartsFlag: false,
             first: false,
             expand: false,
-            queryParam: {
-                'activityId': 1,//活动ID
-                'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
-                'userType': 1,//
-            }
         }
     }
 
@@ -109,6 +104,16 @@ class Qualityctrl extends React.Component {
                                                 <span style={{ fontSize: "13px" }}>风险防控</span>
                                             </div>
 
+                                        </div>
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'100%'}}>
+                                                <Step status="process" title="施工人员管理"/>
+                                                <Step status="process" title="施工设备管理"/>
+                                                <Step status="process" title="原材料管理"/>
+                                                <Step status="process" title="施工组织设计"/>
+                                                <Step status="process" title="现场质量检验与评定"/>
+                                                <Step status="process" title="质量事故处理"/>
+                                            </Steps>
                                         </div>
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}

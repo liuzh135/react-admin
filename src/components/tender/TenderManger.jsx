@@ -8,7 +8,7 @@ import React from "react";
 import EcharCom from "../com/EcharCom";
 import EcharBar from "../com/EcharBar";
 import Bacecomstyle from "../Bacecomstyle";
-import TableComs from "../com/TableComs";
+import TableComs, {getStepString} from "../com/TableComs";
 import {Card, Col, Icon, Layout, Row, Select, Steps} from 'antd';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -22,21 +22,15 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class TenderManger extends React.Component {
 
     constructor(props) {
         super(props);
-        let d = new Date();
         this.state = {
             echartsFlag: false,
             first: false,
             expand: false,
-            queryParam: {
-                'activityId': 1,//活动ID
-                'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
-                'userType': 1,//
-            }
         }
     }
 
@@ -76,6 +70,54 @@ class TenderManger extends React.Component {
         });
     };
 
+
+    getStep1 = () => {
+        return getStepString([{
+            key:1,
+            value:"招标准备工作"
+        },{
+            key:2,
+            value:"招标文件编制"
+        },{
+            key:3,
+            value:"招标公告发布"
+        },{
+            key:4,
+            value:"招标文件发售"
+        },{
+            key:5,
+            value:"现场踏勘（或投标预备会）"
+        }]);
+    };
+
+    getStep2 = () => {
+        return getStepString([{
+            key:6,
+            value:"招标文件的澄清（或修改）"
+        },{
+            key:7,
+            value:"开标"
+        },{
+            key:8,
+            value:"评标委员会组建"
+        },{
+            key:9,
+            value:"评标"
+        },{
+            key:10,
+            value:"中标公示"
+        }]);
+    };
+    getStep3 = () => {
+        return getStepString([{
+            key:11,
+            value:"定标"
+        },{
+            key:12,
+            value:"合同签订"
+        }]);
+    };
+
     render() {
         let tableComs = new TableComs();
         let echarCom = new EcharCom();
@@ -93,6 +135,7 @@ class TenderManger extends React.Component {
         let first = this.state.first || false;
         let ecahrs = !first ? "" : <BaseEcharView option={echarCom.option} legend={legend} xAxis={xlist} data={datalist}
                                                   style={{ height: '82%', width: '100%' }}/>;
+
         return (
             <div className="gutter-example button-demo " style={{ height: '100%' }}>
                 <BreadcrumbCustom indexName="招标采购管理"/>
@@ -110,14 +153,18 @@ class TenderManger extends React.Component {
                                             </div>
 
                                         </div>
+
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
                                         </div>
                                     </div>
+                                    {this.getStep1()}
+                                    {this.getStep2()}
+                                    {this.getStep3()}
                                 </Layout>
                             </div>
-                            <div style={{ overflow: 'scroll', height: '95%' }}>
+                            <div style={{ overflow: 'scroll', height: '70%' }}>
                                 <ExtBaseicTable {...(tableComs.tendering_and_bidding_manger(expand))} />
                             </div>
                         </div>
