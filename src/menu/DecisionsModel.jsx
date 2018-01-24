@@ -227,28 +227,35 @@ class DecisionsModel {
             {
                 title: "项目征集",
                 menuId: 1,
-                icon: "pushpin-o",
+                icon: "",
                 menu: "/app/inverstment/projectCollection",
                 submenu: null
             },
             {
                 title: "项目汇总分析",
                 menuId: 2,
-                icon: "pushpin-o",
+                icon: "",
                 menu: "/app/inverstment/metanalysis",
                 submenu: null
             },
             {
-                title: "会议决策",
+                title: "制定投资建议方案",
                 menuId: 3,
-                icon: "pushpin-o",
+                icon: "",
+                menu: "/app/inverstment/planformulation",
+                submenu: null
+            },
+            {
+                title: "会议决策",
+                menuId: 4,
+                icon: "",
                 menu: "/app/inverstment/conferenceDecision",
                 submenu: null
             },
             {
                 title: "项目实施",
-                menuId: 4,
-                icon: "pushpin-o",
+                menuId: 5,
+                icon: "",
                 menu: "/app/inverstment/projectImplementation",
                 submenu: null
             },

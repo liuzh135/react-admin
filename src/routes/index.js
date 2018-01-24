@@ -77,6 +77,7 @@ import ProjectCollection from '../components/investment/ProjectCollection';
 import Metanalysis from '../components/investment/Metanalysis';
 import ConferenceDecision from '../components/investment/ConferenceDecision';
 import ProjectImplementation from '../components/investment/ProjectImplementation';
+import Planformulation from '../components/investment/Planformulation';
 
 //工程建设管理
 import Qualityctrl from '../components/construction/Qualityctrl';
@@ -192,6 +193,7 @@ export default class CRouter extends Component {
                             <Route path={'metanalysis'} component={Metanalysis}/>
                             <Route path={'conferenceDecision'} component={ConferenceDecision}/>
                             <Route path={'projectImplementation'} component={ProjectImplementation}/>
+                            <Route path={'planformulation'} component={Planformulation}/>
                         </Route>
 
                         <Route path={'construction'}>

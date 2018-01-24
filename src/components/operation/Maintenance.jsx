@@ -111,7 +111,7 @@ class Maintenance extends React.Component {
 
                                         </div>
                                         <div style={{ flex: "5"}}>
-                                            <Steps current={1} style={{width:'40%'}}>
+                                            <Steps current={1} style={{width:'50%'}}>
                                                 <Step status="process" title="工程维修养护计划上报和审批"/>
                                                 <Step status="process" title="工程维修养护队伍选择"/>
                                             </Steps>

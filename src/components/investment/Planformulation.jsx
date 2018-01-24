@@ -2,14 +2,14 @@
  * @fileName: Selectioncadre.jsx
  * Created on 2017-11-24
  *
- * 资产管理-资产配置
+ * 自有资金投资管理-->制定投资建议方案
  */
 import React from "react";
 import EcharCom from "../com/EcharCom";
 import EcharBar from "../com/EcharBar";
 import Bacecomstyle from "../Bacecomstyle";
 import TableComs from "../com/TableComs";
-import {Card, Col, Icon, Layout, Row, Select, Steps} from 'antd';
+import {Card, Col, Icon, Layout, Row, Select} from 'antd';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -22,8 +22,7 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-const Step = Steps.Step;
-class ConfigureAsset extends React.Component {
+class Planformulation extends React.Component {
 
     constructor(props) {
         super(props);
@@ -32,23 +31,11 @@ class ConfigureAsset extends React.Component {
             echartsFlag: false,
             first: false,
             expand: false,
-            queryParam: {
-                'activityId': 1,//活动ID
-                'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
-                'userType': 1,//
-            }
         }
     }
 
     //调用action中的ajax方法，获取数据
     componentWillMount() {
-        const { receiveData } = this.props;
-        receiveData(null, 'auth');
-        console.log("auth +++++" + JSON.stringify(this.props.auth));
-
-        const { fetchData } = this.props;
-        //调用 http请求 获取网络数据
-        //fetchData({funcName: 'admin', stateName: 'auth'});
     }
 
     componentDidMount() {
@@ -95,7 +82,7 @@ class ConfigureAsset extends React.Component {
                                                   style={{ height: '82%', width: '100%' }}/>;
         return (
             <div className="gutter-example button-demo " style={{ height: '100%' }}>
-                <BreadcrumbCustom first="资产配置" indexName="资产管理"/>
+                <BreadcrumbCustom first="制定投资建议方案"  indexName="自有资金投资管理"/>
                 <Row gutter={10} className=" scrollable-container " style={{ height: '95%' }}>
                     <Col className="gutter-row" md={24}
                          style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>
@@ -110,12 +97,6 @@ class ConfigureAsset extends React.Component {
                                             </div>
 
                                         </div>
-                                        <div style={{ flex: "5"}}>
-                                            <Steps current={1} style={{width:'40%'}}>
-                                                <Step status="process" title="资产增加"/>
-                                            </Steps>
-                                        </div>
-
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
                                                 中风险 {tableComs.getStar1(2, "star")} 低风险 {tableComs.getStar1(1, "star")}</span>
@@ -124,7 +105,7 @@ class ConfigureAsset extends React.Component {
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>
-                                <ExtBaseicTable {...(tableComs.asset_allocation_manger(expand))} />
+                                <ExtBaseicTable {...(tableComs.finance_budget_management_manger())} />
                             </div>
                         </div>
                     </Col>
@@ -180,10 +161,9 @@ class ConfigureAsset extends React.Component {
         )
     }
 }
-
 const mapStateToPorps = state => {
     const { auth } = state.httpData;
-    return { auth };
+    return {auth};
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -192,4 +172,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToPorps, mapDispatchToProps)(ConfigureAsset);
+export default connect(mapStateToPorps, mapDispatchToProps)(Planformulation);

@@ -1915,6 +1915,80 @@ class TableComs {
         }
     };
 
+    finance_bex_management = (expand)=> [{
+        //预算支出管理
+        key: '1',
+        steupName: '费用支出申请',
+        objectM: this.getobjectM(['公司领导', '财务部、各部门负责人及经办人']),
+        f_level: this.getFLevel([
+            {
+                star: 3,
+                span: '违规使用公款支付应由个人承担的费用;'
+            },
+            {
+                star: 3,
+                span: '违规使用购置办公用品等名义开支经费、虚开发票、用假发票。'
+            },
+            {
+                star: 3,
+                span: '会议费、培训费等支出内容不真实，以会议费等名义支出挂账，套取、转移资金；'
+            },
+            {
+                star: 3,
+                span: '虚报开支差旅、劳务、咨询、公务接待、车辆维护运行等费用。'
+            }
+        ], 3, expand),
+        measures: this.getMeasures(["严格预算管理，各部门费用支出需在预算范围内开支，原则上不得超预算和无预算开支，特殊情况须经公司领导审批；"
+            ,"办公用品购置需附明细清单；"
+            ,"各部门经办人报销前须验明发票真伪；"
+            ,"建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
+            ,"财务部应按照相关制度严格审核报销、付款单据；"
+            ,"适时开展专项检查，发现问题严肃追责。"
+        ], expand),
+        responsibility: '财务部'
+    }, {
+        key: '2',
+        steupName: '费用报销',
+        objectM: this.getobjectM(['公司领导', '财务部、各部门负责人及经办人']),
+        f_level: this.getFLevel([
+            {
+                star: 3,
+                span: '违规使用公款支付应由个人承担的费用;'
+            },
+            {
+                star: 3,
+                span: '违规使用购置办公用品等名义开支经费、虚开发票、用假发票。'
+            },
+            {
+                star: 3,
+                span: '会议费、培训费等支出内容不真实，以会议费等名义支出挂账，套取、转移资金；'
+            },
+            {
+                star: 3,
+                span: '虚报开支差旅、劳务、咨询、公务接待、车辆维护运行等费用。'
+            }
+        ], 3, expand),
+        measures: this.getMeasures(["严格预算管理，各部门费用支出需在预算范围内开支，原则上不得超预算和无预算开支，特殊情况须经公司领导审批；"
+            ,"办公用品购置需附明细清单；"
+            ,"各部门经办人报销前须验明发票真伪；"
+            ,"建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
+            ,"财务部应按照相关制度严格审核报销、付款单据；"
+            ,"适时开展专项检查，发现问题严肃追责。"
+        ], expand),
+        responsibility: '财务部'
+    }];
+
+    finance_bex_management_manger = (expand) => {
+        return {
+            columns: this.comIssue_columns,
+            data: this.finance_bex_management(expand),
+            bordered: true,
+            pagination: false,
+            style: { padding: '0 10px' }
+        }
+    };
+
+
     //========================财务管理===========================//
 
 

@@ -129,7 +129,7 @@ class Bexpenditure extends React.Component {
                                 </Layout>
                             </div>
                             <div style={{ overflow: 'scroll', height: '95%' }}>
-                                <ExtBaseicTable {...(tableComs.finance_budget_management_manger())} />
+                                <ExtBaseicTable {...(tableComs.finance_bex_management_manger())} />
                             </div>
                         </div>
                     </Col>

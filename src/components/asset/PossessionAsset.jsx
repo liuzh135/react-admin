@@ -22,12 +22,11 @@ import {fetchData, receiveData} from '@/action';
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 
 const Option = Select.Option;
-
+const Step = Steps.Step;
 class PossessionAsset extends React.Component {
 
     constructor(props) {
         super(props);
-        let d = new Date();
         this.state = {
             echartsFlag: false,
             first: false,
@@ -97,6 +96,16 @@ class PossessionAsset extends React.Component {
                                                 <span style={{ fontSize: "13px" }}>风险防控</span>
                                             </div>
 
+                                        </div>
+                                        <div style={{ flex: "5"}}>
+                                            <Steps current={1} style={{width:'100%'}}>
+                                                <Step status="process" title="资产自用"/>
+                                                <Step status="process" title="资产维护"/>
+                                                <Step status="process" title="资产出租出借"/>
+                                                <Step status="process" title="资产清查"/>
+                                                <Step status="process" title="资产收益管理"/>
+                                                <Step status="process" title="出资人管理"/>
+                                            </Steps>
                                         </div>
                                         <div className="pull-right" style={{ flex: "2" }}>
                                             <span className="pull-right ">高风险 {tableComs.getStar1(3, "star")}
