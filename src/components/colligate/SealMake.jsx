@@ -20,6 +20,7 @@ import TableComs from '../com/TableComs';
 
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 import EcharBar from '../com/EcharBar';
+import {ExtBaseicTableList} from "../com/ExtBaseicTableList";
 
 const Option = Select.Option;
 const Step = Steps.Step;
@@ -99,7 +100,7 @@ class SealMake extends React.Component {
                 <BreadcrumbCustom first="印章刻制" indexName="印章管理"/>
                 <Row gutter={10} className=" scrollable-container " style={{ height: '95%' }}>
                     <Col className="gutter-row" md={24}
-                         style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>
+                         style={{ padding: '0px',  backgroundColor: '#fff' }}>
                         <div style={{ height: '100%' }}>
                             <div style={{ padding: '5px 10px' }}>
                                 <Layout style={{ background: "#fff" }}>
@@ -126,7 +127,7 @@ class SealMake extends React.Component {
                                     </div>
                                 </Layout>
                             </div>
-                            <div style={{ overflow: 'scroll', height: '95%' }}>
+                            <div style={{ height: '320px',overflowX:'hidden' }}>
                                 <ExtBaseicTable {...(tableComs.seal_made_manger(expand))} />
                             </div>
                         </div>
@@ -150,16 +151,6 @@ class SealMake extends React.Component {
                                         <Icon type="area-chart" style={{ marginRight: "3px" }}/>
                                         <span style={{ fontSize: "13px" }}>风险监控统计</span>
                                     </div>
-
-                                    <div className="card-tool">
-                                        <Select defaultValue="week"
-                                                style={{ paddingRight: '5px', width: 120, color: "#256" }}
-                                                onChange={this.handleChange}>
-                                            <Option value="week">一周以内</Option>
-                                            <Option value="month">一个月以内</Option>
-                                            <Option value="thmonth">三个月以内</Option>
-                                        </Select>
-                                    </div>
                                 </div>
 
 
@@ -167,10 +158,9 @@ class SealMake extends React.Component {
 
                             </div>
                         </div>
-                        <div className="" style={{ width: "70%", height: '100%', float: "left" }}>
+                        <div className="" style={{ width: "70%",  float: "left" }}>
                             <Card bordered={false} noHovering={true} style={{ height: '100%' }}>
-                                <ExtBaseicTable style={{ margin: "5px", height: '100%' }}{...tableComs.dataIssue}/>
-
+                                <ExtBaseicTableList/>
                             </Card>
                         </div>
                     </Col>

@@ -20,6 +20,9 @@ import TableComs from '../com/TableComs';
 
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 import EcharBar from '../com/EcharBar';
+import {ExtBaseicTableList} from "../com/ExtBaseicTableList";
+import HumpgDialog from "../com/HumpgDialog";
+import MoreDetDialog from "../com/MoreDetDialog";
 
 const Option = Select.Option;
 const Step = Steps.Step;
@@ -33,6 +36,8 @@ class Decisionour extends React.Component {
             echartsFlag: false,
             first: false,
             expand: false,
+            visibleUpdate: false,
+            visibleMore: false,
             queryParam: {
                 'activityId': 1,//活动ID
                 'statisDate': d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate(),//查询日期默认当天
@@ -77,6 +82,24 @@ class Decisionour extends React.Component {
         });
     };
 
+    funBack1 = () => {
+        this.showMoreModal();
+    };
+    funBack2 = () => {
+        this.showUpdateModal();
+    };
+
+    showUpdateModal = () => {
+        this.setState({
+            visibleUpdate: !this.state.visibleUpdate,
+        });
+    };
+    showMoreModal = () => {
+        this.setState({
+            visibleMore: !this.state.visibleMore,
+        });
+    };
+
     render() {
         let tableComs = new TableComs();
         let echarCom = new EcharCom();
@@ -100,7 +123,7 @@ class Decisionour extends React.Component {
 
                 <Row gutter={10} className=" scrollable-container " style={{ height: '95%' }}>
                     <Col className="gutter-row" md={24}
-                         style={{ padding: '0px', height: '55%', backgroundColor: '#fff' }}>
+                         style={{ padding: '0px', backgroundColor: '#fff' }}>
                         <div style={{ height: '100%' }}>
                             <div style={{ padding: '5px 10px' }}>
                                 <Layout style={{ background: "#fff" }}>
@@ -127,7 +150,7 @@ class Decisionour extends React.Component {
                                     </div>
                                 </Layout>
                             </div>
-                            <div style={{ overflow: 'scroll', height: '95%' }}>
+                            <div style={{ height: '320px',overflowX:'hidden' }}>
                                 <ExtBaseicTable {...(tableComs.ourIssue(expand))} />
                             </div>
                         </div>
@@ -151,16 +174,6 @@ class Decisionour extends React.Component {
                                         <Icon type="area-chart" style={{ marginRight: "3px" }}/>
                                         <span style={{ fontSize: "13px" }}>风险监控统计</span>
                                     </div>
-
-                                    <div className="card-tool">
-                                        <Select defaultValue="week"
-                                                style={{ paddingRight: '5px', width: 120, color: "#256" }}
-                                                onChange={this.handleChange}>
-                                            <Option value="week">一周以内</Option>
-                                            <Option value="month">一个月以内</Option>
-                                            <Option value="thmonth">三个月以内</Option>
-                                        </Select>
-                                    </div>
                                 </div>
 
 
@@ -168,15 +181,25 @@ class Decisionour extends React.Component {
 
                             </div>
                         </div>
-                        <div className="" style={{ width: "70%", height: '100%', float: "left" }}>
+                        <div className="" style={{ width: "70%", float: "left" }}>
                             <Card bordered={false} noHovering={true} style={{ height: '100%' }}>
-                                <ExtBaseicTable style={{ margin: "5px", height: '100%' }}{...tableComs.dataIssue}/>
+                                <ExtBaseicTableList
+                                    func1={this.funBack1}
+                                    func2={this.funBack2}/>
 
                             </Card>
                         </div>
                     </Col>
 
                 </Row>
+                <HumpgDialog
+                    title="人工评估"
+                    submitText="提交"
+                    visible={this.state.visibleUpdate}/>
+
+                <MoreDetDialog
+                    title="详情"
+                    visible={this.state.visibleMore}/>
                 {
                     Bacecomstyle
                 }

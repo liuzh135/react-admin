@@ -116,7 +116,7 @@ class Homepage extends React.Component {
 
         return (
             <div className="flex-con">
-                <div className="gutter-example button-demo box-ba">
+                <div className="gutter-example  box-ba">
 
                     <Row gutter={14}>
                         {animations.map((v, i) => (

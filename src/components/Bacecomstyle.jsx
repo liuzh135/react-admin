@@ -65,8 +65,14 @@ const Bacecomstyle =
                                 .ant-table-thead > tr > th{
                                     padding: 10px 8px;
                                 }
+                                .ant-spin-container{
+                                    overflow: hidden;
+                                }
 
-
+                                .ant-table-scroll {
+                                    overflow: hidden;
+                                    overflow-x: hidden;
+                                }
                         `}
     </style>;
 

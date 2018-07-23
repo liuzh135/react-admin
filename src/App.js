@@ -22,7 +22,6 @@ class App extends Component {
     componentWillMount() {
         const { receiveData } = this.props;
         const user = JSON.parse(localStorage.getItem('user'));
-        console.log("1111111111111111");
         user && receiveData(user, 'auth');
         const { router } = this.props;
         if (user == null) {
@@ -41,7 +40,6 @@ class App extends Component {
     getClientWidth = () => {    // 获取当前浏览器宽度并设置responsive管理响应式
         const { receiveData } = this.props;
         const clientWidth = document.body.clientWidth;
-        console.log("111111" + clientWidth);
         receiveData({ isMobile: clientWidth <= 992 }, 'responsive');
     };
     //响应式
@@ -81,7 +79,7 @@ class App extends Component {
 
                 <Layout style={{height:"90%"}}>
                     {!responsive.data.isMobile && side_view}
-                    <Layout>
+                    <Layout style={{ backgroundColor: '#fff'}}>
                         <Content style={{ margin: '0 10px', overflow: 'initial',height:'100%' }}>
                             {this.props.children}
                         </Content>

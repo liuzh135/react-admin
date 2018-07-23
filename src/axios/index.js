@@ -2,8 +2,9 @@
  * Created by hao.cheng on 2017/4/16.
  */
 import axios from 'axios';
-import { get } from './tools';
+import {get} from './tools';
 import * as config from './config';
+import {message} from "antd";
 
 export const getPros = () => axios.post('http://api.xitu.io/resources/github', {
     category: "trending",
@@ -37,3 +38,17 @@ export const admin = () => get({url: config.MOCK_AUTH_ADMIN});
 
 // 访问权限获取
 export const guest = () => get({url: config.MOCK_AUTH_VISITOR});
+
+//登录模块
+export const loginWyzk = (params = {}) => {
+    let username = params.username;
+    let password = params.password;
+    let url = config.BASEWYZK + '/sso/login?username=' + username + '&password=' + password;
+    return axios({
+        method: 'get',
+        url: url
+    }).then(res => res.data).catch(err => {
+        message.error(err.message);
+        console.log(err)
+    });
+};

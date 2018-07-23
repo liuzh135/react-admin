@@ -8,8 +8,8 @@ export const getStepString = (steps = []) => {
     let stepView = [];
     steps.map((step, index) => {
         let subView = <div className="ant-steps-item ant-steps-status-process"
-                           style={{width:'20%', marginRight: '-14px'}}>
-            <div className="ant-steps-tail" style={{paddingRight:'14px'}}><i></i></div>
+                           style={{ width: '20%', marginRight: '-14px' }}>
+            <div className="ant-steps-tail" style={{ paddingRight: '14px' }}><i></i></div>
             <div className="ant-steps-step">
                 <div className="ant-steps-head">
                     <div className="ant-steps-head-inner"><span className="ant-steps-icon">{step.key}</span></div>
@@ -21,7 +21,8 @@ export const getStepString = (steps = []) => {
         </div>;
         stepView.push(subView);
     });
-    return <div className="ant-steps ant-steps-horizontal ant-steps-label-horizontal" style={{ margin: '6px'}}>{stepView}</div> ;
+    return <div className="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
+                style={{ margin: '6px' }}>{stepView}</div>;
 };
 
 class TableComs {
@@ -111,10 +112,10 @@ class TableComs {
         let colorString = string == null ? "star" : string;
 
         for (let j = 0; j < i; j++) {
-            iconView.push(<Icon type={"star"} style={{ margin: '3px', color: '#0fb0f0' }}/>);
+            iconView.push(<Icon type={"star"} key={j + i} style={{ margin: '3px', color: '#0fb0f0' }}/>);
         }
         for (let j = 0; j < 3 - i; j++) {
-            iconView.push(<Icon type="star-o" style={{ margin: '3px', color: '#0fb0f0' }}/>);
+            iconView.push(<Icon type="star-o" key={j + 3 - i} style={{ margin: '3px', color: '#0fb0f0' }}/>);
         }
         return <span>{iconView}</span>;
     };
@@ -135,25 +136,10 @@ class TableComs {
         let firstLi;
         let nextLi;
         let FleveView = [];
-        // let clsName = maxlen == 1 ? "fleft-1m" : maxlen == 2 ? "fleft-2m" : "fleft-3m";
         let clsName = "fleft-3m";
-        // if (typeof expand === 'boolean' && !expand) {
-        //     let modeData = flevels[0].span;
-        //     let modestar = flevels[0].star;
-        //     let modeString = modeData.substring(0, 20) + "...";
-        //     firstLi = <div>
-        //         <div className={clsName}>
-        //             {this.getStar(modestar, "star")}
-        //         </div>
-        //         <div className="fleft-10m">
-        //             <span>{modeString}</span>
-        //         </div>
-        //     </div>;
-        //     FleveView.push(firstLi);
-        // } else {
         for (let i = 0; i < flevels.length; i++) {
             if (i == 0) {
-                firstLi = <div>
+                firstLi = <div key={i}>
                     <div className={clsName}>
                         {this.getStar(flevels[i].star, "star")}
                     </div>
@@ -163,7 +149,7 @@ class TableComs {
                 </div>;
                 FleveView.push(firstLi);
             } else {
-                nextLi = <div className="clear-float margin-top">
+                nextLi = <div key={i} className="clear-float margin-top">
                     <div className={clsName}>
                         {this.getStar(flevels[i].star, "star")}
                     </div>
@@ -189,7 +175,7 @@ class TableComs {
         //     measuresView.push(contentLi);
         // } else {
         for (let i = 0; i < measures.length; i++) {
-            contentLi = <li>{measures[i]}</li>;
+            contentLi = <li key={i}>{measures[i]}</li>;
             measuresView.push(contentLi);
         }
         // }
@@ -234,8 +220,8 @@ class TableComs {
 
         let objectView = [];
         objectMS.map(function (objects, index) {
-            objectView.push(<span>{objects}</span>);
-            (index !== objectMS.length - 1) ? objectView.push(<br/>) : "";
+            objectView.push(<span key={index}>{objects}</span>);
+            (index !== objectMS.length - 1) ? objectView.push(<br key={index + 10}/>) : "";
         });
         return <span className='obj_ms'>{objectView}</span>
     };
@@ -396,8 +382,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.readyIssue_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         };
     };
 
@@ -407,8 +394,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.reptIssue_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         };
     };
 
@@ -418,8 +406,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.ourIssue_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         };
 
     };
@@ -430,8 +419,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.doIssue_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         };
 
     };
@@ -759,8 +749,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.seal_manger_made_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         };
     };
 
@@ -769,8 +760,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.seal_manger_use_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -780,8 +772,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.seal_manger_des_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         };
     };
 
@@ -791,8 +784,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_equipment_manger_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -802,8 +796,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_dispatch_manger_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -813,8 +808,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_repair_manger_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -824,8 +820,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_charge_manger_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -836,8 +833,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.reception_manger_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -848,8 +846,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.private_manger_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -859,8 +858,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.public_manger_data(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -904,8 +904,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_motion(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -986,8 +987,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_democracy_recommendation(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -1105,8 +1107,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_inspect(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1200,8 +1203,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_discussion_and_decision(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1258,8 +1262,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_in_office(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1376,8 +1381,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_recruitment(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1425,8 +1431,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_salary_and_welfare(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -1504,8 +1511,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_other(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1580,8 +1588,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_budget_expenditure_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1681,8 +1690,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_cash_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1776,8 +1786,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_bank_account_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1820,8 +1831,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_bill_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -1899,8 +1911,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_debt_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -1910,12 +1923,13 @@ class TableComs {
             columns: this.comIssue_columns,
             data: [],
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
-    finance_bex_management = (expand)=> [{
+    finance_bex_management = (expand) => [{
         //预算支出管理
         key: '1',
         steupName: '费用支出申请',
@@ -1939,11 +1953,11 @@ class TableComs {
             }
         ], 3, expand),
         measures: this.getMeasures(["严格预算管理，各部门费用支出需在预算范围内开支，原则上不得超预算和无预算开支，特殊情况须经公司领导审批；"
-            ,"办公用品购置需附明细清单；"
-            ,"各部门经办人报销前须验明发票真伪；"
-            ,"建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
-            ,"财务部应按照相关制度严格审核报销、付款单据；"
-            ,"适时开展专项检查，发现问题严肃追责。"
+            , "办公用品购置需附明细清单；"
+            , "各部门经办人报销前须验明发票真伪；"
+            , "建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
+            , "财务部应按照相关制度严格审核报销、付款单据；"
+            , "适时开展专项检查，发现问题严肃追责。"
         ], expand),
         responsibility: '财务部'
     }, {
@@ -1969,11 +1983,11 @@ class TableComs {
             }
         ], 3, expand),
         measures: this.getMeasures(["严格预算管理，各部门费用支出需在预算范围内开支，原则上不得超预算和无预算开支，特殊情况须经公司领导审批；"
-            ,"办公用品购置需附明细清单；"
-            ,"各部门经办人报销前须验明发票真伪；"
-            ,"建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
-            ,"财务部应按照相关制度严格审核报销、付款单据；"
-            ,"适时开展专项检查，发现问题严肃追责。"
+            , "办公用品购置需附明细清单；"
+            , "各部门经办人报销前须验明发票真伪；"
+            , "建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
+            , "财务部应按照相关制度严格审核报销、付款单据；"
+            , "适时开展专项检查，发现问题严肃追责。"
         ], expand),
         responsibility: '财务部'
     }];
@@ -1983,8 +1997,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_bex_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -2124,13 +2139,14 @@ class TableComs {
             columns: this.get6Scolumns(1, 2),
             data: this.funds_project_collection(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
 
-    project_collection  = (expand) => [{
+    project_collection = (expand) => [{
         //项目征集
         key: '1',
         steupName: '项目酝酿',
@@ -2163,13 +2179,14 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_collection(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
 
-    project_any  = (expand) => [{
+    project_any = (expand) => [{
         //项目汇总分析
         key: '1',
         steupName: '项目汇总',
@@ -2224,13 +2241,14 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_any(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
 
-    project_sun  = (expand) => [{
+    project_sun = (expand) => [{
         //会议决策
         key: '1',
         steupName: '“三重一大”决策',
@@ -2261,14 +2279,15 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_sun(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
 
 
-    project_do  = (expand) => [{
+    project_do = (expand) => [{
         //项目实施
         key: '1',
         steupName: '实施方案编制',
@@ -2296,8 +2315,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_do(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -2497,8 +2517,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_quality_control(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -2557,8 +2578,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_progress_control(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
     project_investment_control = (expand) => [{
@@ -2651,8 +2673,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_progress_control(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -2747,8 +2770,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_safety_control(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -2845,8 +2869,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_business_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -2915,8 +2940,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_water_dispatch_management(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -2951,8 +2977,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_water_monitoring(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -2999,8 +3026,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_maintenance(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -3051,8 +3079,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_safety_production_monitor(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -3117,8 +3146,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.safety_accident_investigation(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -3395,8 +3425,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.tendering_and_bidding(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -3430,8 +3461,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_setting(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -3488,8 +3520,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.contract_formation(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -3572,8 +3605,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.contract_fulfilment(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -3610,8 +3644,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.asset_allocation(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -3635,7 +3670,7 @@ class TableComs {
                 "对违规领用、逾期不交进行通报和逾期处理；定期开展资产盘点，确保账实相符。",
             ], expand),
         responsibility: '资产使用部门'
-    },{
+    }, {
         key: '2',
         steupName: '资产维护',
         objectM: this.getobjectM(['资产使用部门负责人及经办人']),
@@ -3652,7 +3687,7 @@ class TableComs {
                 "推行定点维修。",
             ], expand),
         responsibility: '资产使用部门'
-    },{
+    }, {
         key: '3',
         steupName: '资产出租出借',
         objectM: this.getobjectM(['公司领导', '综合管理部、资产使用部门负责人']),
@@ -3670,7 +3705,7 @@ class TableComs {
                 "涉及投资性的出租出借事项应事先论证。",
             ], expand),
         responsibility: '综合管理部'
-    },{
+    }, {
         key: '4',
         steupName: '资产清查',
         objectM: this.getobjectM(['综合管理部', '财务部', '资产使用部门负责人及经办人']),
@@ -3688,7 +3723,7 @@ class TableComs {
                 "加强资产日常管理，定期开展资产清查盘点。",
             ], expand),
         responsibility: '综合管理部、财务部'
-    },{
+    }, {
         key: '5',
         steupName: '资产收益管理',
         objectM: this.getobjectM(['公司领导', '综合管理部、财务部负责人']),
@@ -3705,7 +3740,7 @@ class TableComs {
                 "定期对资产收益进行专项检查。",
             ], expand),
         responsibility: '财务部'
-    },{
+    }, {
         key: '6',
         steupName: '出资人管理',
         objectM: this.getobjectM(['公司领导']),
@@ -3730,8 +3765,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.asset_use1(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
 
     };
@@ -3754,7 +3790,7 @@ class TableComs {
                 "建立完善资产管理信息系统，为资产评估提供基础数据。",
             ], expand),
         responsibility: '综合管理部、财务部'
-    },{
+    }, {
         key: '2',
         steupName: '资产处置',
         objectM: this.getobjectM(['公司领导', '综合管理部、财务部负责人']),
@@ -3781,7 +3817,7 @@ class TableComs {
                 "实行重大资产处置事项和结果公示制度。",
             ], expand),
         responsibility: '综合管理部、财务部'
-    },{
+    }, {
         key: '3',
         steupName: '处置收入管理',
         objectM: this.getobjectM(['资产处置部门负责人']),
@@ -3805,8 +3841,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.assets_disposal1(expan),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -3978,8 +4015,9 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.complaint_reporting_handling(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
@@ -4086,67 +4124,13 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.internal_audit_monitoring(expand),
             bordered: true,
-            pagination: false,
-            style: { padding: '0 10px' }
+            pagination: { pageSize: 6 },
+            style: { padding: '0 10px' },
+            scroll: { y: 210 }
         }
     };
 
 //========================内部监督管理===========================//
-
-    data_columns = [{
-        title: '责任人',
-        dataIndex: 'liable',
-        width: 100,
-    }, {
-        title: '时间',
-        dataIndex: 'date',
-        width: 150,
-    }, {
-        title: '事件描述',
-        dataIndex: 'description',
-        width: 100,
-    }, {
-        title: '风险等级',
-        dataIndex: 'risk',
-        width: 100,
-    }, {
-        title: '违规环节',
-        dataIndex: 'link',
-        width: 150,
-    }, {
-        width: 200,
-        title: '违规说明',
-        dataIndex: 'explain',
-    }];
-
-
-    getDatas = () => {
-        let data = [];
-        for (let i = 0; i < 18; i++) {
-            data.push({
-                key: i,
-                liable: `刘振华`,
-                date: '2016年04月05日',
-                description: `详情`,
-                risk: this.getStar(2, "star"),
-                link: `议题研究`,
-                explain: '未对议题充分研究讨论'
-            });
-        }
-
-        return data;
-    };
-
-
-    dataIssue = {
-        columns: this.data_columns,
-        data: this.getDatas(),
-        bordered: true,
-        pagination: false,
-        showHeader: true,
-        size: "small"
-    };
 }
-
 
 export default TableComs;
