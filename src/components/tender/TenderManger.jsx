@@ -165,7 +165,7 @@ class TenderManger extends React.Component {
                                     {this.getStep3()}
                                 </Layout>
                             </div>
-                            <div style={{ height: '320px',overflowX:'hidden' }}>
+                            <div style={{ height: '350px',overflowX:'hidden' }}>
                                 <ExtBaseicTable {...(tableComs.tendering_and_bidding_manger(expand))} />
                             </div>
                         </div>
