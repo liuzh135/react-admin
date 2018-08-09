@@ -50,7 +50,7 @@ class PageIndex extends Component {
                         style={{ flexDirection: 'column' }}>
                     <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}}
                                   router={router} path={this.props.location.pathname}/>
-                    <div className='linear-gradient' style={{ height: '100%' }}>
+                    <div className='linear-gradient' style={{ height: '95%' }}>
                         <Content
                             style={{ overflow: 'initial', position: 'relative', height: '90%' }}>
                             {this.props.children}

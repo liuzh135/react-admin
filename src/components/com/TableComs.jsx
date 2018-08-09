@@ -2652,7 +2652,7 @@ class TableComs {
     project_investment_control_manger = (expand) => {
         return {
             columns: this.comIssue_columns,
-            data: this.project_progress_control(expand),
+            data: this.project_investment_control(expand),
             bordered: true,
             pagination: false,
             style: { padding: '0 10px' },
@@ -3018,14 +3018,14 @@ class TableComs {
         //安全生产监督检查
         key: '1',
         steupName: '安全监督检查',
-        objectM: this.getobjectM(['工程运行部、各级运行管理机构负责人及相关人员', '检查小组']),
+        objectM: this.getobjectM(['工程运行部、各级运行管理机构负责人及相关人员、检查小组']),
         f_level:
             this.getFLevel([
                 {
                     star: 3,
                     span: '未组织开展安全监督检查；'
                 }, {
-                    star: 3,
+                    star: 2,
                     span: '监督检查流于形式不能及时发现安全隐患，或发现问题后不报告。'
                 }
             ], 3, expand),
@@ -3038,7 +3038,7 @@ class TableComs {
     }, {
         key: '2',
         steupName: '安全隐患处理',
-        objectM: this.getobjectM(['工程运行部、各级运行管理机构负责人及相关人员']),
+        objectM: this.getobjectM(['工程运行部、各级运行管理机构负责人及相关人员、检查小组']),
         f_level:
             this.getFLevel([
                 {
@@ -3538,7 +3538,7 @@ class TableComs {
             this.getFLevel([
                 {
                     star: 1,
-                    span: '不按合同规定期限、金额或方式付款，导致公司利益受损。'
+                    span: '改善合同价款支付审批流程，严格按照合同条款约定支付款项。'
                 }
             ], 1, expand),
         measures:
