@@ -115,7 +115,7 @@ class Salarymanager extends React.Component {
                                         </div>
 
                                         <div style={{ flex: "5"}}>
-                                            <Steps current={1} style={{width:'40%'}}>
+                                            <Steps current={1} style={{width:'50%'}}>
                                                 <Step status="process" title="薪酬福利调整" />
                                                 <Step status="process" title="薪酬福利标准的核算和审定" />
                                             </Steps>

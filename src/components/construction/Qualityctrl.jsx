@@ -106,7 +106,7 @@ class Qualityctrl extends React.Component {
                                             </div>
 
                                         </div>
-                                        <div style={{ flex: "5"}}>
+                                        <div style={{ flex: "7"}}>
                                             <Steps current={1} style={{width:'100%'}}>
                                                 <Step status="process" title="施工人员管理"/>
                                                 <Step status="process" title="施工设备管理"/>

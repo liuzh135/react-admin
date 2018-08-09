@@ -266,18 +266,14 @@ class TableComs {
 
     reptIssue_data = (expand) => [{
         key: '1',
-        steupName: '议题研究',
+        steupName: '请示签报',
         objectM: this.getobjectM(['主责部门负责人', '相关工作人员']),
         f_level:
             this.getFLevel([
                 {
                     star: 2,
                     span: '不请示报告重要业务事项，或不如实请示报告。'
-                }, {
-                    star: 2,
-                    span: '相关部门不认真履职，所提意见明显具有倾向性，或未提出负责任意见。'
-                }
-            ], 2, expand),
+                }], 2, expand),
         measures:
             this.getMeasures(["健全规章制度，明确请示报告事项，未请示报告事项不得办理；"
                 , "报告请示相关工作时，拟稿人和审核人不得为同一人。"], expand),
@@ -325,7 +321,6 @@ class TableComs {
                 }], 2, expand),
         measures:
             this.getMeasures(["落实民主集中制，会议表决实行一人一票，少数服从多数，对分歧明显，且人数接近的事项应暂缓做出决策；"
-                , "涉及“三重一大”事项必须经公司总经理办公会/党委会研究决定；"
                 , "落实“三重一大”决策制度监督检查制度，对会议决策不规范的情况，公司纪委有权向会议召集人提出意见和建议。"], expand),
         responsibility: '会议召集人'
     }];
@@ -360,7 +355,7 @@ class TableComs {
     }, {
         key: '3',
         steupName: '执行会议决定',
-        objectM: this.getobjectM(['执行会议决定']),
+        objectM: this.getobjectM(['各部门直属分公司']),
         f_level:
             this.getFLevel([
                 {
@@ -382,7 +377,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.readyIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         };
@@ -394,7 +389,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.reptIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         };
@@ -406,7 +401,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.ourIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         };
@@ -419,7 +414,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.doIssue_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         };
@@ -456,7 +451,7 @@ class TableComs {
     seal_manger_use_data = (expand) => [{
         key: '1',
         steupName: '用印审批',
-        objectM: this.getobjectM(['公司领导', '刻印申请部门', '综合管理部负责人及经办人']),
+        objectM: this.getobjectM(['公司领导', '印章保管部门负责人及保管人', '用印部门负责人及经办人']),
         f_level:
             this.getFLevel([
                 {
@@ -513,7 +508,7 @@ class TableComs {
     car_dispatch_manger_data = (expand) => [{
         key: '1',
         steupName: '车辆调度',
-        objectM: this.getobjectM(['公司领导', '综合管理部、用车部门负责人', '及有关人员，车辆驾驶员']),
+        objectM: this.getobjectM(['公司领导', '综合管理部、用车部门负责人及有关人员', '车辆驾驶员']),
         f_level:
             this.getFLevel([
                 {
@@ -566,10 +561,6 @@ class TableComs {
                 {
                     star: 2,
                     span: '使用公务用车加油卡给其他车辆加油。'
-                },
-                {
-                    star: 2,
-                    span: '在费用报销过程中弄虚作假、虚报冒领'
                 }
             ], 2, expand),
         measures:
@@ -749,7 +740,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.seal_manger_made_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         };
@@ -760,7 +751,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.seal_manger_use_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -772,7 +763,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.seal_manger_des_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         };
@@ -784,7 +775,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_equipment_manger_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -796,7 +787,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_dispatch_manger_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -808,7 +799,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_repair_manger_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -820,7 +811,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.car_charge_manger_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -833,7 +824,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.reception_manger_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -846,7 +837,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.private_manger_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -858,7 +849,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.public_manger_data(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -904,7 +895,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_motion(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -987,7 +978,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_democracy_recommendation(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1087,11 +1078,11 @@ class TableComs {
                 span: '不认真分析报告考察情况；'
             },
             {
-                star: 2,
+                star: 1,
                 span: '未按规定集体研究任用建议方案；'
             },
             {
-                star: 2,
+                star: 1,
                 span: '未按规定向公司主要负责人报告任用建议'
             }
         ], 2, expand),
@@ -1107,7 +1098,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_inspect(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1147,7 +1138,7 @@ class TableComs {
                 star: 1,
                 span: '不按规定进行充分讨论。'
             }, {
-                star: 1,
+                star: 2,
                 span: '临时动议干部任用事项。'
             }
         ], 1, expand),
@@ -1203,7 +1194,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_discussion_and_decision(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1262,7 +1253,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_in_office(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1381,7 +1372,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_recruitment(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1431,7 +1422,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_salary_and_welfare(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1453,7 +1444,7 @@ class TableComs {
             }
             , {
                 star: 1,
-                span: '不结合实际情况或者不经集体研究擅自决定相关人员考核等次。'
+                span: '对绩效考核存在的违规违纪问题严肃问责。'
             }
         ], 2, expand),
         measures: this.getMeasures(["人力资源部负责拟定绩效考核方案，并经公司领导集体决策；"
@@ -1511,7 +1502,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.hrm_other(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1588,7 +1579,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_budget_expenditure_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1630,27 +1621,24 @@ class TableComs {
         f_level: this.getFLevel([
             {
                 star: 3,
-                span: '违规使用公款支付应由个人承担的费用；'
+                span: '截留现金收入，取得现金收入不入账。'
             }
             , {
                 star: 3,
-                span: '违规使用购置办公用品等名义开支经费、虚开发票、用假发票；'
+                span: '白条抵库、坐支现金；'
             }
             , {
                 star: 3,
-                span: '会议费、培训费等支出内容不真实，以会议费等名义支出挂账，套取、转移资金；'
-            }
-            , {
+                span: '公款私存。'
+            }, {
                 star: 3,
-                span: '虚报开支差旅、劳务、咨询、公务接待、车辆维护运行等费用。'
+                span: '大额提取现金，大额现金支付。'
             }
         ], 3, expand),
-        measures: this.getMeasures(["严格预算管理，各部门费用支出需在预算范围内开支，原则上不得超预算和无预算开支，特殊情况须经公司领导审批；"
-            , "办公用品购置需附明细清单；"
-            , "各部门经办人报销前须验明发票真伪；"
-            , "建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
-            , "财务部应按照相关制度严格审核报销、付款单据；"
-            , "适时开展专项检查，发现问题严肃追责。"
+        measures: this.getMeasures(["现金的交付均需办理正规手续；"
+            , "定期或不定期开展现金监督盘点；"
+            , "对关键岗位的财务人员实行换岗、轮岗制度；"
+            , "严格执行现金开支规定。"
         ], expand),
         responsibility: '财务部'
     }, {
@@ -1660,27 +1648,24 @@ class TableComs {
         f_level: this.getFLevel([
             {
                 star: 3,
-                span: '违规使用公款支付应由个人承担的费用；'
+                span: '截留现金收入，取得现金收入不入账。'
             }
             , {
                 star: 3,
-                span: '违规使用购置办公用品等名义开支经费、虚开发票、用假发票；'
+                span: '白条抵库、坐支现金；'
             }
             , {
                 star: 3,
-                span: '会议费、培训费等支出内容不真实，以会议费等名义支出挂账，套取、转移资金；'
-            }
-            , {
+                span: '公款私存。'
+            }, {
                 star: 3,
-                span: '虚报开支差旅、劳务、咨询、公务接待、车辆维护运行等费用。'
+                span: '大额提取现金，大额现金支付。'
             }
         ], 3, expand),
-        measures: this.getMeasures(["严格预算管理，各部门费用支出需在预算范围内开支，原则上不得超预算和无预算开支，特殊情况须经公司领导审批；"
-            , "办公用品购置需附明细清单；"
-            , "各部门经办人报销前须验明发票真伪；"
-            , "建立健全会议费、培训费、差旅费、劳务费、咨询费、三公经费等相关管理制度，加强费用管理；"
-            , "财务部应按照相关制度严格审核报销、付款单据；"
-            , "适时开展专项检查，发现问题严肃追责。"
+        measures: this.getMeasures(["现金的交付均需办理正规手续；"
+            , "定期或不定期开展现金监督盘点；"
+            , "对关键岗位的财务人员实行换岗、轮岗制度；"
+            , "严格执行现金开支规定。"
         ], expand),
         responsibility: '财务部'
     }];
@@ -1690,7 +1675,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_cash_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1712,7 +1697,7 @@ class TableComs {
                 span: '基于个人或小团体利益，在亲属或者特定关系人所在银行开立账户并存款；'
             }
             , {
-                star: 3,
+                star: 2,
                 span: '擅自出借银行账户；'
             }, {
                 star: 3,
@@ -1739,7 +1724,7 @@ class TableComs {
                 span: '基于个人或小团体利益，在亲属或者特定关系人所在银行开立账户并存款；'
             }
             , {
-                star: 3,
+                star: 2,
                 span: '擅自出借银行账户；'
             }, {
                 star: 3,
@@ -1766,7 +1751,7 @@ class TableComs {
                 span: '基于个人或小团体利益，在亲属或者特定关系人所在银行开立账户并存款；'
             }
             , {
-                star: 3,
+                star: 2,
                 span: '擅自出借银行账户；'
             }, {
                 star: 3,
@@ -1786,7 +1771,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_bank_account_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1805,7 +1790,7 @@ class TableComs {
             }
         ], 3, expand),
         measures: this.getMeasures(["建立健全公司票据管理制度，严格执行票据使用规定，各部门明确专人负责票据申领，票据使用应做好记录；"
-            , "严格执行票据销毁有关规定，票据销毁必须交回财务部，统一销毁，各部门不得自行销毁，票据销毁应有2人以上同时在场，并做好记录。编制银行存款余额调节表；空白支付凭证与预留银行印鉴分人保管；"
+            , "严格执行票据销毁有关规定，票据销毁必须交回财务部，统一销毁，各部门不得自行销毁，票据销毁应有2人以上同时在场，并做好记录。"
         ], expand),
         responsibility: '财务部'
     }, {
@@ -1818,10 +1803,8 @@ class TableComs {
                 span: '擅自销毁票据，隐匿收入，逃避监管。'
             }
         ], 3, expand),
-        measures: this.getMeasures(["银行账户的开立或注销执行严格审批程序，须经公司主要负责人签批，方可办理；"
-            , "定期报告公司存款情况；"
-            , "明确财务相关人员岗位，确保办理货币资金业务的岗位不相容， 账户资金管理员不得编制资金收付会计凭证、不得管理银行账户对账单和编制银行存款余额调节表；空白支付凭证与预留银行印鉴分人保管；"
-            , "对违规违纪问题实行责任追究，加大惩处力度。"
+        measures: this.getMeasures(["建立健全公司票据管理制度，严格执行票据使用规定，各部门明确专人负责票据申领，票据使用应做好记录；"
+            , "严格执行票据销毁有关规定，票据销毁必须交回财务部，统一销毁，各部门不得自行销毁，票据销毁应有2人以上同时在场，并做好记录。"
         ], expand),
         responsibility: '财务部'
     }];
@@ -1831,7 +1814,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_bill_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1911,7 +1894,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_debt_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1923,7 +1906,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: [],
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -1997,7 +1980,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.finance_bex_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2139,7 +2122,7 @@ class TableComs {
             columns: this.get6Scolumns(1, 2),
             data: this.funds_project_collection(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2179,7 +2162,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_collection(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2241,7 +2224,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_any(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2279,7 +2262,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_sun(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2302,9 +2285,7 @@ class TableComs {
 
         measures:
             this.getMeasures([
-                "主责部门编制实施方案需严格对照公司印发的《年度投资总体费用安排及项目计划》进行，",
-                "擅自改变项目内容、提高项目标准、超预算的项目财务部不予费用支出，",
-                "计划资产部不予验收。",
+                "主责部门编制实施方案需严格对照公司印发的《年度投资总体费用安排及项目计划》进行，擅自改变项目内容、提高项目标准、超预算的项目财务部不予费用支出，计划资产部不予验收。",
             ], expand)
         ,
         responsibility: '计划资产部'
@@ -2315,7 +2296,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_do(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2409,11 +2390,11 @@ class TableComs {
                     span: '不履行规定的质量检查检测程序'
                 }
                 , {
-                    star: 3,
+                    star: 2,
                     span: '未制定严格的材料出入库管理制度，或执行不到位；'
                 }
                 , {
-                    star: 3,
+                    star: 2,
                     span: '对检查检测发现的质量问题不及时处理或处理意见明显不合理。'
                 }
             ], 3, expand),
@@ -2517,7 +2498,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_quality_control(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2578,7 +2559,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_progress_control(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2673,7 +2654,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_progress_control(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2770,7 +2751,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_safety_control(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2869,7 +2850,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_business_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2940,7 +2921,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_water_dispatch_management(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -2977,7 +2958,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_water_monitoring(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3026,7 +3007,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_maintenance(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3079,7 +3060,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_safety_production_monitor(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3146,7 +3127,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.safety_accident_investigation(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3425,7 +3406,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.tendering_and_bidding(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3461,7 +3442,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.project_setting(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3520,7 +3501,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.contract_formation(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3605,7 +3586,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.contract_fulfilment(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3644,7 +3625,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.asset_allocation(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3765,7 +3746,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.asset_use1(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -3841,7 +3822,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.assets_disposal1(expan),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -4015,7 +3996,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.complaint_reporting_handling(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }
@@ -4124,7 +4105,7 @@ class TableComs {
             columns: this.comIssue_columns,
             data: this.internal_audit_monitoring(expand),
             bordered: true,
-            pagination: { pageSize: 6 },
+            pagination: false,
             style: { padding: '0 10px' },
             scroll: { y: 210 }
         }

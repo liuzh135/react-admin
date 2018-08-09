@@ -89,7 +89,8 @@ class HeaderCustom extends Component {
             <Header style={{ background: '#069FBF', padding: 0, height: 65 }} className="custom-theme">
                 <div className="ui-flex justify-between between"
                      style={{height: '100%'}}>
-                    <img src={imgs} style={{marginLeft:'30px'}} alt=""/>
+                    {/*<img src={imgs} style={{marginLeft:'30px'}} alt=""/>*/}
+                    <h3 style={{marginLeft:'30px',color:'#fff'}}>南水北调东线总公司廉政风险防控信息管理系统</h3>
 
                     <Menu
                         mode="horizontal"
