@@ -56,7 +56,7 @@ class PageIndex extends Component {
                             {this.props.children}
 
                         </Content>
-                        <Footer style={{ textAlign: 'center',color:'#eee', background: 'transparent' }}>
+                        <Footer style={{ textAlign: 'center',color:'#6a8aee', background: 'transparent' }}>
                             V1.0.0 ©2017 Created by wyzk
                         </Footer>
                     </div>

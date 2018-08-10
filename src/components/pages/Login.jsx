@@ -79,7 +79,7 @@ class Login extends React.Component {
                     <div className="login">
                         <div className="login-form">
                             <div className="login-logo">
-                                <span>廉政风险管理系统</span>
+                                <span style={{fontWeight:"bold"}}>廉政风险管理系统</span>
                             </div>
                             {errView}
                             <Form onSubmit={this.handleSubmit} style={{ maxWidth: '400px' }}>
@@ -115,23 +115,9 @@ class Login extends React.Component {
                             </Form>
                         </div>
                     </div>
-                    <Footer style={{ height: 80, textAlign: 'center', color: '#fff', background: "transparent" }}>
+                    <Footer style={{ height: 80, textAlign: 'center', color: '#6a8aee', background: "transparent" }}>
                         V1.0.0 ©2017 Created by wyzk
                     </Footer>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-
-
                 </div>
 
             </Layout>
