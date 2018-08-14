@@ -21,6 +21,8 @@ import {fetchData, receiveData} from '@/action';
 
 import ExtBaseicTable from '../tables/ExtBaseicTable';
 import {ExtBaseicTableList} from "./ExtBaseicTableList";
+import HumpgDialog from "./HumpgDialog";
+import MoreDetDialog from "./MoreDetDialog";
 
 const Option = Select.Option;
 const Step = Steps.Step;
@@ -66,6 +68,23 @@ class Reception extends React.Component {
     componentWillReceiveProps(nextProps) {
 
     }
+    funBack1 = () => {
+        this.showMoreModal();
+    };
+    funBack2 = () => {
+        this.showUpdateModal();
+    };
+
+    showUpdateModal = () => {
+        this.setState({
+            visibleUpdate: !this.state.visibleUpdate,
+        });
+    };
+    showMoreModal = () => {
+        this.setState({
+            visibleMore: !this.state.visibleMore,
+        });
+    };
 
     handleChange = (v) => {
 
@@ -160,12 +179,22 @@ class Reception extends React.Component {
                         </div>
                         <div className="" style={{ width: "70%",  float: "left" }}>
                             <Card bordered={false} noHovering={true} style={{ height: '100%' }}>
-                                <ExtBaseicTableList/>
+                                <ExtBaseicTableList
+                                    func1={this.funBack1}
+                                    func2={this.funBack2}/>
                             </Card>
                         </div>
                     </Col>
 
                 </Row>
+                <HumpgDialog
+                    title="人工评估"
+                    submitText="提交"
+                    visible={this.state.visibleUpdate}/>
+
+                <MoreDetDialog
+                    title="详情"
+                    visible={this.state.visibleMore}/>
                 {
                     Bacecomstyle
                 }
